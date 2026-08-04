@@ -80,3 +80,14 @@ was later than DueDate.
 
 -------------------------------------------------------------------
 -------------------------------------------------------------------
+
+/*
+Data limitation:
+
+All analysed territories returned an average shipping time of 7 days.
+Further shipping-time segmentation was not added because the dataset
+does not contain meaningful variation in this measure.
+
+This likely reflects the standardised structure of the fictional
+AdventureWorks sample data rather than real-world operational behaviour.
+*/
