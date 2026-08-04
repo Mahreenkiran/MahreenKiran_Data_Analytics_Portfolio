@@ -1,16 +1,9 @@
-<img src="assets/profile3.jpeg"
-     alt="Mahreen Kiran"
-     width="160"
-     align="left">
 
 <div align="center">
-<img src="assets/name.svg"
-     alt="Mahreen Kiran"
-     width="700"><br>
 
-<strong><big>Business Data Analyst and BI Analyst</big></strong><br><br>
-
-<strong>Turning business data into clear insights, practical dashboards and evidence-based decisions</strong><br><br>
+<h1>Dr Mahreen Kiran</h1>
+<h3>Business Data Analyst and BI Analyst</h3>
+<p><strong>Turning business data into clear insights, practical dashboards and evidence-based decisions</strong></p>
 
 [![SQL](https://img.shields.io/badge/SQL-Advanced-16858A?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)](#technical-toolkit)
 [![Power BI](https://img.shields.io/badge/Power%20BI-Advanced-16343B?style=for-the-badge&logo=powerbi&logoColor=white)](#technical-toolkit)
@@ -19,6 +12,8 @@
 [![KPI Reporting](https://img.shields.io/badge/KPI-Reporting-16343B?style=for-the-badge)](#portfolio-projects)
 [![Data Visualisation](https://img.shields.io/badge/Data-Visualisation-16858A?style=for-the-badge)](#portfolio-projects)
 [![No Sponsorship Required](https://img.shields.io/badge/UK-No%20Sponsorship%20Required-F0B64D?style=for-the-badge)](#contact)
+
+</div>
 
 ---
 
