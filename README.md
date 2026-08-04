@@ -179,3 +179,9 @@ MahreenKiran_Data_Analytics_Portfolio/
 │
 ├── CRM_Sales_Pipeline_Analysis/
 └── Operational_Public_Data_Analysis/
+
+## Specialist Healthcare Portfolio
+
+I also maintain a separate healthcare-focused portfolio covering healthcare data science, machine learning, clinical prediction and research analytics.
+
+[View my Healthcare Data Science Portfolio](https://github.com/Mahreenkiran/MahreenKiran_Portfolio)
