@@ -392,6 +392,46 @@ The identical seven-day result across all territories may also reflect how the f
 
 ---
 
+## 16. Annual Sales Performance Strengthened in 2024
+
+### Finding
+
+Among the complete calendar years available, revenue increased from **31,604,921.95 in 2023** to **43,671,889.50 in 2024**, representing growth of approximately **38.18%**.
+
+Order volume increased from **3,830 orders in 2023** to **14,244 orders in 2024**, while units sold increased from **66,441** to **131,936**.
+
+Average order value decreased from **8,251.94** to **3,065.98**.
+
+### Business meaning
+
+The 2024 growth was driven primarily by a much larger number of orders and units sold rather than larger individual orders.
+
+This suggests that the business expanded through higher transaction volume, possibly through increased consumer activity or a change in customer and territory mix.
+
+### Limitation
+
+The 2022 and 2025 results represent partial years. The dataset begins on 30 May 2022 and ends on 29 June 2025, so those years should not be compared directly with complete calendar years.
+
+## 17. The Top 10 Customers Did Not Create Excessive Account Concentration
+
+### Finding
+
+The top 10 customers generated combined revenue of **7,922,046.38**, representing **7.21%** of total company revenue.
+
+### Business meaning
+
+Revenue is concentrated within the broader high-value customer segment, but it is not dependent on only a very small number of individual accounts.
+
+This reduces the immediate risk associated with losing one or two top customers, although the wider group of 244 high-value customers remains commercially important.
+
+### Evidence
+
+| Measure | Result |
+|---|---:|
+| Top 10 customer revenue | 7,922,046.38 |
+| Total company revenue | 109,846,381.40 |
+| Top 10 revenue contribution | 7.21% |
+
 ## Overall Business Conclusion
 
 AdventureWorks generated strong revenue, but that revenue was highly concentrated in:
