@@ -43,7 +43,7 @@
 
 <div align="justify">
  
- # MahreenKiran Data Analytics Portfolio
+ # Data Analytics Portfolio
 
 Business data analytics portfolio featuring SQL, Power BI, Excel, KPI reporting, customer analysis, sales performance and operational insights.
 
