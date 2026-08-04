@@ -1,4 +1,52 @@
-# MahreenKiran Data Analytics Portfolio
+<img src="assets/profile3.jpeg"
+     alt="Dr Mahreen Kiran"
+     width="160"
+     align="left">
+
+<div align="center">
+<img src="assets/name.svg"
+     alt="Dr Mahreen Kiran"
+     width="700"><br>
+<strong><big>Healthcare Data Scientist and Analyst</big></strong><br><br>
+<strong>Turning complex health data into clear, reproducible and clinically meaningful evidence</strong><br><br>
+
+[![Python](https://img.shields.io/badge/Python-Advanced-0B6B6B?style=for-the-badge&logo=python&logoColor=white)](#technical-toolkit) 
+[![SQL](https://img.shields.io/badge/SQL-Advanced-16858A?style=for-the-badge)](#technical-toolkit) 
+[![Healthcare Analytics](https://img.shields.io/badge/Healthcare-Analytics-16858A?style=for-the-badge)](#selected-project-case-studies) 
+[![HPowerBI](https://img.shields.io/badge/PowerBI-16343B?style=for-the-badge)](#selected-project-case-studies) 
+[![Explainable AI](https://img.shields.io/badge/Explainable-AI-16858A?style=for-the-badge)](#selected-project-case-studies) 
+[![No Sponsorship Required](https://img.shields.io/badge/UK-No%20Sponsorship%20Required-F0B64D?style=for-the-badge)](#contact)
+
+---
+
+<p align="right">
+  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+     <a href="https://mahreenkiran.github.io/MahreenKiran_Portfolio/">
+    <strong>🌐 View Interactive Portfolio</strong>
+  </a>
+  &nbsp;&nbsp;&nbsp;
+
+  <a href="https://scholar.google.com/citations?user=dJA-TzEAAAAJ&hl=en" target="_blank">
+    <u><strong>🎓 Google Scholar</strong></u>
+  </a>
+  &nbsp;&nbsp;&nbsp;
+
+  <a href="https://linkedin.com/in/mahreen-kiran">
+    <strong>💼 LinkedIn</strong>
+  </a>
+  &nbsp;&nbsp;&nbsp;
+
+  <a href="mailto:mehreen.kiran89@gmail.com">
+    <strong>✉️ Email</strong>
+  </a>
+</p>
+</div>
+
+---
+
+<div align="justify">
+ 
+ # MahreenKiran Data Analytics Portfolio
 
 Business data analytics portfolio featuring SQL, Power BI, Excel, KPI reporting, customer analysis, sales performance and operational insights.
 
