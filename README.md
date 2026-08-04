@@ -60,7 +60,7 @@ The analysis includes:
 
 [View the AdventureWorks project](./AdventureWorks_Sales_Analysis/)
 
-Note: This project was created for portfolio and learning purposes. It should not be interpreted as analysis completed for a real employer.
+**Note:** This project was created for portfolio and learning purposes. It should not be interpreted as analysis completed for a real employer.
 
 ### 2. CRM Sales Pipeline Analysis
 
