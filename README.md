@@ -1,40 +1,42 @@
 <img src="assets/profile3.jpeg"
-     alt="Dr Mahreen Kiran"
+     alt="Mahreen Kiran"
      width="160"
      align="left">
 
 <div align="center">
 <img src="assets/name.svg"
-     alt="Dr Mahreen Kiran"
+     alt="Mahreen Kiran"
      width="700"><br>
-<strong><big>Healthcare Data Scientist and Analyst</big></strong><br><br>
-<strong>Turning complex health data into clear, reproducible and clinically meaningful evidence</strong><br><br>
 
-[![Python](https://img.shields.io/badge/Python-Advanced-0B6B6B?style=for-the-badge&logo=python&logoColor=white)](#technical-toolkit) 
-[![SQL](https://img.shields.io/badge/SQL-Advanced-16858A?style=for-the-badge)](#technical-toolkit) 
-[![Healthcare Analytics](https://img.shields.io/badge/Healthcare-Analytics-16858A?style=for-the-badge)](#selected-project-case-studies) 
-[![HPowerBI](https://img.shields.io/badge/PowerBI-16343B?style=for-the-badge)](#selected-project-case-studies) 
-[![Explainable AI](https://img.shields.io/badge/Explainable-AI-16858A?style=for-the-badge)](#selected-project-case-studies) 
+<strong><big>Business Data Analyst and BI Analyst</big></strong><br><br>
+
+<strong>Turning business data into clear insights, practical dashboards and evidence-based decisions</strong><br><br>
+
+[![SQL](https://img.shields.io/badge/SQL-Advanced-16858A?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)](#technical-toolkit)
+[![Power BI](https://img.shields.io/badge/Power%20BI-Advanced-16343B?style=for-the-badge&logo=powerbi&logoColor=white)](#technical-toolkit)
+[![Excel](https://img.shields.io/badge/Excel-Data%20Analysis-0B6B6B?style=for-the-badge&logo=microsoftexcel&logoColor=white)](#technical-toolkit)
+[![Business Analytics](https://img.shields.io/badge/Business-Analytics-16858A?style=for-the-badge)](#portfolio-projects)
+[![KPI Reporting](https://img.shields.io/badge/KPI-Reporting-16343B?style=for-the-badge)](#portfolio-projects)
+[![Data Visualisation](https://img.shields.io/badge/Data-Visualisation-16858A?style=for-the-badge)](#portfolio-projects)
 [![No Sponsorship Required](https://img.shields.io/badge/UK-No%20Sponsorship%20Required-F0B64D?style=for-the-badge)](#contact)
 
 ---
 
 <p align="right">
-  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-     <a href="https://mahreenkiran.github.io/MahreenKiran_Portfolio/">
-    <strong>🌐 View Interactive Portfolio</strong>
+  <a href="https://github.com/Mahreenkiran/MahreenKiran_Data_Analytics_Portfolio">
+    <strong>📊 Data Analytics Portfolio</strong>
   </a>
-  &nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;
 
-  <a href="https://scholar.google.com/citations?user=dJA-TzEAAAAJ&hl=en" target="_blank">
-    <u><strong>🎓 Google Scholar</strong></u>
+  <a href="https://github.com/Mahreenkiran/MahreenKiran_Portfolio">
+    <strong>🏥 Healthcare Portfolio</strong>
   </a>
-  &nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;
 
   <a href="https://linkedin.com/in/mahreen-kiran">
     <strong>💼 LinkedIn</strong>
   </a>
-  &nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;
 
   <a href="mailto:mehreen.kiran89@gmail.com">
     <strong>✉️ Email</strong>
