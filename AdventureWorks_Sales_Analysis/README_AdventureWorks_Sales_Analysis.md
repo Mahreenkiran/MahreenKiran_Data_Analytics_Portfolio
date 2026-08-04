@@ -328,6 +328,7 @@ AdventureWorks_Sales_Analysis/
 ├── PowerBI/
 └── Images/
 
+```
 ## Conclusion
 
 AdventureWorks generated approximately **109.85 million** in revenue from **31,465 orders** during the available reporting period.
