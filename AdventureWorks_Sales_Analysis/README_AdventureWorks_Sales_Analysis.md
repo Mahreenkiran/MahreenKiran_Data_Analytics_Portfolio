@@ -243,6 +243,28 @@ Detailed recommendations are available in:
 
 ---
 
+## SQL Skills Demonstrated
+
+- Aggregate functions
+- Window functions
+- `INNER JOIN` `LEFT JOIN` `RIGHT JOIN` `CROSS JOIN` 
+- Multiple-table joins
+- Common table expressions
+- Subqueries
+- `CASE` statements
+- `LEAD`, `LAG`, `ANY`, `ALL`
+- `ROW_NUMBER` `RANK` `DENSE RANK`
+- `NTILE`
+- Percentage calculations
+- Customer segmentation
+- Order-value segmentation
+- Date functions
+- `NULL` handling
+- `DUPLICATE` handling
+- Data-quality validation
+
+---
+
 ## Power BI Dashboard
 
 **Status:** In development
@@ -305,3 +327,24 @@ AdventureWorks_Sales_Analysis/
 │
 ├── PowerBI/
 └── Images/
+
+## Conclusion
+
+AdventureWorks generated approximately **109.85 million** in revenue from **31,465 orders** during the available reporting period.
+
+The analysis found that revenue was strongly concentrated in the **Bikes category** and the wider **high-value customer segment**. However, the top 10 customers contributed only **7.21%** of total revenue, suggesting that the company was not excessively dependent on a small number of individual accounts.
+
+The strongest complete-year growth occurred between **2023 and 2024**. This growth was driven more by increased order volume than by larger individual orders.
+
+The recommended priorities are to protect high-value customer relationships, monitor medium and high-value orders, maintain availability of leading bike products and develop selected low-value customers with growth potential.
+
+---
+
+## Author
+
+**Dr Mahreen Kiran**
+
+Business Data Analyst and BI Analyst
+
+[View main portfolio](../README.md)  
+[LinkedIn](https://linkedin.com/in/mahreen-kiran)
