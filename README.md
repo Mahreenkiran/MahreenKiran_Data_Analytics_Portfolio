@@ -18,7 +18,7 @@ The projects focus on practical business questions rather than isolated technica
 
 ## Core Skills
 
-- SQL Server and T-SQL
+- SQL Server and PostgreSQL
 - Power BI
 - Excel
 - Data cleaning and validation
@@ -36,7 +36,7 @@ The projects focus on practical business questions rather than isolated technica
 
 ### 1. AdventureWorks Sales and Customer Performance Analysis
 
-**Tools:** SQL Server, T-SQL, Power BI, Excel, GitHub
+**Tools:** SQL Server, Power BI, Excel, GitHub
 
 This end-to-end business data analysis project uses the [Microsoft AdventureWorks2025 sample database](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) to evaluate company sales, customer behaviour, product demand, regional performance and operational efficiency.
 
