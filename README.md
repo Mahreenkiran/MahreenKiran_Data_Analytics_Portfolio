@@ -38,7 +38,7 @@ The projects focus on practical business questions rather than isolated technica
 
 **Tools:** SQL Server, T-SQL, Power BI, Excel, GitHub
 
-This end-to-end business data analysis project uses the [Microsoft AdventureWorks2025 sample database] (https://github.com/microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) to evaluate company sales, customer behaviour, product demand, regional performance and operational efficiency.
+This end-to-end business data analysis project uses the [Microsoft AdventureWorks2025 sample database](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) to evaluate company sales, customer behaviour, product demand, regional performance and operational efficiency.
 
 The analysis includes:
 
