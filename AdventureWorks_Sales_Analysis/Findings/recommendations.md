@@ -2,9 +2,9 @@
 
 ## Overview
 
-The following recommendations are based on the SQL analysis of AdventureWorks sales, customer, product, territory and operational performance.
+The following recommendations are based on the SQL and Power BI analysis of AdventureWorks sales, customer, product, territory and operational performance between **30 May 2022 and 29 June 2025**.
 
-AdventureWorks is a fictional Microsoft sample business. These recommendations are provided for analytical and portfolio purposes and should not be interpreted as advice given to a real employer.
+AdventureWorks is a fictional Microsoft sample business. The recommendations are provided for analytical and portfolio purposes and demonstrate how the findings could be translated into business actions.
 
 ---
 
@@ -14,26 +14,24 @@ AdventureWorks is a fictional Microsoft sample business. These recommendations a
 
 Only **244 high-value customers** generated **65.09% of total company revenue**.
 
-However, the top 10 customers generated only **7.21% of total revenue**. This means revenue is concentrated across the wider high-value segment rather than being excessively dependent on only ten accounts.
+However, the top 10 customers generated only **7.21% of total revenue**, indicating that revenue concentration is distributed across the wider high-value customer segment rather than being dominated by only a few individual accounts.
 
 ### Recommendation
 
-Create a retention and monitoring programme for the full high-value customer segment, rather than focusing only on the ten largest customers.
+Customer retention activity should focus on the wider high-value customer portfolio rather than only the ten largest accounts.
 
-The programme could include:
+High-value customer monitoring could include:
 
-- named account ownership
-- scheduled customer reviews
-- monitoring for falling order frequency
-- monitoring for declining average order value
-- tailored commercial offers
-- early access to new products
-- prioritised service and support
-- alerts for prolonged customer inactivity
+- changes in order frequency
+- changes in average order value
+- prolonged periods of inactivity
+- reductions in total customer revenue
+- changes in product purchasing patterns
+- large business-account activity
 
 ### Expected business benefit
 
-This would help protect the customer group responsible for most company revenue while reducing the risk of overlooking valuable accounts outside the top 10.
+Monitoring the wider high-value segment would help protect the customer group responsible for the majority of company revenue while reducing the risk of overlooking commercially important accounts outside the top 10.
 
 ---
 
@@ -41,25 +39,27 @@ This would help protect the customer group responsible for most company revenue 
 
 ### Evidence
 
-There were **18,642 low-value customers**, generating **27.05% of total revenue**.
+There were **18,642 low-value customers**, generating **27.05% of total company revenue**.
 
-Only **233 customers** were classified as medium value, and this group generated **7.84% of revenue**.
+Only **233 customers** were classified as medium value, contributing **7.84% of revenue**.
 
 ### Recommendation
 
-Identify low-value customers showing signs of growth potential, such as:
+Selected low-value customers showing signs of increasing engagement could be considered for targeted development.
+
+Potential indicators include:
 
 - increasing order frequency
 - rising average order value
-- repeated purchases across several categories
-- recent purchases from commercially important product groups
-- movement from occasional to regular purchasing
+- repeated purchasing
+- purchases across multiple product categories
+- recent growth in total customer revenue
 
-Target selected customers with relevant cross-selling, upselling and repeat-purchase campaigns.
+Relevant cross-selling, upselling and repeat-purchase activity could then be focused on customers showing the strongest development potential.
 
 ### Expected business benefit
 
-Moving even a small proportion of low-value customers into the medium-value segment could broaden the revenue base and reduce reliance on the high-value segment.
+Moving even a small proportion of suitable low-value customers into the medium-value segment could broaden the revenue base and reduce reliance on the high-value customer group.
 
 ---
 
@@ -67,34 +67,34 @@ Moving even a small proportion of low-value customers into the medium-value segm
 
 ### Evidence
 
-The highest-revenue customers were mainly business or store accounts placing relatively few, high-value orders.
+The highest-revenue customers were predominantly **business or store accounts**, generally placing relatively few but high-value orders.
 
-In contrast, the most frequent individual customers placed many orders but generated low total revenue and low average order values.
+In contrast, some of the most frequent individual customers placed considerably more orders but generated much lower total revenue and average order values.
 
 ### Recommendation
 
-Use separate customer strategies.
+Business and individual customers should be analysed and managed as distinct customer groups.
 
-**Business customers**
+**Business customers** may be better suited to:
 
-- dedicated account management
-- volume-based pricing
+- account-based relationship management
+- large-order monitoring
+- volume-based commercial offers
 - contract and renewal monitoring
-- large-order forecasting
-- tailored product bundles
-- retention reviews
+- product bundles
+- customer retention reviews
 
-**Individual customers**
+**Individual customers** may be better suited to:
 
-- loyalty programmes
-- automated product recommendations
+- loyalty activity
 - repeat-purchase incentives
+- personalised product recommendations
 - accessory and clothing cross-selling
-- personalised promotions
+- targeted promotions
 
 ### Expected business benefit
 
-Separating business and individual customer strategies would make marketing and account-management activity more relevant and cost-effective.
+Separating business and individual customer strategies would allow commercial activity to reflect the different purchasing behaviour and value patterns of each customer group.
 
 ---
 
@@ -104,27 +104,27 @@ Separating business and individual customer strategies would make marketing and 
 
 Medium-value orders represented approximately **11.4% of all orders** but generated **48.04% of total revenue**.
 
-High-value orders represented approximately **1.3% of orders** but generated **28.88% of total revenue**.
+High-value orders represented only approximately **1.3% of all orders** but generated **28.88% of total revenue**.
 
 Together, medium and high-value orders generated more than three-quarters of company revenue.
 
 ### Recommendation
 
-Monitor medium and high-value orders separately from ordinary consumer transactions.
+Medium and high-value orders should be monitored separately from lower-value transactions.
 
-Management reporting should include:
+Relevant monitoring could include:
 
 - number of medium and high-value orders
 - revenue generated by each order segment
-- customers responsible for large orders
-- territory and salesperson ownership
-- cancellation or fulfilment risk
-- expected large-order pipeline
+- customers responsible for large transactions
+- territory contribution
+- salesperson ownership
 - changes in average order value
+- cancellation or fulfilment risk where available
 
 ### Expected business benefit
 
-This would improve visibility over the relatively small number of transactions that generate most company revenue.
+Greater visibility over these relatively small but financially important order groups would help protect transactions responsible for the majority of company revenue.
 
 ---
 
@@ -132,26 +132,26 @@ This would improve visibility over the relatively small number of transactions t
 
 ### Evidence
 
-The Bikes category generated **86.17% of total company revenue**.
+The **Bikes** category generated **86.17% of total company revenue**.
 
-Components contributed **10.74%**, while Clothing and Accessories together contributed only a small share.
+Components generated **10.74%**, while Clothing and Accessories together contributed only a small proportion of total revenue.
 
 ### Recommendation
 
-Continue protecting the Bikes category while developing controlled growth in Components, Clothing and Accessories.
+The Bikes category should remain the primary commercial focus while opportunities to develop complementary categories are explored.
 
-Potential actions include:
+Potential diversification opportunities include:
 
-- bike and accessory bundles
-- clothing recommendations at checkout
-- post-purchase accessory campaigns
-- component recommendations by bike model
-- measuring product attachment rates
-- reviewing category-level margins and demand
+- bike and accessory combinations
+- clothing recommendations alongside bike purchases
+- post-purchase accessory activity
+- component recommendations by bike type
+- analysis of product attachment rates
+- monitoring demand across complementary categories
 
 ### Expected business benefit
 
-This approach would support revenue diversification without weakening the company’s strongest category.
+Maintaining the strength of the core bike business while developing related categories could gradually broaden the revenue base without weakening the company's strongest source of sales.
 
 ---
 
@@ -159,24 +159,29 @@ This approach would support revenue diversification without weakening the compan
 
 ### Evidence
 
-Mountain-200 variants dominated the highest product revenue positions.
+Mountain-200 variants dominated the highest individual product revenue positions.
 
-Road Bikes and Mountain Bikes were the strongest product subcategories.
+Road Bikes and Mountain Bikes were also the strongest product subcategories by revenue.
+
+The leading individual product, **Mountain-200 Black, 38**, generated approximately **4.40 million** in revenue from **2,977 units sold**.
 
 ### Recommendation
 
-Maintain strong availability for leading bike families and investigate:
+Strong availability should be maintained for proven high-revenue product families.
 
-- demand by product size and colour
-- stock availability by territory
-- substitution patterns when preferred variants are unavailable
-- pricing differences between variants
+Product-level monitoring could consider:
+
+- demand by size
+- demand by colour
+- sales by territory
+- changes in unit volume
+- product substitutions
 - promotional performance
-- product return or cancellation patterns, where available
+- availability of leading variants
 
 ### Expected business benefit
 
-Protecting availability for proven high-revenue products could reduce lost sales and support customer satisfaction.
+Maintaining availability of consistently strong product families could reduce lost sales opportunities and support continued performance in the company's most important product category.
 
 ---
 
@@ -184,26 +189,30 @@ Protecting availability for proven high-revenue products could reduce lost sales
 
 ### Evidence
 
-Several products generated zero revenue and sold zero units during the analysis period.
+Several products recorded:
+
+- zero units sold
+- zero revenue
+- no sales activity during the analysis period
+
+Visible examples included products such as External Lock Washer variants, Adjustable Race and BB Ball Bearing.
 
 ### Recommendation
 
-Classify zero-sales products before taking commercial action.
+Products with no recorded sales should be classified according to their intended business purpose before being considered underperforming.
 
 Possible classifications include:
 
 - internal component
 - discontinued product
-- newly introduced product
-- product not intended for direct sale
+- product not intended for direct customer sale
 - obsolete product
-- genuinely underperforming product
-
-Only products intended for customer sale should be considered for removal, promotion, repricing or catalogue review.
+- newly introduced product
+- genuinely underperforming commercial product
 
 ### Expected business benefit
 
-This would prevent internal or non-commercial products from being incorrectly labelled as failures while identifying genuine catalogue inefficiencies.
+Separating non-commercial or internal products from genuine customer-facing products would prevent misleading performance conclusions and help identify legitimate catalogue inefficiencies.
 
 ---
 
@@ -211,64 +220,68 @@ This would prevent internal or non-commercial products from being incorrectly la
 
 ### Evidence
 
-Territories showed very different combinations of order volume and average order value.
+Territories showed substantially different combinations of order volume, revenue and average order value.
 
 For example:
 
-- Australia had high order volume but a relatively low average order value.
-- Central and Southeast had much lower order volumes but very high average order values.
-- Southwest generated the highest total territory revenue.
+- **Southwest** generated the highest territory revenue at approximately **24.18 million**
+- **Australia** recorded **6,843 orders** but had a relatively low average order value of approximately **1,557**
+- **Central** recorded only **385 orders** but had an average order value of approximately **20,543**
+- **Southeast** also showed relatively low order volume combined with a high average order value
 
 ### Recommendation
 
-Use different strategies by territory.
+Territories should not be managed using a single commercial strategy.
 
-**High-volume, lower-value territories**
+**High-volume, lower-value territories** may benefit from:
 
-- increase cross-selling
-- raise average basket value
-- improve repeat-purchase rates
-- promote product bundles
-- analyse lower-value order patterns
+- increasing average order value
+- cross-selling
+- product bundling
+- repeat-purchase analysis
+- analysis of lower-value order patterns
 
-**Low-volume, high-value territories**
+**Lower-volume, higher-value territories** may benefit from:
 
-- focus on key accounts
-- protect large commercial orders
-- improve opportunity forecasting
-- identify similar high-potential customers
-- monitor concentration risk
+- key-account monitoring
+- protection of large commercial orders
+- identification of similar high-value customers
+- improved large-order forecasting
+- monitoring customer concentration
 
 ### Expected business benefit
 
-Territory-specific strategies are more likely to improve performance than applying one approach across all markets.
+Territory-specific strategies would better reflect the different purchasing patterns and commercial structures observed across markets.
 
 ---
 
-## 9. Assess Salespeople Using a Balanced Scorecard
+## 9. Assess Salespeople Using Multiple Performance Measures
 
 ### Evidence
 
-Linda Mitchell generated the highest salesperson revenue, while Jillian Carson processed more orders.
+**Linda Mitchell** generated the highest salesperson revenue at approximately **10.37 million** from **418 orders**.
 
-Some salespeople achieved high average order values from fewer transactions.
+**Jillian Carson** generated approximately **10.07 million** while processing **473 orders**.
+
+The results demonstrate that high revenue does not necessarily require the highest number of orders.
 
 ### Recommendation
 
-Evaluate salesperson performance using several measures:
+Salesperson performance should be assessed using a balanced combination of measures rather than relying on a single KPI.
+
+Relevant measures include:
 
 - total revenue
 - number of orders
 - average order value
 - revenue growth
-- customer retention
-- territory potential
+- customer activity
 - proportion of high-value orders
-- performance against quota, where appropriate
+- territory performance
 
 ### Expected business benefit
 
-A balanced scorecard would avoid rewarding only order volume or only revenue and would provide a fairer assessment of performance.
+A balanced performance view would provide a more complete assessment of salesperson contribution and reduce the risk of evaluating performance using only revenue or transaction volume.
 
 ---
 
@@ -276,25 +289,34 @@ A balanced scorecard would avoid rewarding only order volume or only revenue and
 
 ### Evidence
 
-The month-over-month analysis showed several large increases and decreases in revenue.
+Month-over-month analysis identified substantial fluctuations in revenue during the available period.
+
+Examples included:
+
+- **286.54% increase** in June 2022
+- **16.63% decrease** in July 2022
+- **20.52% decrease** in August 2022
+- **113.88% increase** in September 2022
+- **36.67% decrease** in November 2022
+- **74.22% increase** in December 2022
 
 ### Recommendation
 
-Investigate whether the changes were driven by:
+The underlying drivers of monthly revenue volatility should be analysed across:
 
-- seasonal demand
+- customer type
 - large business orders
-- changes in territory mix
-- changes in product mix
-- promotional activity
-- customer inactivity or reactivation
-- changes in order value
+- territory mix
+- product mix
+- average order value
+- customer inactivity and reactivation
+- seasonal purchasing patterns
 
-Add a 3-month moving average to the Power BI dashboard to make the underlying trend easier to interpret.
+A moving-average measure could also be incorporated into future reporting where a clearer view of the underlying sales trend is required.
 
 ### Expected business benefit
 
-Understanding the cause of revenue volatility would improve forecasting and reduce overreaction to unusually high or low individual months.
+Understanding whether revenue fluctuations are driven by seasonality, large transactions, changing customer mix or product demand would support more reliable performance interpretation and forecasting.
 
 ---
 
@@ -302,31 +324,36 @@ Understanding the cause of revenue volatility would improve forecasting and redu
 
 ### Evidence
 
-Between the complete calendar years of 2023 and 2024:
+Between the complete calendar years of **2023 and 2024**:
 
-- revenue increased from **31,604,921.95** to **43,671,889.50**
+- revenue increased from **31.60 million** to **43.67 million**
 - orders increased from **3,830** to **14,244**
 - units sold increased from **66,441** to **131,936**
-- average order value decreased from **8,251.94** to **3,065.98**
+- average order value decreased from approximately **8,252** to **3,066**
+
+Revenue therefore increased by approximately **38.18%**, despite a substantial reduction in average order value.
 
 ### Recommendation
 
-Investigate whether this change was caused by:
+The change in sales structure should be analysed to determine whether growth was driven by:
 
-- growth in individual customer orders
-- changes in territory contribution
-- a shift toward lower-priced products
-- increased online sales
-- changes in units per order
+- increased individual customer activity
+- changes in business versus consumer sales
+- territory mix
+- product mix
+- lower-priced products
+- increased units per order
 - reduced dependence on large commercial transactions
 
 ### Expected business benefit
 
-Understanding the source of the growth would help management assess whether the higher order volume is sustainable and commercially profitable.
+Understanding the source of this volume-led growth would help determine whether the change represents a sustainable shift in customer behaviour and sales activity.
 
 ### Limitation
 
-The 2022 and 2025 results are partial years and should not be compared directly with complete calendar years.
+The **2022 and 2025 results represent partial years**.
+
+The dataset begins on **30 May 2022** and ends on **29 June 2025**, so these years should not be compared directly with complete calendar years.
 
 ---
 
@@ -334,34 +361,24 @@ The 2022 and 2025 results are partial years and should not be compared directly 
 
 ### Evidence
 
-Several customer records had a `NULL` last order date, meaning no linked sales order was found.
+AdventureWorks contained **19,820 customer records**, of which **19,119 had placed at least one order**.
+
+The remaining **701 customer records had no linked purchase history**.
+
+These customers represent a different group from previously active customers who have subsequently stopped purchasing.
 
 ### Recommendation
 
-Create two separate customer groups:
+Customer reporting and segmentation should distinguish between:
 
-1. Customers who have never purchased
-2. Customers who purchased previously but have not ordered recently
+1. **Never-purchased customers**
+2. **Previously active but currently inactive customers**
 
-Use different actions for each group.
-
-**Never purchased**
-
-- onboarding campaigns
-- first-purchase incentives
-- lead qualification
-- account-data review
-
-**Previously active but now inactive**
-
-- reactivation campaigns
-- account-manager outreach
-- review of previous products purchased
-- personalised retention offers
+Never-purchased customers are primarily relevant to acquisition and onboarding analysis, while previously active customers are more relevant to customer retention and reactivation analysis.
 
 ### Expected business benefit
 
-This would create more relevant acquisition and retention activity.
+Separating these groups would improve the accuracy of customer segmentation and provide a clearer distinction between acquisition opportunities and customer-retention risks.
 
 ---
 
@@ -369,76 +386,51 @@ This would create more relevant acquisition and retention activity.
 
 ### Evidence
 
-All analysed territories had an average shipping time of **7 days**.
+All analysed territories recorded an average shipping time of approximately **7 days**.
 
-No completed orders were found where shipment occurred after the due date.
+No completed orders were identified where the shipment date occurred after the due date.
 
 ### Recommendation
 
-Continue monitoring fulfilment consistency, but add more detailed measures such as:
+Fulfilment consistency should continue to be monitored using measures that provide more detail than the territory-level average.
 
-- minimum and maximum shipping time
+Useful measures could include:
+
+- minimum shipping time
+- maximum shipping time
 - median shipping time
-- percentage shipped within target
-- shipping time by product category
-- shipping time by order-value segment
-- monthly fulfilment trend
+- percentage of orders shipped within target
+- shipping performance by product category
+- shipping performance by order-value segment
+- monthly fulfilment trends
 
 ### Expected business benefit
 
-More detailed measures would identify variation that may be hidden by the current territory-level average.
+More detailed fulfilment measures could identify operational variation that is hidden by the current territory-level average.
 
----
+### Limitation
 
-## Recommended Power BI Focus
+Shipping duration was calculated using whole-number day differences.
 
-The Power BI dashboard should highlight the most decision-relevant results.
-
-### Executive Overview
-
-- Total revenue
-- Total orders
-- Total units sold
-- Average order value
-- Monthly revenue trend
-- Month-over-month change
-- Annual sales performance
-- Revenue by territory
-- Order-value segment contribution
-
-### Product Performance
-
-- Category revenue contribution
-- Top products by revenue
-- Subcategory performance
-- Units sold
-- Products with no sales
-
-### Customer and Sales Performance
-
-- Customer segment contribution
-- Top customers
-- Top 10 customer revenue contribution
-- Customer order frequency
-- Territory performance
-- Salesperson performance
-- Inactive and never-purchased customers
+The identical seven-day average across all territories may partly reflect the design of the fictional AdventureWorks sample database rather than genuine operational variation.
 
 ---
 
 ## Final Recommendation
 
-AdventureWorks should prioritise revenue protection while gradually broadening its customer and product base.
+The analysis indicates that AdventureWorks should focus on protecting its strongest sources of revenue while gradually broadening its customer and product base.
 
-The most important actions are:
+The principal business priorities identified from the analysis are:
 
-1. Protect the wider high-value customer segment.
-2. Monitor medium and high-value orders.
-3. Maintain availability of leading bike products.
-4. Develop selected low-value customers.
-5. Diversify revenue through related product categories.
-6. Use territory-specific commercial strategies.
-7. Assess salespeople using balanced performance measures.
-8. Investigate monthly volatility and the shift toward higher order volume.
-9. Separate never-purchased customers from lapsed customers.
-10. Continue monitoring fulfilment consistency.
+1. Protect the wider high-value customer segment responsible for the majority of customer revenue.
+2. Maintain visibility over medium and high-value orders, which generate a disproportionate share of company revenue.
+3. Maintain availability and performance of the strongest bike categories and product families.
+4. Identify selected low-value customers with potential to develop into higher-value accounts.
+5. Increase revenue diversification through complementary product categories where commercially appropriate.
+6. Apply territory-specific strategies based on differences in order volume and average order value.
+7. Evaluate salesperson performance using a balanced combination of revenue, order volume and average order value.
+8. Investigate the causes of monthly revenue volatility and the shift towards higher transaction volume.
+9. Distinguish never-purchased customers from previously active customers in customer reporting and segmentation.
+10. Continue monitoring fulfilment performance while recognising the limitations of the highly standardised sample data.
+
+Together, these priorities provide a balanced approach to **revenue protection, customer development, product planning, territory management and performance monitoring**.
