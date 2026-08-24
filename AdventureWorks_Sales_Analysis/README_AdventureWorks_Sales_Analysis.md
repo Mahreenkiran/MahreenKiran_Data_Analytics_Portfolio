@@ -169,8 +169,6 @@ The analysis also found that medium and high-value orders generated more than th
 
 ### Techniques Used
 
-### Techniques Used
-
 `Aggregate Functions` `CTEs` `Date Functions` `LAG()` `Month-over-Month Analysis`<br>
 `Annual Comparison` `Conditional Segmentation`  `Percentage Contribution`
 
@@ -199,9 +197,9 @@ The analysis also identified products with no recorded sales, but these were not
 
 ### Techniques Used
 
-### Techniques Used
-
-`Multi-Table Joins` `Aggregation` `Revenue Ranking` `Category Contribution` `Subcategory Analysis` `Zero-Sales Identification` `Percentage Calculations`
+`Multi-Table Joins` `Aggregation` `Revenue Ranking` `Category Contribution`
+<br>
+`Subcategory Analysis` `Zero-Sales Identification` `Percentage Calculations`
 
 [View Product Analysis SQL](./SQL/03_product_analysis.sql)
 
@@ -237,9 +235,9 @@ These no-purchase records were treated separately from previously active custome
 
 ### Techniques Used
 
-### Techniques Used
-
-`Customer-Level Aggregation` `Conditional Customer Naming` `Customer Segmentation` `Frequency Analysis` `Average Order Value` `Revenue Contribution` `Top N Analysis` `Inactivity Analysis` `NULL Handling`
+`Customer-Level Aggregation` `Conditional Customer Naming` `Customer Segmentation` 
+<br> `Frequency Analysis` `Average Order Value` `Revenue Contribution` `Top N Analysis` 
+<br>`Inactivity Analysis` `NULL Handling`
 
 [View Customer Analysis SQL](./SQL/04_customer_analysis.sql)
 
@@ -274,9 +272,9 @@ This demonstrates why territory and salesperson performance should be assessed u
 
 ### Techniques Used
 
-### Techniques Used
-
-`Territory Aggregation` `Salesperson Aggregation` `Ranking` `Average Order Value Analysis` `Territory Joins` `Comparative KPI Analysis`
+`Territory Aggregation` `Salesperson Aggregation` `Ranking` `Average Order Value Analysis`
+<br> 
+`Territory Joins` `Comparative KPI Analysis`
 
 [View Territory and Salesperson SQL](./SQL/05_territory_salesperson_analysis.sql)
 
