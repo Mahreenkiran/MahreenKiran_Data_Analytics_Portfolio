@@ -81,11 +81,11 @@ Most orders were classified as low-value transactions, but they generated a rela
 
 | Order segment | Number of orders | Revenue | Revenue contribution |
 |---|---:|---:|---:|
-| Medium Value Order | 3,600 | 52,777,326.95 | 48.04% |
-| High Value Order | 407 | 31,733,946.80 | 28.88% |
+| Medium Value Order | 3,600 | 52,777,326.95 | 48.05% |
+| High Value Order | 407 | 31,733,946.80 | 28.89% |
 | Low Value Order | 27,458 | 25,335,107.65 | 23.06% |
 
-High-value orders represented only approximately **1.3% of all orders**, but generated **28.88% of total revenue**.
+High-value orders represented only approximately **1.3% of all orders**, but generated **28.89% of total revenue**.
 
 Medium-value orders represented approximately **11.4% of orders** and generated almost half of company revenue.
 
@@ -206,12 +206,12 @@ The business purpose and lifecycle status of these products should therefore be 
 
 ### Finding
 
-Only **244 high-value customers** generated **65.09% of total company revenue**.
+Only **244 high-value customers** generated **65.10% of total company revenue**.
 
 | Customer segment | Number of customers | Segment revenue | Revenue contribution |
 |---|---:|---:|---:|
-| High Value Customer | 244 | 71,509,740.18 | 65.09% |
-| Medium Value Customer | 233 | 8,619,787.69 | 7.84% |
+| High Value Customer | 244 | 71,509,740.18 | 65.10% |
+| Medium Value Customer | 233 | 8,619,787.69 | 7.85% |
 | Low Value Customer | 18,642 | 29,716,853.53 | 27.05% |
 
 High-value customers represented approximately **1.3% of purchasing customers** but generated almost two-thirds of total revenue.
@@ -421,7 +421,7 @@ Although the broader high-value customer segment contributes a large share of co
 
 This indicates that customer revenue concentration is distributed across the wider high-value customer segment rather than being dominated by only a few individual accounts.
 
-The wider group of **244 high-value customers**, which generated **65.09% of total revenue**, therefore represents the more significant concentration of customer value.
+The wider group of **244 high-value customers**, which generated **65.10% of total revenue**, therefore represents the more significant concentration of customer value.
 
 ### Evidence
 
@@ -442,7 +442,7 @@ Business performance was concentrated in several important areas:
 - the **Bikes** category generated **86.17% of total revenue**
 - Road Bikes and Mountain Bikes were the strongest product subcategories
 - Mountain-200 variants dominated the highest-revenue individual products
-- **244 high-value customers generated 65.09% of total revenue**
+- **244 high-value customers generated 65.10% of total revenue**
 - medium and high-value orders generated the majority of company revenue despite representing a relatively small proportion of total orders
 - Southwest generated the highest territory revenue
 - territory performance varied substantially in terms of order volume and average order value
