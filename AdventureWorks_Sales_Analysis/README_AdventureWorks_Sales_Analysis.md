@@ -68,7 +68,7 @@ The project uses the Microsoft **AdventureWorks2025 OLTP sample database**.
 ## Data Coverage
 
 | Metric | Result |
-|---|---:|
+| :--- | :--- |
 | Earliest Order Date | 30 May 2022 |
 | Latest Order Date | 29 June 2025 |
 | Complete Sales Orders | 31,465 |
@@ -125,7 +125,7 @@ This validation provided the foundation for the subsequent sales, customer and p
 # Core Business KPIs
 
 | KPI | Result |
-|---|---:|
+| :--- | :--- |
 | Total Revenue | $109,846,381.40 |
 | Total Orders | 31,465 |
 | Units Sold | 274,914 |
@@ -374,7 +374,7 @@ Key elements include:
 
 ![Executive Dashboard](./Images/01_executive_dashboard.png)
 
-[Download Interactive Dashboard](./POWERBI/AdventureWorks2025%2001-Dashboards.pbix)
+[Download Interactive Dashboard.pbix](./POWERBI/AdventureWorks2025%2001-Dashboards.pbix)
 
 ---
 
@@ -401,7 +401,7 @@ The Top 10 customer group contributes **7.21% of total company revenue**.
 
 ![Customer Detail](./Images/02_customer_detail.png)
 
-[Download Interactive Dashboard](./POWERBI/AdventureWorks2025%2001-Dashboards.pbix)
+[Download Interactive Dashboard.pbix](./POWERBI/AdventureWorks2025%2001-Dashboards.pbix)
 
 ---
 
@@ -422,7 +422,7 @@ Targets are calculated from previous-month performance with a **10% growth targe
 
 ![Product Detail](./Images/03_product_detail.png)
 
-[Download Interactive Dashboard](./POWERBI/AdventureWorks2025%2001-Dashboards.pbix)
+[Download Interactive Dashboard.pbix](./POWERBI/AdventureWorks2025%2001-Dashboards.pbix)
 
 ---
 
@@ -447,7 +447,7 @@ Countries visualised include:
 
 ![Geographic Analysis](./Images/04_geographic_analysis.png)
 
-[Download Interactive Dashboard](./POWERBI/AdventureWorks2025%2001-Dashboards.pbix)
+[Download Interactive Dashboard.pbix](./POWERBI/AdventureWorks2025%2001-Dashboards.pbix)
 
 ---
 
