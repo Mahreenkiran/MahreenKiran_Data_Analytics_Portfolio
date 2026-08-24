@@ -171,8 +171,8 @@ The analysis also found that medium and high-value orders generated more than th
 
 ### Techniques Used
 
-`Aggregate Functions` `CTEs` `Date Functions` `LAG()` `Month-over-Month Analysis` `Annual Comparison` `Conditional Segmentation` <br>
-`Percentage Contribution`
+`Aggregate Functions` `CTEs` `Date Functions` `LAG()` `Month-over-Month Analysis`<br>
+`Annual Comparison` `Conditional Segmentation`  `Percentage Contribution`
 
 [View Overall Sales SQL](./SQL/02_overall_sales_analysis.sql)
 
