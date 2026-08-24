@@ -169,14 +169,10 @@ The analysis also found that medium and high-value orders generated more than th
 
 ### Techniques Used
 
-- aggregate functions
-- CTEs
-- date functions
-- `LAG()`
-- month-over-month calculations
-- annual comparison
-- conditional segmentation
-- percentage contribution analysis
+### Techniques Used
+
+`Aggregate Functions` `CTEs` `Date Functions` `LAG()` `Month-over-Month Analysis` `Annual Comparison` `Conditional Segmentation` <br>
+`Percentage Contribution`
 
 [View Overall Sales SQL](./SQL/02_overall_sales_analysis.sql)
 
@@ -203,13 +199,9 @@ The analysis also identified products with no recorded sales, but these were not
 
 ### Techniques Used
 
-- multi-table joins
-- aggregation
-- revenue ranking
-- category contribution
-- subcategory analysis
-- zero-sales identification
-- percentage calculations
+### Techniques Used
+
+`Multi-Table Joins` `Aggregation` `Revenue Ranking` `Category Contribution` `Subcategory Analysis` `Zero-Sales Identification` `Percentage Calculations`
 
 [View Product Analysis SQL](./SQL/03_product_analysis.sql)
 
@@ -245,15 +237,9 @@ These no-purchase records were treated separately from previously active custome
 
 ### Techniques Used
 
-- customer-level aggregation
-- conditional customer naming
-- customer segmentation
-- frequency analysis
-- average order value
-- revenue contribution
-- Top N analysis
-- inactivity analysis
-- `NULL` handling
+### Techniques Used
+
+`Customer-Level Aggregation` `Conditional Customer Naming` `Customer Segmentation` `Frequency Analysis` `Average Order Value` `Revenue Contribution` `Top N Analysis` `Inactivity Analysis` `NULL Handling`
 
 [View Customer Analysis SQL](./SQL/04_customer_analysis.sql)
 
@@ -288,12 +274,9 @@ This demonstrates why territory and salesperson performance should be assessed u
 
 ### Techniques Used
 
-- territory aggregation
-- salesperson aggregation
-- ranking
-- average order value analysis
-- customer and territory joins
-- comparative KPI analysis
+### Techniques Used
+
+`Territory Aggregation` `Salesperson Aggregation` `Ranking` `Average Order Value Analysis` `Territory Joins` `Comparative KPI Analysis`
 
 [View Territory and Salesperson SQL](./SQL/05_territory_salesperson_analysis.sql)
 
@@ -317,10 +300,7 @@ The lack of variation suggests a highly standardised fulfilment pattern, althoug
 
 ### Techniques Used
 
-- date differences
-- territory-level aggregation
-- late-shipment validation
-- operational KPI analysis
+`Date Differences` `Territory-Level Aggregation` `Late-Shipment Validation` `Operational KPI Analysis`
 
 [View Operational Analysis SQL](./SQL/06_operational_analysis.sql)
 
