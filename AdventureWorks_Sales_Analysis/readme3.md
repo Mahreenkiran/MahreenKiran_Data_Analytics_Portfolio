@@ -22,6 +22,18 @@ AdventureWorks is a fictional Microsoft sample business. The project was complet
 
 ---
 
+## Quick Navigation
+
+- [Power BI Dashboard](#power-bi-analysis-and-dashboard)
+- [Power BI Dashboard Preview](#power-bi-dashboard-preview)
+- [SQL Analysis](#sql-analysis)
+- [Data Quality Validation](#data-quality-validation)
+- [Key Business Findings](#key-business-findings)
+- [Business Recommendations](#business-recommendations)
+- [Project Files](#project-files)
+
+---
+
 # Business Objective
 
 The objective was not simply to calculate sales totals, but to identify the commercial patterns behind them.
@@ -75,9 +87,6 @@ The **2022 and 2025 results are partial years**, so direct annual performance co
 - **Power BI Desktop**
 - **DAX**
 - **Power Query**
-- **GitHub**
-- **Markdown**
-
 ---
 
 # Data Quality Validation
@@ -167,10 +176,6 @@ The analysis also found that medium and high-value orders generated more than th
 
 [View Overall Sales SQL](./SQL/02_overall_sales_analysis.sql)
 
-[Download Supporting Power BI Analysis file](./POWERBI/AdventureWorks2025%2002-Analytical%20Outputs.pbix)
-
-[Download Interactive Power BI Dashboard file](./POWERBI/AdventureWorks2025%2001-Dashboards.pbix)
-
 ---
 
 ## 2. Product Performance
@@ -203,10 +208,6 @@ The analysis also identified products with no recorded sales, but these were not
 - percentage calculations
 
 [View Product Analysis SQL](./SQL/03_product_analysis.sql)
-
-[View Supporting Power BI Analysis](./POWERBI/AdventureWorks2025%2002-Analytical%20Outputs.pbix)
-
-[View Interactive Power BI Dashboard](./POWERBI/AdventureWorks2025%2001-Dashboards.pbix)
 
 ---
 
@@ -252,10 +253,6 @@ These no-purchase records were treated separately from previously active custome
 
 [View Customer Analysis SQL](./SQL/04_customer_analysis.sql)
 
-[View Supporting Power BI Analysis](./POWERBI/AdventureWorks2025%2002-Analytical%20Outputs.pbix)
-
-[View Interactive Power BI Dashboard](./POWERBI/AdventureWorks2025%2001-Dashboards.pbix)
-
 ---
 
 ## 4. Territory and Salesperson Performance
@@ -295,8 +292,6 @@ This demonstrates why territory and salesperson performance should be assessed u
 - comparative KPI analysis
 
 [View Territory and Salesperson SQL](./SQL/05_territory_salesperson_analysis.sql)
-
-[View Interactive Power BI Dashboard](./POWERBI/AdventureWorks2025%2001-Dashboards.pbix)
 
 ---
 
