@@ -282,9 +282,9 @@ together rather than relying on only one measure.
 
 ### Finding
 
-The inactive-customer analysis identified customer records with a `NULL` last order date.
+The analysis identified <b> 701 customer records with no linked purchase history </b>.
 
-This means no sales order was linked to those customer records.
+AdventureWorks contained <b> 19,820 customer records </b>, of which <b> 19,119 had placed at least one order</b>. The remaining 701 records had no linked sales orders and should be distinguished from customers who purchased previously but later became inactive.
 
 ### Business meaning
 
