@@ -24,16 +24,16 @@ AdventureWorks is a fictional Microsoft sample business. The project was complet
 
 ## Quick Navigation
 
-- [Power BI Analysis and Dashboard](#power-bi-analysis-and-dashboard)
-- [Power BI Dashboard Preview](#power-bi-dashboard-preview)
-- [SQL Analysis](#sql-analysis)
-- [Data Quality Validation](#data-quality-validation)
-- [Core Business KPIs](#core-business-kpis)
-- [Key Business Findings](#key-business-findings)
-- [Business Recommendations](#business-recommendations)
-- [Skills Demonstrated](#power-bi-skills-demonstrated)
-- [Limitations](#limitations)
-- [Project Files](#project-files)
+- [Power BI Analysis and Dashboard](#powerbi)
+- [Power BI Dashboard Preview](#dashboard-preview)
+- [SQL Analysis](#sql-analysis-section)
+- [Data Quality Validation](#data-quality-section)
+- [Core Business KPIs](#core-kpis)
+- [Key Business Findings](#business-findings)
+- [Business Recommendations](#business-recommendations-section)
+- [Skills Demonstrated](#skills)
+- [Limitations](#limitations-section)
+- [Project Files](#project-files-section)
 
 ---
 
@@ -93,6 +93,8 @@ The **2022 and 2025 results are partial years**, so direct annual performance co
 
 ---
 
+<a id="data-quality-section"></a>
+
 # Data Quality Validation
 
 Before calculating KPIs or interpreting business performance, I validated the main sales tables to ensure the analysis was based on reliable records.
@@ -114,13 +116,15 @@ No major data-quality issues were identified in the tested areas.
 
 This validation provided the foundation for the subsequent sales, customer and product analysis.
 
-### Explore the validation work
+### Explore the Validation Work
 
 [View Data Quality SQL](./SQL/01_data_quality_checks.sql)
 
 [View Data Quality Summary](./Findings/data_quality_summary.md)
 
 ---
+
+<a id="core-kpis"></a>
 
 # Core Business KPIs
 
@@ -137,6 +141,8 @@ This validation provided the foundation for the subsequent sales, customer and p
 These KPIs provide the overall business context, but the more important analytical question is **what is driving these results**.
 
 ---
+
+<a id="sql-analysis-section"></a>
 
 # SQL Analysis
 
@@ -170,7 +176,7 @@ The analysis also found that medium and high-value orders generated more than th
 ### Techniques Used
 
 `Aggregate Functions` `CTEs` `Date Functions` `LAG()` `Month-over-Month Analysis`<br>
-`Annual Comparison` `Conditional Segmentation`  `Percentage Contribution`
+`Annual Comparison` `Conditional Segmentation` `Percentage Contribution`
 
 [View Overall Sales SQL](./SQL/02_overall_sales_analysis.sql)
 
@@ -197,8 +203,7 @@ The analysis also identified products with no recorded sales, but these were not
 
 ### Techniques Used
 
-`Multi-Table Joins` `Aggregation` `Revenue Ranking` `Category Contribution`
-<br>
+`Multi-Table Joins` `Aggregation` `Revenue Ranking` `Category Contribution`<br>
 `Subcategory Analysis` `Zero-Sales Identification` `Percentage Calculations`
 
 [View Product Analysis SQL](./SQL/03_product_analysis.sql)
@@ -235,9 +240,9 @@ These no-purchase records were treated separately from previously active custome
 
 ### Techniques Used
 
-`Customer-Level Aggregation` `Conditional Customer Naming` `Customer Segmentation` 
-<br> `Frequency Analysis` `Average Order Value` `Revenue Contribution` `Top N Analysis` 
-<br>`Inactivity Analysis` `NULL Handling`
+`Customer-Level Aggregation` `Conditional Customer Naming` `Customer Segmentation`<br>
+`Frequency Analysis` `Average Order Value` `Revenue Contribution` `Top N Analysis`<br>
+`Inactivity Analysis` `NULL Handling`
 
 [View Customer Analysis SQL](./SQL/04_customer_analysis.sql)
 
@@ -272,8 +277,7 @@ This demonstrates why territory and salesperson performance should be assessed u
 
 ### Techniques Used
 
-`Territory Aggregation` `Salesperson Aggregation` `Ranking` `Average Order Value Analysis`
-<br> 
+`Territory Aggregation` `Salesperson Aggregation` `Ranking` `Average Order Value Analysis`<br>
 `Territory Joins` `Comparative KPI Analysis`
 
 [View Territory and Salesperson SQL](./SQL/05_territory_salesperson_analysis.sql)
@@ -303,6 +307,8 @@ The lack of variation suggests a highly standardised fulfilment pattern, althoug
 [View Operational Analysis SQL](./SQL/06_operational_analysis.sql)
 
 ---
+
+<a id="powerbi"></a>
 
 # Power BI Analysis and Dashboard
 
@@ -347,6 +353,8 @@ This file contains supporting analysis and validation tables, including:
 - Top 10 products by revenue
 
 ---
+
+<a id="dashboard-preview"></a>
 
 # Power BI Dashboard Preview
 
@@ -407,7 +415,7 @@ The Top 10 customer group contributes **7.21% of total company revenue**.
 
 ## Product Detail
 
-The Product Detail page allows individual products to be selected and evaluated against previous-month performance targets.
+The Product Detail page allows individual products to be selected and evaluated against growth targets based on previous-month performance.
 
 It includes:
 
@@ -450,6 +458,8 @@ Countries visualised include:
 [Download Interactive Dashboard.pbix](./POWERBI/AdventureWorks2025%2001-Dashboards.pbix)
 
 ---
+
+<a id="skills"></a>
 
 # Power BI Skills Demonstrated
 
@@ -516,6 +526,8 @@ This project demonstrates practical experience in:
 - translating analytical findings into recommendations
 
 ---
+
+<a id="business-findings"></a>
 
 # Key Business Findings
 
@@ -591,6 +603,8 @@ rather than relying on a single KPI.
 
 ---
 
+<a id="business-recommendations-section"></a>
+
 # Business Recommendations
 
 The analysis was translated into practical business recommendations.
@@ -612,6 +626,8 @@ The main priorities identified were:
 [View Full Business Recommendations](./Findings/recommendations.md)
 
 ---
+
+<a id="limitations-section"></a>
 
 # Limitations
 
@@ -689,6 +705,8 @@ AdventureWorks_Sales_Analysis/
 
 ---
 
+<a id="project-files-section"></a>
+
 # Project Files
 
 ## SQL Analysis
@@ -747,7 +765,7 @@ One of the most important findings was that although **244 high-value customers 
 
 This suggests that customer concentration is spread across the wider high-value portfolio rather than being dominated by only a handful of accounts.
 
-The project demonstrates my ability to move from raw relational data to:
+The project demonstrates my ability to take an analytical task from raw relational data through to validated business insights and interactive reporting:
 
 **validated data → business questions → SQL analysis → insight generation → DAX measures → interactive reporting → business recommendations**
 
