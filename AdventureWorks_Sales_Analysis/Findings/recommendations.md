@@ -12,7 +12,7 @@ AdventureWorks is a fictional Microsoft sample business. The recommendations are
 
 ### Evidence
 
-Only **244 high-value customers** generated **65.09% of total company revenue**.
+Only **244 high-value customers** generated **65.10% of total company revenue**.
 
 However, the top 10 customers generated only **7.21% of total revenue**, indicating that revenue concentration is distributed across the wider high-value customer segment rather than being dominated by only a few individual accounts.
 
@@ -41,7 +41,7 @@ Monitoring the wider high-value segment would help protect the customer group re
 
 There were **18,642 low-value customers**, generating **27.05% of total company revenue**.
 
-Only **233 customers** were classified as medium value, contributing **7.84% of revenue**.
+Only **233 customers** were classified as medium value, contributing **7.85% of revenue**.
 
 ### Recommendation
 
@@ -102,9 +102,9 @@ Separating business and individual customer strategies would allow commercial ac
 
 ### Evidence
 
-Medium-value orders represented approximately **11.4% of all orders** but generated **48.04% of total revenue**.
+Medium-value orders represented approximately **11.4% of all orders** but generated **48.05% of total revenue**.
 
-High-value orders represented only approximately **1.3% of all orders** but generated **28.88% of total revenue**.
+High-value orders represented only approximately **1.3% of all orders** but generated **28.89% of total revenue**.
 
 Together, medium and high-value orders generated more than three-quarters of company revenue.
 
@@ -312,7 +312,7 @@ The underlying drivers of monthly revenue volatility should be analysed across:
 - customer inactivity and reactivation
 - seasonal purchasing patterns
 
-A moving-average measure could also be incorporated into future reporting where a clearer view of the underlying sales trend is required.
+A moving-average measure can provide additional context by separating the underlying sales trend from short-term monthly volatility.
 
 ### Expected business benefit
 
