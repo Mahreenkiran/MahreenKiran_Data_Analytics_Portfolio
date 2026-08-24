@@ -2,60 +2,87 @@
 
 ## Project Overview
 
-This project analyses the Microsoft **AdventureWorks2025 OLTP sample database** to evaluate sales performance, customer behaviour, product demand, territory performance, salesperson contribution and order fulfilment.
+This project analyses the Microsoft **AdventureWorks2025 OLTP database** to understand how sales performance is driven by customers, products, territories, order value and transaction volume.
 
-The project follows a complete business analysis process:
+The analysis combines **SQL Server, Power BI, DAX and business interpretation** to answer practical commercial questions such as:
 
-- reviewing the database structure
-- validating data quality
-- defining business KPIs
-- writing SQL queries
-- interpreting business results
-- developing business recommendations
-- building an interactive Power BI report
-- validating Power BI outputs against SQL results
+- Which products and categories drive the most revenue?
+- How concentrated is revenue across customers?
+- Are high-frequency customers also high-value customers?
+- Which territories perform through volume and which through higher-value orders?
+- How did performance change between complete calendar years?
+- Which customer and order segments contribute most to revenue?
+- What operational patterns can be identified from shipping data?
 
-AdventureWorks is a fictional Microsoft sample business. This project was completed for learning and portfolio purposes.
+The project follows an end-to-end analytical workflow:
 
----
+**data validation → SQL analysis → business interpretation → DAX development → Power BI reporting → recommendations**
 
-## Project Objectives
-
-The main objectives were to:
-
-- measure overall sales performance
-- analyse monthly and annual revenue trends
-- identify leading products and product categories
-- evaluate customer value and purchasing behaviour
-- assess territory and salesperson performance
-- identify customers with no purchase history
-- examine customer and order-value revenue concentration
-- assess basic order fulfilment performance
-- translate analytical results into practical business recommendations
-- present the findings through interactive Power BI reporting
+AdventureWorks is a fictional Microsoft sample business. The project was completed for learning and portfolio purposes.
 
 ---
 
-## Dataset
+## Quick Navigation
 
-The analysis uses the Microsoft **AdventureWorks2025 OLTP sample database**.
-
-### Data Coverage
-
-- **Earliest order date:** 30 May 2022
-- **Latest order date:** 29 June 2025
-- **Complete sales orders:** 31,465
-- **Sales order lines:** 121,317
-- **Units sold:** 274,914
-- **Customer records:** 19,820
-- **Purchasing customers:** 19,119
-- **Customer records with no linked purchase history:** 701
-
-The 2022 and 2025 results represent partial calendar years and should not be directly compared with complete years.
+- [Power BI Analysis and Dashboard](#power-bi-analysis-and-dashboard)
+- [Power BI Dashboard Preview](#power-bi-dashboard-preview)
+- [SQL Analysis](#sql-analysis)
+- [Data Quality Validation](#data-quality-validation)
+- [Core Business KPIs](#core-business-kpis)
+- [Key Business Findings](#key-business-findings)
+- [Business Recommendations](#business-recommendations)
+- [Skills Demonstrated](#power-bi-skills-demonstrated)
+- [Limitations](#limitations)
+- [Project Files](#project-files)
 
 ---
 
-## Tools Used
+# Business Objective
+
+The objective was not simply to calculate sales totals, but to identify the commercial patterns behind them.
+
+The analysis focused on four areas:
+
+### Sales Performance
+
+Understanding overall revenue, order volume, average order value and changes over time.
+
+### Customer Performance
+
+Identifying high-value customers, purchasing behaviour, customer concentration and customers with no purchase history.
+
+### Product Performance
+
+Understanding which categories, subcategories and products contribute most strongly to revenue.
+
+### Territory and Operational Performance
+
+Comparing markets with different order-value patterns and assessing basic fulfilment consistency.
+
+---
+
+# Dataset
+
+The project uses the Microsoft **AdventureWorks2025 OLTP sample database**.
+
+## Data Coverage
+
+| Metric | Result |
+|---|---:|
+| Earliest Order Date | 30 May 2022 |
+| Latest Order Date | 29 June 2025 |
+| Complete Sales Orders | 31,465 |
+| Sales Order Lines | 121,317 |
+| Units Sold | 274,914 |
+| Customer Records | 19,820 |
+| Purchasing Customers | 19,119 |
+| Customers With No Linked Purchase History | 701 |
+
+The **2022 and 2025 results are partial years**, so direct annual performance comparisons focus primarily on the complete calendar years **2023 and 2024**.
+
+---
+
+# Tools and Technologies
 
 - **SQL Server 2025 Express**
 - **SQL Server Management Studio**
@@ -63,38 +90,35 @@ The 2022 and 2025 results represent partial calendar years and should not be dir
 - **Power BI Desktop**
 - **DAX**
 - **Power Query**
-- **GitHub**
-- **Markdown**
 
 ---
 
 # Data Quality Validation
 
-Before calculating KPIs and completing the business analysis, SQL data quality checks were performed across the main sales tables.
+Before calculating KPIs or interpreting business performance, I validated the main sales tables to ensure the analysis was based on reliable records.
 
-The data was checked for:
+Checks included:
 
-- duplicate sales order identifiers
+- duplicate sales orders
 - invalid or negative order quantities
 - negative sales values
 - invalid discounts
-- missing important analytical fields
-- unmatched sales order detail records
+- missing analytical fields
+- unmatched order-detail records
 - unmatched products
 - unmatched customers
 - invalid shipping and due-date sequences
-- dataset coverage
-- record counts
+- dataset coverage and record counts
 
-No major data-quality problems were identified in the tested areas.
+No major data-quality issues were identified in the tested areas.
 
-The data was therefore considered suitable for the planned sales and customer analysis.
+This validation provided the foundation for the subsequent sales, customer and product analysis.
 
-### Supporting Files
-
-[View Data Quality Summary](./Findings/data_quality_summary.md)
+### Explore the validation work
 
 [View Data Quality SQL](./SQL/01_data_quality_checks.sql)
+
+[View Data Quality Summary](./Findings/data_quality_summary.md)
 
 ---
 
@@ -107,434 +131,305 @@ The data was therefore considered suitable for the planned sales and customer an
 | Units Sold | 274,914 |
 | Average Order Value | $3,491.07 |
 | Purchasing Customers | 19,119 |
-| Customer Records | 19,820 |
 | Estimated Gross Profit | $9.37M |
 | Estimated Gross Margin | 8.53% |
+
+These KPIs provide the overall business context, but the more important analytical question is **what is driving these results**.
 
 ---
 
 # SQL Analysis
 
-The SQL analysis is organised into six files covering data quality, overall sales, products, customers, territories, salespeople and operational performance.
+The SQL analysis was structured around business questions rather than isolated technical exercises.
+
+Each analysis area combines KPI calculation, segmentation, trend analysis and interpretation.
 
 ---
 
-## 1. Data Quality Checks
+## 1. Overall Sales Performance
 
-The data-quality analysis validates the reliability and completeness of the main sales data.
+### Business Questions
 
-It includes checks for:
+- How much revenue did AdventureWorks generate?
+- How many orders and units were sold?
+- What was the average order value?
+- How did revenue change month by month?
+- How did performance change between complete calendar years?
+- How much revenue came from low, medium and high-value orders?
 
-- duplicate records
-- invalid quantities
-- negative values
-- missing data
-- unmatched relationships
-- invalid shipping dates
-- invalid discount values
+### Key Insight
 
-[View SQL File](./SQL/01_data_quality_checks.sql)
+AdventureWorks generated approximately **$109.85M** in revenue from **31,465 orders**.
 
-[View Data Quality Summary](./Findings/data_quality_summary.md)
+Between the complete calendar years of **2023 and 2024**, revenue increased by approximately **38.18%**.
 
----
+However, average order value fell substantially while order and unit volumes increased, indicating that growth was driven more by **transaction volume than larger individual orders**.
 
-## 2. Overall Sales Analysis
+The analysis also found that medium and high-value orders generated more than three-quarters of total company revenue despite representing a minority of transactions.
 
-The overall sales analysis includes:
+### Techniques Used
 
-- total revenue
-- total orders
-- total units sold
-- average order value
-- monthly sales performance
-- month-over-month revenue change
-- annual performance
-- order-value segmentation
+- aggregate functions
+- CTEs
+- date functions
+- `LAG()`
+- month-over-month calculations
+- annual comparison
+- conditional segmentation
+- percentage contribution analysis
 
-[View SQL File](./SQL/02_overall_sales_analysis.sql)
-
----
-
-## 3. Product Analysis
-
-The product analysis includes:
-
-- top products by revenue
-- product units sold
-- subcategory performance
-- category performance
-- category revenue contribution
-- products with no recorded sales
-
-[View SQL File](./SQL/03_product_analysis.sql)
+[View Overall Sales SQL](./SQL/02_overall_sales_analysis.sql)
 
 ---
 
-## 4. Customer Analysis
+## 2. Product Performance
 
-The customer analysis includes:
+### Business Questions
 
-- top customers by revenue
-- customer purchase frequency
-- customer value segmentation
-- customers with no purchase history
-- inactive customer analysis
-- top 10 customer revenue contribution
+- Which products generate the highest revenue?
+- Which product subcategories perform most strongly?
+- How concentrated is revenue by category?
+- Which products recorded no sales during the available period?
 
-[View SQL File](./SQL/04_customer_analysis.sql)
+### Key Insight
 
----
+The **Bikes category generated 86.17% of total company revenue**, making it the dominant commercial product group.
 
-## 5. Territory and Salesperson Analysis
+Road Bikes and Mountain Bikes were the strongest subcategories.
 
-The territory and salesperson analysis includes:
+At individual product level, **Mountain-200 variants dominated the highest-revenue positions**, with Mountain-200 Black, 38 generating approximately **$4.40M**.
 
-- revenue by territory
-- orders by territory
-- average order value by territory
-- salesperson revenue
-- salesperson order volume
-- salesperson average order value
+The analysis also identified products with no recorded sales, but these were not automatically classified as underperforming because some may represent internal components or products not intended for direct commercial sale.
 
-[View SQL File](./SQL/05_territory_salesperson_analysis.sql)
+### Techniques Used
 
----
+- multi-table joins
+- aggregation
+- revenue ranking
+- category contribution
+- subcategory analysis
+- zero-sales identification
+- percentage calculations
 
-## 6. Operational Analysis
-
-The operational analysis includes:
-
-- average shipping time by territory
-- fulfilment performance
-- validation of late shipments
-
-The analysis identified limited shipping variation because the sample data records a highly standardised seven-day shipping pattern.
-
-[View SQL File](./SQL/06_operational_analysis.sql)
+[View Product Analysis SQL](./SQL/03_product_analysis.sql)
 
 ---
 
-# Key Business Findings
+## 3. Customer Performance
 
-## Overall Sales Performance
+### Business Questions
 
-AdventureWorks generated approximately **$109.85 million** in total revenue from **31,465 orders** and **274,914 units sold**.
+- Which customers generate the most revenue?
+- Which customers order most frequently?
+- Does high purchase frequency always indicate high customer value?
+- How concentrated is revenue across customer segments?
+- How much revenue is generated by the Top 10 customers?
+- How many customer records have no linked purchase history?
 
-The average order value was **$3,491.07**.
+### Key Insight
 
----
+Only **244 high-value customers generated approximately 65.10% of total company revenue**.
 
-## Monthly Revenue Was Volatile
+However, the **Top 10 customers contributed only 7.21%**, showing that revenue concentration exists across the wider high-value segment rather than being dominated by only a few accounts.
 
-Monthly revenue showed substantial fluctuations throughout the available reporting period.
+The highest-revenue customers were predominantly **business or store accounts**, while some of the most frequent individual customers placed many orders but generated relatively low revenue.
 
-Examples included:
+This demonstrated that **order frequency alone is not a sufficient measure of customer value**.
 
-- **286.54% increase** in June 2022
-- **16.63% decrease** in July 2022
-- **20.52% decrease** in August 2022
-- **113.88% increase** in September 2022
-- **36.67% decrease** in November 2022
-- **74.22% increase** in December 2022
+The analysis also identified:
 
-The variation indicates that individual monthly results should be interpreted within the wider sales trend rather than in isolation.
-
----
-
-## Annual Performance Strengthened in 2024
-
-Among the complete calendar years available, revenue increased from:
-
-- **$31.60M in 2023**
-- to **$43.67M in 2024**
-
-This represented growth of approximately **38.18%**.
-
-During the same period:
-
-- orders increased from **3,830 to 14,244**
-- units sold increased from **66,441 to 131,936**
-- average order value decreased from approximately **$8,252 to $3,066**
-
-The increase in revenue was therefore driven primarily by higher transaction and unit volumes rather than larger individual orders.
-
----
-
-## Medium and High-Value Orders Generated Most Revenue
-
-| Order Segment | Orders | Revenue | Revenue Contribution |
-|---|---:|---:|---:|
-| High Value Order | 407 | $31,733,946.80 | 28.89% |
-| Medium Value Order | 3,600 | $52,777,326.94 | 48.05% |
-| Low Value Order | 27,458 | $25,335,107.65 | 23.06% |
-
-Medium and high-value orders represented a relatively small proportion of total transactions but generated more than three-quarters of company revenue.
-
----
-
-## Bikes Dominated Company Revenue
-
-| Product Category | Revenue | Revenue Contribution |
-|---|---:|---:|
-| Bikes | $94,651,172.70 | 86.17% |
-| Components | $11,802,593.29 | 10.74% |
-| Clothing | $2,120,542.52 | 1.93% |
-| Accessories | $1,272,072.88 | 1.16% |
-
-The **Bikes** category generated **86.17% of total company revenue**, demonstrating strong dependence on the company's core bike business.
-
----
-
-## Road Bikes Were the Strongest Product Subcategory
-
-The strongest product subcategories included:
-
-| Product Subcategory | Units Sold | Revenue |
-|---|---:|---:|
-| Road Bikes | 47,196 | $43,909,437.51 |
-| Mountain Bikes | 28,321 | $36,445,443.94 |
-| Touring Bikes | 14,751 | $14,296,291.26 |
-| Mountain Frames | 11,621 | $4,713,930.23 |
-| Road Frames | 11,753 | $3,851,350.60 |
-
-Road Bikes generated the highest revenue and unit sales among the leading subcategories.
-
----
-
-## Mountain-200 Products Led Individual Product Revenue
-
-The highest-revenue product was:
-
-**Mountain-200 Black, 38**
-
-- **Units sold:** 2,977
-- **Revenue:** $4,400,592.80
-
-Mountain-200 Black and Silver variants occupied several of the highest positions in the individual product revenue ranking.
-
----
-
-## Some Products Recorded No Sales
-
-Several products recorded zero units sold and zero revenue during the analysis period.
-
-These products may represent:
-
-- internal components
-- discontinued products
-- obsolete items
-- products not intended for direct customer sale
-- products with no recorded demand during the available period
-
-Products with no recorded sales were therefore not automatically classified as underperforming commercial products.
-
----
-
-## A Small High-Value Customer Segment Generated Most Revenue
-
-| Customer Segment | Customers | Revenue | Revenue Contribution |
-|---|---:|---:|---:|
-| High Value Customer | 244 | $71,509,740.18 | 65.10% |
-| Medium Value Customer | 233 | $8,619,787.69 | 7.85% |
-| Low Value Customer | 18,642 | $29,716,853.53 | 27.05% |
-| No Purchases | 701 | $0 | 0.00% |
-
-Only **244 high-value customers** generated approximately **65.10% of total company revenue**.
-
-This demonstrates strong revenue concentration within the wider high-value customer segment.
-
----
-
-## Highest-Revenue Customers Were Business Accounts
-
-The highest-revenue customer was:
-
-**Brakes and Gears**
-
-- **Revenue:** $877,107.19
-- **Orders:** 12
-
-Other leading customers included:
-
-- Excellent Riding Supplies
-- Vigorous Exercise Company
-- Totes & Baskets Company
-- Retail Mall
-- Corner Bicycle Supply
-
-The highest-revenue customers were predominantly store or business accounts placing relatively few but high-value orders.
-
----
-
-## Frequent Customers Did Not Necessarily Generate High Revenue
-
-Some individual customers placed a high number of orders but generated relatively low total revenue.
-
-Examples included:
-
-- **Mason Roberts:** 28 orders, $1,320.01 revenue
-- **Dalton Perez:** 28 orders, $1,189.33 revenue
-
-This demonstrates that customer value should not be assessed using order frequency alone.
-
-Revenue, order volume and average order value should be considered together.
-
----
-
-## 701 Customer Records Had No Linked Purchase History
-
-AdventureWorks contained:
-
-- **19,820 customer records**
 - **19,119 purchasing customers**
 - **701 customer records with no linked purchase history**
 
-These records were kept separate from customers who had purchased previously but later became inactive.
+These no-purchase records were treated separately from previously active customers.
+
+### Techniques Used
+
+- customer-level aggregation
+- conditional customer naming
+- customer segmentation
+- frequency analysis
+- average order value
+- revenue contribution
+- Top N analysis
+- inactivity analysis
+- `NULL` handling
+
+[View Customer Analysis SQL](./SQL/04_customer_analysis.sql)
 
 ---
 
-## Top 10 Customers Generated 7.21% of Revenue
+## 4. Territory and Salesperson Performance
 
-The top 10 customers generated:
+### Business Questions
 
-- **$7,922,046.38 combined revenue**
-- **7.21% of total company revenue**
+- Which territories generate the highest revenue?
+- Which territories rely on high order volume?
+- Which territories generate revenue through fewer but higher-value transactions?
+- Which salespeople generate the strongest revenue performance?
+- Does the salesperson with the most orders also generate the most revenue?
 
-This indicates that although revenue is concentrated within the wider high-value customer segment, it is not dominated by only the ten largest customer accounts.
+### Key Insight
 
----
+**Southwest** generated the highest territory revenue at approximately **$24.18M**.
 
-## Southwest Generated the Highest Territory Revenue
+However, territory performance showed different commercial patterns.
 
-| Territory | Orders | Revenue | Average Order Value |
-|---|---:|---:|---:|
-| Southwest | 6,224 | $24,184,609.60 | $3,885.70 |
-| Canada | 4,067 | $16,355,770.46 | $4,021.58 |
-| Northwest | 4,594 | $16,084,942.55 | $3,501.29 |
-| Australia | 6,843 | $10,655,335.96 | $1,557.11 |
-| Central | 385 | $7,909,009.01 | $20,542.88 |
+For example:
 
-Territories displayed different purchasing patterns.
+- **Australia** generated high order volume but relatively low average order value
+- **Central** generated substantial revenue from far fewer, much higher-value orders
 
-Australia generated high order volume with a relatively low average order value, while Central generated significant revenue from a much smaller number of high-value orders.
+Salesperson analysis showed a similar pattern.
 
----
+**Linda Mitchell** generated the highest revenue, while **Jillian Carson** processed more orders.
 
-## Linda Mitchell Generated the Highest Salesperson Revenue
+This demonstrates why territory and salesperson performance should be assessed using **revenue, order volume and average order value together**.
 
-| Salesperson | Revenue | Orders | Average Order Value |
-|---|---:|---:|---:|
-| Linda Mitchell | $10,367,007.43 | 418 | $24,801.45 |
-| Jillian Carson | $10,065,803.54 | 473 | $21,280.77 |
-| Michael Blythe | $9,293,903.00 | 450 | $20,653.12 |
-| Jae Pak | $8,503,338.65 | 348 | $24,434.88 |
+### Techniques Used
 
-Linda Mitchell generated the highest revenue without processing the highest number of orders.
+- territory aggregation
+- salesperson aggregation
+- ranking
+- average order value analysis
+- customer and territory joins
+- comparative KPI analysis
 
-This demonstrates the importance of assessing salesperson performance using multiple measures rather than revenue or transaction volume alone.
+[View Territory and Salesperson SQL](./SQL/05_territory_salesperson_analysis.sql)
 
 ---
 
-## Shipping Performance Was Consistent
+## 5. Operational Performance
 
-All analysed territories recorded an average shipping time of approximately **7 days**.
+### Business Questions
+
+- How long did orders take to ship?
+- Did shipping performance vary by territory?
+- Were completed orders shipped after their due date?
+
+### Key Insight
+
+All analysed territories recorded an average shipping duration of approximately **7 days**.
 
 No completed orders were identified where shipment occurred after the due date.
 
-The identical average across territories may partly reflect the design of the fictional AdventureWorks sample database.
+The lack of variation suggests a highly standardised fulfilment pattern, although this may partly reflect the structure of the fictional AdventureWorks dataset.
 
-### Full Findings
+### Techniques Used
 
-[View Key Business Findings](./Findings/key_business_findings.md)
+- date differences
+- territory-level aggregation
+- late-shipment validation
+- operational KPI analysis
 
----
-
-# Business Recommendations
-
-The main recommendations from the analysis are to:
-
-1. Protect the wider high-value customer portfolio.
-2. Monitor medium and high-value orders separately.
-3. Maintain availability of leading bike products.
-4. Develop selected low-value customers.
-5. Diversify revenue through complementary product categories.
-6. Apply territory-specific commercial strategies.
-7. Assess salespeople using balanced performance measures.
-8. Investigate monthly revenue volatility.
-9. Investigate the shift towards higher order volume.
-10. Separate never-purchased customers from lapsed customers.
-11. Continue monitoring fulfilment consistency.
-
-### Full Recommendations
-
-[View Business Recommendations](./Findings/recommendations.md)
+[View Operational Analysis SQL](./SQL/06_operational_analysis.sql)
 
 ---
 
-# Power BI Dashboard
+# Power BI Analysis and Dashboard
 
-The Power BI report was developed to translate the SQL analysis into interactive executive, customer, product and geographic reporting.
+The Power BI stage translates the SQL analysis into interactive reporting and provides a visual layer for exploring customer, product and sales performance.
 
-The report contains:
+Two Power BI files were developed.
 
-- **Executive Dashboard**
-- **Customer Detail**
-- **Product Detail**
-- **Geographic Analysis**
-- **Category Tooltip**
+---
 
-[View Power BI Folder](./PowerBI/)
+## 1. Interactive Dashboard
+
+[Download AdventureWorks2025 01-Dashboards.pbix](./POWERBI/AdventureWorks2025%2001-Dashboards.pbix)
+
+The main report includes:
+
+- Executive Dashboard
+- Customer Detail
+- Product Detail
+- Geographic Analysis
+- Category Tooltip
+
+---
+
+## 2. Supporting Analytical Outputs
+
+[Download AdventureWorks2025 02-Analytical Outputs.pbix](./POWERBI/AdventureWorks2025%2002-Analytical%20Outputs.pbix)
+
+This file contains supporting analysis and validation tables, including:
+
+- overall sales KPIs
+- product revenue validation
+- estimated product cost
+- estimated gross profit
+- estimated gross margin
+- customer segment revenue
+- customer segment contribution
+- order-value segment contribution
+- customer revenue by customer
+- Top 10 customer contribution
+- category revenue contribution
+- revenue excluding Bikes
+- Top 10 products by revenue
+
+---
+
+# Power BI Dashboard Preview
+
+The screenshots below allow the report to be reviewed directly in GitHub without downloading Power BI Desktop.
 
 ---
 
 ## Executive Dashboard
 
-The Executive Dashboard provides a high-level view of business performance.
+The Executive Dashboard provides a concise view of overall business performance.
 
-It includes:
+It combines headline KPIs with sales trends, product performance and store-level revenue.
+
+Key elements include:
 
 - total revenue
 - estimated gross profit
 - total orders
 - average order value
 - revenue trend by year, quarter and month
-- monthly revenue performance
-- month-over-month order performance
-- average order value movement
+- month-over-month KPI comparison
 - units sold by product category
-- top product category by units sold
-- top five stores by revenue
+- top-performing product category
+- Top 5 stores by revenue
+
+![Executive Dashboard](./Images/01_executive_dashboard.png)
+
+[Download Interactive Dashboard](./POWERBI/AdventureWorks2025%2001-Dashboards.pbix)
 
 ---
 
 ## Customer Detail
 
-The Customer Detail page provides a deeper view of customer behaviour and value.
+The Customer Detail page explores customer value, purchasing behaviour and revenue concentration.
 
 It includes:
 
 - purchasing customer count
-- total orders
-- total revenue
+- total customer revenue
 - average revenue per customer
 - purchasing customer trend
-- top 10 purchasing customers
-- customer revenue contribution
+- Top 10 customers
+- revenue contribution
 - units purchased
+- order count
 - average order value
 - year-based filtering
-- overall top-customer performance
 
-Business customers are displayed using their **store name**, while individual customers are displayed using their **person name**.
+Business accounts are displayed using their **store name**, while individual customers are displayed using their **person name**.
 
 The Top 10 customer group contributes **7.21% of total company revenue**.
+
+![Customer Detail](./Images/02_customer_detail.png)
+
+[Download Interactive Dashboard](./POWERBI/AdventureWorks2025%2001-Dashboards.pbix)
 
 ---
 
 ## Product Detail
 
-The Product Detail page provides product-level analysis through an interactive product slicer.
+The Product Detail page allows individual products to be selected and evaluated against previous-month performance targets.
 
 It includes:
 
@@ -545,19 +440,25 @@ It includes:
 - total orders trend
 - year, quarter and month drill-down
 
-The growth targets are based on the previous month's performance with a **10% growth target** applied.
+Targets are calculated from previous-month performance with a **10% growth target** applied.
+
+![Product Detail](./Images/03_product_detail.png)
+
+[Download Interactive Dashboard](./POWERBI/AdventureWorks2025%2001-Dashboards.pbix)
 
 ---
 
 ## Geographic Analysis
 
-The geographic page displays total orders across:
+The geographic analysis page compares order activity across major markets.
+
+The report groups markets into:
 
 - Europe
 - North America
 - Pacific
 
-The map compares order activity across:
+Countries visualised include:
 
 - United States
 - Canada
@@ -566,41 +467,171 @@ The map compares order activity across:
 - Germany
 - Australia
 
----
+![Geographic Analysis](./Images/04_geographic_analysis.png)
 
-## Power BI Supporting Analysis
-
-A separate Power BI analysis file was also developed to validate and present supporting analytical outputs, including:
-
-- core KPI measures
-- product line revenue validation
-- estimated product cost
-- estimated gross profit
-- estimated gross margin
-- customer segment revenue
-- customer segment revenue contribution
-- order-value segment contribution
-- customer revenue by customer
-- top 10 customer contribution
-- category revenue contribution
-- revenue excluding Bikes
-- top 10 products by revenue
+[Download Interactive Dashboard](./POWERBI/AdventureWorks2025%2001-Dashboards.pbix)
 
 ---
 
-## Report Interactivity
+# Power BI Skills Demonstrated
 
-The Power BI report demonstrates:
+This project demonstrates practical experience in:
 
+- relational data modelling
+- Power Query
+- DAX measures
+- calculated columns
+- filter context
+- `CALCULATE`
+- `DIVIDE`
+- `DATEADD`
+- `SWITCH`
+- `LOOKUPVALUE`
+- Top N analysis
+- time intelligence
+- KPI development
 - slicers
-- Top N filtering
 - drill-down hierarchies
 - visual interactions
 - report page tooltips
-- KPI cards
 - month-over-month analysis
 - target-based gauge visuals
-- geographic filtering
+- geographic analysis
+- dashboard design
+
+---
+
+# SQL Skills Demonstrated
+
+- aggregate functions
+- joins
+- multi-table joins
+- common table expressions
+- subqueries
+- `CASE`
+- window functions
+- `LAG()`
+- ranking functions
+- percentage calculations
+- date functions
+- conditional segmentation
+- customer analysis
+- order-value segmentation
+- `NULL` handling
+- data-quality validation
+- KPI development
+
+---
+
+# Business Analysis Skills Demonstrated
+
+- KPI definition
+- sales performance analysis
+- trend interpretation
+- customer segmentation
+- customer value analysis
+- revenue concentration analysis
+- product performance analysis
+- territory comparison
+- salesperson performance analysis
+- operational analysis
+- translating analytical findings into recommendations
+
+---
+
+# Key Business Findings
+
+The SQL analysis identified several commercially important patterns.
+
+## Revenue Growth Shifted Towards Higher Volume
+
+Revenue increased from approximately **$31.60M in 2023** to **$43.67M in 2024**, representing growth of approximately **38.18%**.
+
+At the same time:
+
+- orders increased from **3,830 to 14,244**
+- units sold increased from **66,441 to 131,936**
+- average order value fell from approximately **$8,252 to $3,066**
+
+The business therefore grew through substantially greater sales activity rather than larger average transactions.
+
+---
+
+## Bikes Were the Core Revenue Driver
+
+The Bikes category contributed **86.17% of total company revenue**.
+
+Road Bikes and Mountain Bikes were the strongest subcategories, while Mountain-200 products dominated individual product revenue rankings.
+
+This represents both a commercial strength and a concentration risk.
+
+---
+
+## High-Value Customers Were More Important Than the Top 10 Alone
+
+Only **244 customers generated approximately 65.10% of total revenue**.
+
+Yet the Top 10 customers generated only **7.21%**.
+
+This means customer concentration is spread across the wider high-value segment rather than being dependent on a handful of individual accounts.
+
+---
+
+## Medium and High-Value Orders Drove Revenue
+
+Medium and high-value orders represented a minority of transactions but generated more than three-quarters of total revenue.
+
+This highlights the importance of protecting larger transactions even when overall order volume is dominated by lower-value purchases.
+
+---
+
+## Territory Performance Reflected Different Customer Models
+
+Some territories generated performance through **high transaction volume**, while others generated significant revenue from **fewer, much larger orders**.
+
+Revenue alone therefore does not fully explain territory performance.
+
+---
+
+## Customer Frequency Did Not Equal Customer Value
+
+Some individual customers placed 27 to 28 orders but generated very low total revenue.
+
+In contrast, major business accounts generated hundreds of thousands in revenue from relatively few transactions.
+
+Customer analysis therefore needs to combine:
+
+- revenue
+- frequency
+- average order value
+
+rather than relying on a single KPI.
+
+### Explore the Full Findings
+
+[View Key Business Findings](./Findings/key_business_findings.md)
+
+---
+
+# Business Recommendations
+
+The analysis was translated into practical business recommendations.
+
+The main priorities identified were:
+
+1. Protect the wider high-value customer portfolio.
+2. Monitor medium and high-value orders separately.
+3. Maintain availability of leading bike product families.
+4. Develop selected low-value customers showing growth potential.
+5. Explore revenue diversification through complementary categories.
+6. Use different commercial strategies for different territory profiles.
+7. Assess salespeople using multiple performance measures.
+8. Investigate the drivers of monthly revenue volatility.
+9. Investigate the shift towards higher order volume and lower average order value.
+10. Separate never-purchased customers from previously active customers.
+11. Continue monitoring fulfilment consistency.
+
+[View Full Business Recommendations](./Findings/recommendations.md)
 
 ---
 
@@ -612,20 +643,20 @@ The dataset covers **30 May 2022 to 29 June 2025**.
 
 Therefore:
 
-- **2022 is a partial year**
-- **2025 is a partial year**
+- 2022 is a partial year
+- 2025 is a partial year
 
-Direct annual comparisons should focus primarily on complete calendar years such as **2023 and 2024**.
+Direct annual comparisons focus primarily on complete calendar years such as **2023 and 2024**.
 
 ---
 
 ## Estimated Gross Profit
 
-Estimated gross profit is calculated using the product **StandardCost** available in the Product table.
+Estimated gross profit is calculated using the **StandardCost** stored in the Product table.
 
-The calculation does not apply historical values from `ProductCostHistory` to each transaction based on the original order date.
+The calculation does not assign historical `ProductCostHistory` values to individual transactions based on their original order date.
 
-As a result, gross profit and gross margin should be interpreted as **estimated analytical measures rather than exact historical accounting profit**.
+Gross profit and gross margin should therefore be interpreted as **estimated analytical measures rather than exact historical accounting profit**.
 
 ---
 
@@ -633,9 +664,9 @@ As a result, gross profit and gross margin should be interpreted as **estimated 
 
 Shipping duration was calculated using whole-number day differences.
 
-Smaller variations measured in hours are therefore not visible.
+Smaller variations measured in hours are not visible.
 
-The identical average shipping duration of approximately seven days across territories may also reflect the structure of the fictional AdventureWorks sample database rather than genuine operational performance.
+The identical seven-day average across territories may also reflect the design of the fictional sample database rather than genuine operational variation.
 
 ---
 
@@ -643,69 +674,7 @@ The identical average shipping duration of approximately seven days across terri
 
 AdventureWorks is a Microsoft sample database.
 
-The business findings and recommendations demonstrate analytical methods and business interpretation for portfolio purposes and should not be interpreted as advice provided to a real organisation.
-
----
-
-# SQL Skills Demonstrated
-
-- aggregate functions
-- window functions
-- `INNER JOIN`
-- `LEFT JOIN`
-- multiple-table joins
-- common table expressions
-- subqueries
-- `CASE` statements
-- `LAG()`
-- ranking functions
-- percentage calculations
-- customer segmentation
-- order-value segmentation
-- date functions
-- `NULL` handling
-- data-quality validation
-- business KPI development
-
----
-
-# Power BI and DAX Skills Demonstrated
-
-- relational data modelling
-- Power Query
-- DAX measures
-- calculated columns
-- `CALCULATE`
-- `DIVIDE`
-- `DATEADD`
-- `SWITCH`
-- `LOOKUPVALUE`
-- filter context
-- Top N analysis
-- time intelligence
-- KPI development
-- interactive dashboards
-- drill-down hierarchies
-- report page tooltips
-- gauge visuals
-- geographic analysis
-- dashboard design
-
----
-
-# Business Analysis Skills Demonstrated
-
-- KPI definition
-- sales performance analysis
-- trend interpretation
-- customer value analysis
-- customer segmentation
-- revenue concentration analysis
-- product performance analysis
-- territory comparison
-- salesperson performance analysis
-- operational analysis
-- translating analytical findings into business recommendations
+The findings and recommendations demonstrate analytical methods and business interpretation for portfolio purposes and should not be interpreted as advice provided to a real organisation.
 
 ---
 
@@ -729,16 +698,22 @@ AdventureWorks_Sales_Analysis/
 │   ├── key_business_findings.md
 │   └── recommendations.md
 │
-├── PowerBI/
+├── POWERBI/
+│   ├── AdventureWorks2025 01-Dashboards.pbix
+│   └── AdventureWorks2025 02-Analytical Outputs.pbix
 │
 └── Images/
+    ├── 01_executive_dashboard.png
+    ├── 02_customer_detail.png
+    ├── 03_product_detail.png
+    └── 04_geographic_analysis.png
 ```
 
 ---
 
 # Project Files
 
-### SQL
+## SQL Analysis
 
 [Data Quality Checks](./SQL/01_data_quality_checks.sql)
 
@@ -752,7 +727,7 @@ AdventureWorks_Sales_Analysis/
 
 [Operational Analysis](./SQL/06_operational_analysis.sql)
 
-### Findings
+## Findings
 
 [Data Quality Summary](./Findings/data_quality_summary.md)
 
@@ -760,31 +735,43 @@ AdventureWorks_Sales_Analysis/
 
 [Business Recommendations](./Findings/recommendations.md)
 
-### Power BI
+## Power BI Files
 
-[View Power BI Files](./PowerBI/)
+[AdventureWorks2025 01-Dashboards.pbix](./POWERBI/AdventureWorks2025%2001-Dashboards.pbix)
 
-### Dashboard Images
+[AdventureWorks2025 02-Analytical Outputs.pbix](./POWERBI/AdventureWorks2025%2002-Analytical%20Outputs.pbix)
 
-[View Dashboard Images](./Images/)
+## Dashboard Images
+
+[Executive Dashboard](./Images/01_executive_dashboard.png)
+
+[Customer Detail](./Images/02_customer_detail.png)
+
+[Product Detail](./Images/03_product_detail.png)
+
+[Geographic Analysis](./Images/04_geographic_analysis.png)
 
 ---
 
 # Conclusion
 
-AdventureWorks generated approximately **$109.85 million** in revenue from **31,465 orders** during the available reporting period.
+AdventureWorks generated approximately **$109.85M** in revenue from **31,465 orders** during the available reporting period.
 
-The analysis found that revenue was strongly concentrated in the **Bikes category** and the wider **high-value customer segment**.
+The analysis showed that company performance was strongly influenced by:
 
-However, the top 10 customers contributed only **7.21% of total revenue**, indicating that customer concentration was spread across the wider high-value group rather than being dependent on only a few individual accounts.
+- the Bikes category
+- the wider high-value customer segment
+- medium and high-value orders
+- distinct territory purchasing patterns
+- increasing transaction volume during 2024
 
-The strongest complete-year growth occurred between **2023 and 2024**, when revenue increased by approximately **38.18%**.
+One of the most important findings was that although **244 high-value customers generated approximately 65.10% of revenue**, the Top 10 accounts generated only **7.21%**.
 
-This growth was driven primarily by increased order and unit volumes while average order value declined, indicating a shift towards a higher-volume sales pattern.
+This suggests that customer concentration is spread across the wider high-value portfolio rather than being dominated by only a handful of accounts.
 
-The project demonstrates an end-to-end analytical workflow combining:
+The project demonstrates my ability to move from raw relational data to:
 
-**data validation → SQL analysis → business interpretation → DAX development → Power BI reporting → business recommendations**
+**validated data → business questions → SQL analysis → insight generation → DAX measures → interactive reporting → business recommendations**
 
 ---
 
