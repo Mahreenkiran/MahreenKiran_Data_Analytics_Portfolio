@@ -1,258 +1,137 @@
-
 # Recommendations
 
-The recommendations below are analytical recommendations based on the patterns identified in the synthetic Synthea dataset.
+The recommendations below are based on patterns identified in the synthetic Synthea dataset.
 
-They are not clinical recommendations and should not be interpreted as guidance for real patient care.
-
----
-
-## 1. Review High-Utilisation Patients Separately
-
-Only 1.29% of patients were classified as High Utilisation, but individual patients within this segment recorded very large numbers of encounters.
-
-### Recommendation
-
-Create a dedicated high-utilisation patient view combining:
-
-- encounter count
-- age
-- condition burden
-- encounter class
-- healthcare cost
-- medication activity
-- procedure activity
-
-This would help identify whether high service use is associated with multimorbidity, repeated routine care, acute events or specific treatment pathways.
+They are intended as analytical and operational recommendations rather than clinical guidance.
 
 ---
 
-## 2. Combine Utilisation With Condition Burden
+## 1. High-Utilisation Patients May Benefit From More Focused Review
 
-Encounter count alone does not fully describe patient complexity.
+Only 1.29% of patients were classified as High Utilisation, yet this small group recorded very high numbers of healthcare encounters.
 
-Older patients showed both higher encounter frequency and substantially greater condition burden.
+A healthcare organisation could consider reviewing high-utilisation patients as a distinct segment to better understand whether repeated service use is associated with multimorbidity, frequent routine care, acute events or complex treatment needs.
 
-### Recommendation
-
-Use utilisation and distinct condition count together when segmenting patient complexity.
-
-A future patient-level analytical model could combine:
-
-- number of encounters
-- number of distinct conditions
-- age group
-- total claim cost
-- inpatient or emergency activity
-
-to create a more complete patient complexity profile.
+Combining encounter frequency with age, condition burden, treatment activity and healthcare cost could provide a more complete view of this group.
 
 ---
 
-## 3. Include Age in Healthcare Capacity Analysis
+## 2. Patient Complexity Should Be Assessed Using More Than Encounter Count
+
+Older patients showed both higher healthcare utilisation and greater condition burden.
+
+This suggests that encounter frequency alone may not fully represent patient complexity.
+
+Healthcare utilisation analysis could therefore be strengthened by considering encounter count alongside distinct conditions, age, healthcare cost and acute-care activity.
+
+---
+
+## 3. Older Patient Groups May Require Greater Service Capacity
 
 Patients aged 65+ recorded 27,615 encounters and an average of 18.56 distinct conditions per patient.
 
-### Recommendation
+This suggests that older patient groups may place greater demand on healthcare services because of both higher utilisation and greater condition burden.
 
-Age should be included as a key dimension when analysing:
-
-- service demand
-- encounter frequency
-- condition burden
-- treatment activity
-- healthcare expenditure
-
-Older age groups should be analysed separately when investigating resource utilisation.
+Age could therefore be an important factor in service-demand analysis, resource planning and workload forecasting.
 
 ---
 
-## 4. Analyse Inpatient and Emergency Cost Drivers Separately
+## 4. Inpatient and Emergency Care Should Be Monitored as High-Cost Service Areas
 
 Inpatient and emergency encounters had the highest average claim and out-of-pocket costs.
 
-### Recommendation
+Although these encounter types occurred less frequently than wellness or ambulatory care, their average financial burden was considerably higher.
 
-Create a focused analysis of these encounter classes to identify:
-
-- most frequent associated conditions
-- high-cost procedures
-- repeat patients
-- average cost by condition
-- total cost by condition
-- common treatment pathways
-
-This would provide a clearer view of what drives high-cost acute care.
+Healthcare cost analysis could therefore give particular attention to inpatient and emergency activity when identifying major cost drivers.
 
 ---
 
-## 5. Evaluate High-Cost Conditions Using Cost and Volume Together
+## 5. High-Cost Conditions Should Be Evaluated Using Both Cost and Frequency
 
-Several rare conditions produced extremely high average claim costs.
+Several severe conditions were associated with very high average claim costs.
 
-For example, some of the highest-cost conditions occurred in only one or a few encounters.
+However, some of the highest average values were based on only a small number of encounters.
 
-### Recommendation
+This means that average claim cost alone may overstate the overall importance of rare conditions.
 
-Do not rank conditions using average claim cost alone.
-
-Use at least the following measures together:
-
-- average claim cost
-- total claim cost
-- encounter count
-- patient count
-
-This reduces the risk of treating rare but expensive events as the largest overall cost drivers.
+Condition-level cost analysis would be more informative when average cost is considered alongside total cost, encounter volume and number of affected patients.
 
 ---
 
-## 6. Separate Diagnoses From Social and Contextual Findings
+## 6. Clinical Diagnoses Should Be Distinguished From Social and Contextual Findings
 
-The Conditions table contains clinical diagnoses alongside findings such as employment status, stress, social isolation and other social observations.
+The Conditions table contains medical diagnoses alongside employment information, social findings, behavioural observations and other contextual records.
 
-### Recommendation
+This creates a risk of misleading rankings if all records are presented as diseases.
 
-Create a classification field that separates records into categories such as:
-
-- clinical disorder
-- finding
-- social determinant
-- situation
-- pregnancy-related record
-- other
-
-Disease-specific reporting should then use only clinically relevant diagnosis categories.
-
-This would make condition rankings and Power BI visuals more interpretable.
+Separating clinical disorders from broader findings and social information would improve the accuracy and interpretability of disease-focused reporting.
 
 ---
 
-## 7. Analyse Preventive and Behavioural Health Activity Separately
+## 7. Preventive and Behavioural Health Activity Should Be Reported as Distinct Service Categories
 
-Health and social-care assessments, depression screening, anxiety assessment and substance-use screening were among the most frequent procedures.
+Several of the most common procedures involved depression screening, anxiety assessment, substance-use assessment and health and social-care evaluation.
 
-### Recommendation
+This suggests that a substantial proportion of recorded healthcare activity relates to prevention, behavioural health and social assessment.
 
-Separate procedure reporting into groups such as:
-
-- preventive care
-- behavioural-health assessment
-- diagnostic procedures
-- therapeutic procedures
-- monitoring and follow-up
-
-This would provide a clearer understanding of the type of healthcare activity being delivered.
+Separating these activities from diagnostic and treatment procedures could provide a clearer picture of how healthcare services are being used.
 
 ---
 
-## 8. Use Cost Bands as an Exploratory Segmentation Tool
+## 8. Cost Segmentation Can Support More Focused Healthcare Cost Analysis
 
-Most encounters were classified as Low Cost, while 18.74% were High Cost.
+Most encounters were classified as Low Cost, while 18.74% were classified as High Cost.
 
-### Recommendation
+This indicates that healthcare costs are not evenly distributed across encounters.
 
-Use cost bands to compare:
+Cost segmentation could be used to compare patient groups, encounter classes and clinical conditions to identify where higher-cost healthcare activity is concentrated.
 
-- encounter class
-- age group
-- condition burden
-- utilisation group
-- clinical condition
-
-The current thresholds are analyst-defined and should be described clearly rather than presented as official healthcare classifications.
+The current cost thresholds should be treated as exploratory analytical categories rather than formal healthcare classifications.
 
 ---
 
-## 9. Investigate the Relationship Between Gender and Utilisation
+## 9. Gender Differences in Utilisation May Warrant Further Analysis
 
-Female patients recorded higher average encounter utilisation than male patients.
+Female patients recorded a higher average number of encounters than male patients.
 
-### Recommendation
+The difference may reflect several factors within the synthetic dataset, including age distribution, pregnancy-related care, preventive screening or differences in condition burden.
 
-Further analysis could compare gender groups using:
-
-- encounter class
-- age distribution
-- pregnancy-related activity
-- condition burden
-- preventive screening
-- average cost per patient
-
-This would help identify which factors contribute to the observed utilisation difference within the synthetic dataset.
+Further demographic analysis could help determine which factors are most strongly associated with this utilisation difference.
 
 ---
 
-## 10. Use City-Level Rather Than State-Level Geographic Analysis
+## 10. Geographic Analysis Is More Meaningful at City Level
 
-All patients were located in Massachusetts, preventing meaningful state-level comparisons.
+All patients in the dataset were located in Massachusetts, which limits the value of state-level comparisons.
 
-### Recommendation
-
-Use city-level geography when exploring:
-
-- patient counts
-- encounter volumes
-- common conditions
-- average claim cost
-- high-utilisation patients
-
-State-level maps or comparisons should be avoided because they would show only one geographic category.
+Geographic analysis would therefore be more meaningful at city level, where differences in patient volume, encounter activity, common conditions and healthcare costs may be more visible.
 
 ---
 
-## 11. Maintain Patient Timeline Validation Rules
+## 11. Healthcare Timeline Validation Should Remain an Important Data-Quality Control
 
-Five medication records had STOP dates before START dates, and 165 encounters occurred after recorded patient death dates.
+Five medication records had STOP dates earlier than START dates, while 165 encounters occurred after recorded patient death dates.
 
-### Recommendation
+These inconsistencies could affect treatment-duration calculations and longitudinal patient analysis.
 
-Future healthcare data pipelines should automatically flag:
-
-- STOP before START
-- encounters before birth
-- encounters after death
-- impossible treatment durations
-- missing patient or encounter references
-
-These checks should be completed before calculating patient journeys, duration measures or longitudinal trends.
+Healthcare data pipelines would benefit from routine checks for impossible or inconsistent patient timelines before the data is used for reporting.
 
 ---
 
-## 12. Preserve Source-Data Issues Rather Than Silently Correcting Them
+## 12. Source-Data Quality Issues Should Be Clearly Documented
 
-The logical inconsistencies identified during validation were documented rather than overwritten.
+The analysis identified a small number of logical inconsistencies while most structural checks passed successfully.
 
-### Recommendation
+Clearly documenting these issues improves transparency and helps users understand which findings may be affected by source-data limitations.
 
-Continue using this approach in analytical projects.
-
-Where source data contains questionable values:
-
-1. identify the issue
-2. quantify the affected records
-3. document the analytical impact
-4. exclude or correct records only where there is a justified rule
-5. retain transparency in the project documentation
-
-This produces a more defensible analytical workflow.
+Where questionable records are retained, their potential analytical impact should be made clear rather than being silently ignored.
 
 ---
 
 # Overall Recommendation
 
-The strongest analytical opportunity is to combine patient demographics, condition burden, encounter utilisation and cost into a patient-level view.
+The analysis suggests that healthcare utilisation, condition burden and cost should be considered together rather than independently.
 
-Rather than analysing each healthcare table independently, a future extension could create a patient summary model containing:
+A patient-level analytical view combining demographics, encounter frequency, condition burden, treatment activity and healthcare cost could provide a more complete understanding of healthcare demand.
 
-- patient demographics
-- total encounters
-- utilisation group
-- distinct condition count
-- total medication activity
-- total procedure activity
-- total claim cost
-- inpatient encounters
-- emergency encounters
-
-This would provide a more complete view of patient complexity and healthcare demand while avoiding direct many-to-many joins between transactional clinical tables.
+This would make it easier to distinguish between high-utilisation patients, high-cost patients and patients with greater clinical complexity, while supporting more focused service and resource analysis.
