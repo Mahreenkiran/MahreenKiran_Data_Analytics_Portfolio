@@ -86,7 +86,7 @@ Seven related tables were analysed.
 ## Data Coverage
 
 | Table | Records |
-| :--- | ---: |
+| :--- | :--- |
 | Patients | 1,163 |
 | Encounters | 61,459 |
 | Conditions | 38,094 |
@@ -251,7 +251,7 @@ The analysis combined patient-level aggregation, clinical activity, healthcare u
 Healthcare activity was dominated by **Wellness** and **Ambulatory** visits.
 
 | Visit Type | Healthcare Visits |
-| :--- | ---: |
+| :--- | :--- |
 | Wellness | 24,038 |
 | Ambulatory | 20,124 |
 | Outpatient | 10,837 |
@@ -264,7 +264,7 @@ Patients aged **65+ recorded 27,615 healthcare visits**, substantially more than
 Healthcare utilisation was also highly concentrated.
 
 | Utilisation Group | Patients | Share |
-| :--- | ---: | ---: |
+| :--- | :--- | :--- |
 | Low Utilisation | 725 | 62.34% |
 | Medium Utilisation | 423 | 36.37% |
 | High Utilisation | 15 | 1.29% |
@@ -318,7 +318,7 @@ After excluding the highly dominant **Full-time employment** and **Part-time emp
 Average distinct condition burden also increased strongly with age.
 
 | Age Group | Average Conditions Per Patient |
-| :--- | ---: |
+| :--- | :--- |
 | 65+ | 18.56 |
 | 50–64 | 16.29 |
 | 35–49 | 14.37 |
@@ -349,7 +349,7 @@ Which medications are recorded most frequently?
 The most frequently recorded medications included:
 
 | Medication | Records |
-| :--- | ---: |
+| :--- | :--- |
 | Lisinopril 10 MG Oral Tablet | 8,166 |
 | Hydrochlorothiazide 25 MG | 7,509 |
 | Amlodipine 2.5 MG Oral Tablet | 5,942 |
@@ -423,7 +423,7 @@ However, inpatient visits had the highest average claim cost.
 Healthcare visits were segmented using analyst-defined thresholds.
 
 | Cost Band | Definition | Visits | Share |
-| :--- | :--- | ---: | ---: |
+| :--- | :--- | :--- | :--- |
 | Low Cost | < £1,000 | 36,233 | 58.95% |
 | Medium Cost | £1,000 to < £5,000 | 13,707 | 22.30% |
 | High Cost | ≥ £5,000 | 11,519 | 18.74% |
