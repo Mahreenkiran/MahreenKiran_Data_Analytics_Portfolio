@@ -675,9 +675,9 @@ The findings and recommendations demonstrate analytical methods and business int
 # Repository Structure
 
 ```text
-AdventureWorks_Sales_Analysis/
+Project_01_AdventureWorks_Sales_Analysis/
 │
-├── README.md
+├── README_AdventureWorks_Sales_Analysis.md
 │
 ├── SQL/
 │   ├── 01_data_quality_checks.sql
