@@ -16,4 +16,4 @@ The report contains three pages:
 2. Clinical Insights
 3. Cost Insights
 
-[Return to Main Project README](../README.md)
+[Return to Main Project README](../README_Synthea_Healthcare_Analysis.md)
