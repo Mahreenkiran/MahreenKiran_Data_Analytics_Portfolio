@@ -112,9 +112,6 @@ The available healthcare records cover a long historical period, with visit-year
 - **GitHub**
 - **Markdown**
 
-[⬅ Previous: Business Objective](#business-objective)  
-[➡ Next: Data Model](#data-model)
-
 ---
 
 <a id="data-model"></a>
@@ -149,9 +146,6 @@ Foreign-key relationships were used to validate patient and encounter links acro
 [View Primary and Foreign Key SQL](./SQL/01_primary_foreign_key_constraints.sql)
 
 [View Healthcare Data Dictionary](./Documentation/Synthea_Healthcare_Data_Dictionary.xlsx)
-
-[⬅ Previous: Dataset](#dataset)  
-[➡ Next: Data Quality Validation](#data-quality-section)
 
 ---
 
@@ -208,9 +202,6 @@ These issues were documented rather than silently corrected because they may aff
 
 [View Data Quality Summary](./Findings/data_quality_summary.md)
 
-[⬅ Previous: Data Model](#data-model)  
-[➡ Next: Core Healthcare KPIs](#core-kpis)
-
 ---
 
 <a id="core-kpis"></a>
@@ -230,9 +221,6 @@ These issues were documented rather than silently corrected because they may aff
 | Payer Coverage | 24.91% |
 
 These KPIs provide the overall healthcare context, but the more important analytical question is **what is driving patient activity and healthcare cost**.
-
-[⬅ Previous: Data Quality Validation](#data-quality-section)  
-[➡ Next: SQL Analysis](#sql-analysis-section)
 
 ---
 
@@ -471,9 +459,6 @@ The final report includes:
 2. Clinical Insights
 3. Cost Insights
 
-[⬅ Previous: SQL Analysis](#sql-analysis-section)  
-[➡ Next: Dashboard Preview](#dashboard-preview)
-
 ---
 
 <a id="dashboard-preview"></a>
@@ -542,9 +527,6 @@ The Conditions table includes both clinical diagnoses and broader findings, so t
 
 [Download Interactive Dashboard.pbix](./POWERBI/Synthea_Healthcare_Analysis.pbix)
 
-[⬅ Previous Dashboard: Utilisation Overview](#dashboard-preview)  
-[➡ Next Dashboard: Cost Insights](#cost-dashboard)
-
 ---
 
 <a id="cost-dashboard"></a>
@@ -579,9 +561,6 @@ Cost-band definitions are shown directly in the visual:
 ![Cost Insights](./Images/03_cost_insights.png)
 
 [Download Interactive Dashboard.pbix](./POWERBI/Synthea_Healthcare_Analysis.pbix)
-
-[⬅ Previous Dashboard: Clinical Insights](#clinical-dashboard)  
-[⬆ Back to Quick Navigation](#quick-navigation)
 
 ---
 
