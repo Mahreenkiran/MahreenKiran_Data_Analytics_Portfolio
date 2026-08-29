@@ -357,6 +357,7 @@ Which medications are recorded most frequently?
 ### Insight
 
 The concentration of cardiovascular and metabolic medications is consistent with the higher condition burden observed among older patients and suggests that chronic disease management represents an important component of treatment activity in the dataset.
+
 ### Techniques Used
 
 `Aggregation` `GROUP BY` `Ranking` `Top N Analysis`
