@@ -1,65 +1,78 @@
 # Patient Conditions, Treatment and Healthcare Utilisation Analysis
 
+## Project Overview
+
+This project analyses **synthetic Synthea healthcare data** to understand patient demographics, healthcare utilisation, clinical conditions and findings, treatment activity and healthcare costs.
+
+The analysis combines **SQL Server, Power BI, DAX and healthcare-focused data interpretation** to answer practical analytical questions such as:
+
+- Which patient groups use healthcare services most frequently?
+- Which types of healthcare visits occur most often?
+- How does healthcare utilisation vary by age and gender?
+- Which conditions and findings are associated with the greatest number of visits?
+- Which medications and procedures are recorded most frequently?
+- How concentrated is healthcare activity among high-utilisation patients?
+- Which visit types generate the highest claim costs?
+- How are healthcare visits distributed across low, medium and high-cost bands?
+- How much of total claim cost is covered by payers?
+- What data-quality issues could affect longitudinal healthcare analysis?
+
+The project follows an end-to-end analytical workflow:
+
+**database design → data validation → SQL analysis → derived metrics → DAX development → Power BI reporting → findings and recommendations**
+
+Synthea generates synthetic healthcare records and does not contain real patient information.
+
+---
+
+<a id="quick-navigation"></a>
+
 ## Quick Navigation
 
-[Project Overview](#project-overview) •
-[Business Problem](#business-problem) •
-[Dataset](#dataset-and-database) •
-[Data Model](#data-model) •
-[Data Quality](#data-quality-validation) •
-[Healthcare KPIs](#core-healthcare-kpis) •
-[SQL Analysis](#sql-analysis) •
-[Power BI](#power-bi-analysis-and-dashboard) •
-[Key Findings](#key-findings) •
-[Recommendations](#recommendations) •
-[Limitations](#limitations)
+| Data & Analysis | Reporting & Outcomes |
+| :--- | :--- |
+| [Business Objective](#business-objective) | [Power BI Analysis](#powerbi) |
+| [Dataset](#dataset) | [Power BI Dashboard Preview](#dashboard-preview) |
+| [Data Model](#data-model) | [Key Findings](#key-findings-section) |
+| [Data Quality Validation](#data-quality-section) | [Recommendations](#recommendations-section) |
+| [Derived Fields & Calculations](#derived-fields) | [Skills Demonstrated](#skills) |
+| [Core Healthcare KPIs](#core-kpis) | [Limitations](#limitations-section) |
+| [SQL Analysis](#sql-analysis-section) | [Conclusion](#conclusion) |
+| [Repository Structure](#repository-structure) | [Project Files](#project-files-section) |
 
 ---
 
-# Project Overview
+---
 
-This project analyses synthetic healthcare data generated using Synthea to investigate patient demographics, healthcare utilisation, clinical conditions and findings, treatment activity and healthcare costs.
+<a id="business-objective"></a>
 
-The project follows an end-to-end analytics workflow using SQL Server and Power BI.
+# Business Objective
 
-The analysis included:
+The objective was not simply to count healthcare records, but to understand the patterns behind **patient activity, clinical burden, treatment utilisation and healthcare cost**.
 
-- relational database design and validation
-- primary and foreign key implementation
-- data-quality and referential-integrity testing
-- logical and date validation
-- derived patient, utilisation and cost fields
-- healthcare utilisation analysis
-- patient condition burden analysis
-- medication and procedure activity
-- demographic and clinical comparisons
-- healthcare cost analysis
-- patient and encounter segmentation
-- Power BI dashboard development
+The analysis focused on four main areas.
 
-The dataset is fully synthetic and does not contain real patient information.
+### [Patient and Healthcare Utilisation](#1-patient-and-healthcare-utilisation)
+
+Understanding the patient population, visit frequency, visit types, utilisation patterns and changes in healthcare activity over time.
+
+### [Clinical Activity](#2-clinical-conditions-and-findings)
+
+Identifying frequently recorded conditions and findings, common medications, common procedures and differences across patient characteristics.
+
+### [Healthcare Costs](#5-healthcare-cost-analysis)
+
+Assessing total and average claim costs, high-cost healthcare visits, payer coverage and the distribution of healthcare visits across cost bands.
+
+### [Data Quality and Patient Timelines](#data-quality-section)
+
+Validating relational integrity, clinical fields, healthcare costs and longitudinal patient timelines before interpreting analytical results.
+
+[⬆ Back to Quick Navigation](#quick-navigation)
 
 ---
 
-# Business Problem
-
-Healthcare data contains multiple interconnected sources covering patients, encounters, diagnoses, medications, procedures and costs.
-
-The purpose of this project was to build a structured healthcare database and answer analytical questions such as:
-
-- What is the overall level of healthcare activity?
-- Which patient groups use healthcare services most frequently?
-- Which encounter types occur most often?
-- How does healthcare utilisation vary by age and gender?
-- Which conditions and findings appear most frequently?
-- Which medications and procedures are used most frequently?
-- Which patients experience the highest condition burden?
-- Which encounter types generate the highest costs?
-- How concentrated is healthcare utilisation among high-use patients?
-- Which severe conditions are associated with high average claim costs?
-- Are there logical or structural data-quality problems that could affect the analysis?
-
----
+<a id="dataset"></a>
 
 # Dataset and Database
 
@@ -68,7 +81,7 @@ The project uses synthetic patient-level CSV data generated by Synthea and impor
 Seven related healthcare tables were analysed.
 
 | Table | Rows | Purpose |
-|---|---:|---|
+|---|:---|---|
 | Patients | 1,163 | Patient demographics and healthcare expenditure information |
 | Encounters | 61,459 | Healthcare visits and encounter-level costs |
 | Conditions | 38,094 | Diagnoses, conditions, findings and social observations |
@@ -77,111 +90,76 @@ Seven related healthcare tables were analysed.
 | Allergies | 794 | Patient allergy records |
 | Careplans | 3,931 | Patient care plan records |
 
-All 1,163 patients had at least one recorded healthcare encounter.
+> **Terminology:** Synthea stores healthcare visits in the `Encounters` table. Throughout this project, **encounter** is used when referring to the database structure, while **healthcare visit** is used in business-facing analysis and Power BI reporting.
+
+All **1,163 patients** had at least one recorded healthcare visit.
+
+The available healthcare records cover a long historical period, with visit-year analysis spanning approximately **1912 to 2021** in the final Power BI report.
 
 ---
 
 # Tools and Technologies
 
-- SQL Server 2025 Express
-- SQL Server Management Studio
-- T-SQL
-- Power BI Desktop
-- Power Query
-- DAX
-- GitHub
-- Markdown
+- **SQL Server 2025 Express**
+- **SQL Server Management Studio**
+- **T-SQL**
+- **Power BI Desktop**
+- **Power Query**
+- **DAX**
 
 ---
+
+<a id="data-model"></a>
 
 # Data Model
 
-The relational model is centred on the `Patients` and `Encounters` tables.
+The model is centred on **Patients** and **Encounters**, with **one-to-many relationships** linking patients to **Conditions, Medications, Procedures, Allergies and Careplans** *(clinical activity tables)*.
 
-`Patients` has one-to-many relationships with:
+| Key Structure | Tables / Fields | Relationship Type |
+| :--- | :--- | :--- |
+| **Primary Keys** | `Patients.PatientID`, `Encounters.EncounterID`, `Careplans.CareplanID` | Unique identifier |
+| **Patient Relationships** | Patients → Encounters, Conditions, Medications, Procedures, Allergies, Careplans | One-to-many |
+| **Encounter Relationships** | Encounters → Conditions, Medications, Procedures, Allergies, Careplans | One-to-many |
 
-- Encounters
-- Conditions
-- Medications
-- Procedures
-- Allergies
-- Careplans
-
-`Encounters` also has one-to-many relationships with:
-
-- Conditions
-- Medications
-- Procedures
-- Allergies
-- Careplans
-
-Primary keys were implemented for:
-
-- `Patients.PatientID`
-- `Encounters.EncounterID`
-- `Careplans.CareplanID`
-
-Foreign-key constraints were used to validate patient and encounter relationships across the clinical tables.
+Foreign-key relationships were used to validate patient and encounter links across the model.
 
 ![Synthea Healthcare Data Model](./Images/synthea_data_model.png)
 
-### Explore the database structure
+### Explore the Database Structure
 
 [View Primary and Foreign Key SQL](./SQL/01_primary_foreign_key_constraints.sql)
 
-[View Data Dictionary](./Documentation/Synthea_Healthcare_Data_Dictionary.xlsx)
+[View Healthcare Data Dictionary](./Documentation/Synthea_Healthcare_Data_Dictionary.xlsx)
 
 ---
 
+<a id="data-quality-section"></a>
+
 # Data Quality Validation
 
-Before performing the healthcare analysis, structural, logical and clinical validation checks were completed.
+Before analysis, the dataset was validated for structural integrity, clinical completeness, cost anomalies and timeline consistency.
 
-Validation included:
+## Issues Identified
 
-- row counts
-- duplicate primary-key checks
-- NULL primary-key checks
-- unmatched patient relationships
-- unmatched encounter relationships
-- missing clinical codes
-- missing clinical descriptions
-- negative healthcare cost checks
-- invalid encounter date sequences
-- invalid condition date sequences
-- invalid medication date sequences
-- invalid procedure date sequences
-- invalid allergy date sequences
-- invalid careplan date sequences
-- patient death before birth
-- encounters before patient birth
-- encounters after recorded patient death
+| Validation Area | Finding |
+| :--- | :--- |
+| **Medication Timelines** | **5 records** had `STOP` earlier than `START` |
+| **Patient Timelines** | **165 healthcare visits** occurred after recorded patient death |
 
-## Structural validation
+These findings were retained and documented so their potential impact on medication-duration and longitudinal patient-journey analysis remains transparent.
 
-No duplicate primary keys, NULL primary keys or unmatched patient or encounter relationships were identified.
+## No Issues Found
 
-No missing key clinical codes or descriptions were found in the tested clinical tables.
+| Validation Area | Result |
+| :--- | :--- |
+| **Primary Keys** | No duplicate or NULL primary keys identified |
+| **Relationships** | No unmatched patient or encounter relationships found |
+| **Clinical Fields** | No missing key clinical codes or descriptions identified |
+| **Healthcare Costs** | No negative values found in tested cost fields |
 
-No negative encounter, medication, procedure or patient healthcare cost values were identified.
+The remaining validation checks showed strong structural and analytical consistency across the tested healthcare data.
 
-## Logical validation issues
-
-Two timeline issues were identified.
-
-### Medication timeline inconsistencies
-
-Five medication records had a `STOP` date earlier than the corresponding `START` date.
-
-These records were retained as source-data quality findings and treated cautiously when interpreting medication duration.
-
-### Encounters after recorded patient death
-
-165 encounter records occurred after the associated patient's recorded death date.
-
-These records demonstrate the importance of validating longitudinal healthcare data before analysing patient journeys or treatment timelines.
-
-### Explore the validation work
+### Explore the Validation Work
 
 [View Data Quality SQL](./SQL/02_data_quality_validation.sql)
 
@@ -193,140 +171,76 @@ These records demonstrate the importance of validating longitudinal healthcare d
 
 ---
 
+<a id="derived-fields"></a>
+
 # Derived Fields and Analytical Calculations
 
-Several fields were derived to support the healthcare analysis.
+Several derived fields were created to support patient, utilisation, clinical and cost analysis, including **age, age group, life status, visit/medication/condition duration, year/month fields, coverage measures, out-of-pocket cost, cost bands, visit counts and utilisation groups**.
 
-These included:
+| Analytical Group | Purpose | Definition |
+| :--- | :--- | :--- |
+| **Age Groups** | Compare patterns across life stages. | • **0–17:** Children and adolescents<br>• **18–34:** Younger adults<br>• **35–49:** Mid-age adults<br>• **50–64:** Older working-age adults<br>• **65+:** Older adults |
+| **Patient Utilisation** | Identify different levels of healthcare service use. | • **Low Utilisation:** 50 visits or fewer<br>• **Medium Utilisation:** 51 to 250 visits<br>• **High Utilisation:** more than 250 visits |
+| **Visit Cost Bands** | Compare low, medium and high-cost healthcare visits. | • **Low Cost:** below £1,000<br>• **Medium Cost:** £1,000 to below £5,000<br>• **High Cost:** £5,000 or more |
+| **Date & Time Variables** | Support trend and duration analysis. | • **Visit:** year, month and year-month<br>• **Visit Duration:** hours<br>• **Medication Duration:** days<br>• **Condition Duration:** days |
 
-- patient age
-- patient age group
-- alive/deceased status
-- encounter duration
-- medication duration
-- condition duration
-- encounter year
-- encounter month
-- encounter year-month
-- healthcare coverage percentage
-- uncovered healthcare expenditure
-- encounter payer coverage percentage
-- out-of-pocket amount
-- encounter cost bands
-- encounter count per patient
-- patient utilisation groups
-
-## Age Groups
-
-Patients were grouped into:
-
-- 0-17
-- 18-34
-- 35-49
-- 50-64
-- 65+
-
-## Patient Utilisation Groups
-
-Patients were segmented according to encounter frequency:
-
-- Low Utilisation: 50 encounters or fewer
-- Medium Utilisation: 51 to 250 encounters
-- High Utilisation: more than 250 encounters
-
-## Encounter Cost Bands
-
-Encounters were segmented using total claim cost:
-
-- Low Cost: below $1,000
-- Medium Cost: $1,000 to below $5,000
-- High Cost: $5,000 or more
-
-These utilisation and cost thresholds are analyst-defined segmentation rules used for exploratory analysis.
+Utilisation and cost thresholds are **analyst-defined exploratory segmentation rules**.
 
 [View Derived Fields and Calculations SQL](./SQL/05_derived_fields_calculations.sql)
 
+[⬆ Back to Quick Navigation](#quick-navigation)
+
 ---
+
+<a id="core-kpis"></a>
 
 # Core Healthcare KPIs
 
 | KPI | Result |
-|---|---:|
+| :--- | :--- |
 | Total Patients | 1,163 |
-| Total Encounters | 61,459 |
+| Total Healthcare Visits | 61,459 |
 | Condition Records | 38,094 |
 | Medication Records | 56,430 |
 | Procedure Records | 83,823 |
-| Allergy Records | 794 |
-| Careplans | 3,931 |
-| Patients With Encounters | 1,163 |
-| Total Claim Cost | $255.03M |
-| Average Claim Cost | $4,149.66 |
+| Total Claim Cost | £255.03M |
+| Average Claim Cost | £4,149.66 |
+| High-Cost Visits | 11,519 |
+| Payer Coverage | 24.91% |
 
-These KPIs provide the overall context for the patient, utilisation, clinical and cost analysis.
+These KPIs provide the overall healthcare context, but the more important analytical question is **what is driving patient activity and healthcare cost**.
 
 ---
+
+<a id="sql-analysis-section"></a>
 
 # SQL Analysis
 
-The SQL analysis was structured around healthcare and operational questions rather than isolated technical exercises.
+The SQL analysis was structured around healthcare and analytical questions rather than isolated technical exercises.
+
+The analysis combined patient-level aggregation, clinical activity, healthcare utilisation, segmentation and cost analysis.
 
 ---
 
-## 1. Patient Demographics
+## 1. Patient and Healthcare Utilisation
 
-### Business questions
+### Business Questions
 
-- How is the patient population distributed by age?
-- How is the population distributed by gender?
-- How many patients are alive or deceased?
-- Which demographic groups show the highest healthcare utilisation?
+- How many patients and healthcare visits are recorded?
+- Which visit types occur most frequently?
+- Which patients have the highest healthcare utilisation?
+- How does utilisation vary across age groups?
+- How does average utilisation differ by gender?
+- How concentrated is healthcare activity among high-utilisation patients?
+- How has healthcare activity changed over time?
 
-### Key insight
+### Key Findings
 
-The largest age group was patients aged 65+, with 293 patients.
+- **Finding 1: Healthcare activity was concentrated in routine visit types.**  
+  Wellness and Ambulatory visits accounted for the largest share of healthcare activity.
 
-Patient age distribution was:
-
-| Age Group | Patients |
-|---|---:|
-| 65+ | 293 |
-| 18-34 | 261 |
-| 50-64 | 245 |
-| 35-49 | 188 |
-| 0-17 | 176 |
-
-The population contained 616 female and 547 male patients.
-
-There were 1,000 patients recorded as alive and 163 recorded as deceased.
-
-### Techniques used
-
-- `CASE`
-- aggregation
-- `GROUP BY`
-- date calculations
-- demographic segmentation
-
-[View Business Analysis SQL](./SQL/06_business_analysis.sql)
-
----
-
-## 2. Healthcare Utilisation
-
-### Business questions
-
-- Which encounter classes occur most often?
-- Which patients use healthcare services most frequently?
-- How does utilisation vary by age?
-- How concentrated is healthcare activity among high-use patients?
-
-### Key insight
-
-Wellness and ambulatory encounters dominated healthcare activity.
-
-| Encounter Class | Encounters |
-|---|---:|
+| Visit Type | Healthcare Visits |
+| :--- | :--- |
 | Wellness | 24,038 |
 | Ambulatory | 20,124 |
 | Outpatient | 10,837 |
@@ -334,573 +248,585 @@ Wellness and ambulatory encounters dominated healthcare activity.
 | Emergency | 2,168 |
 | Inpatient | 1,728 |
 
-Healthcare activity increased substantially with age.
+- **Finding 2: Utilisation was concentrated among older patients and a very small high-use group.**  
+  Patients aged **65+ recorded 27,615 healthcare visits**, the highest of any age group.
 
-| Age Group | Encounters |
-|---|---:|
-| 65+ | 27,615 |
-| 50-64 | 13,468 |
-| 18-34 | 9,254 |
-| 35-49 | 7,915 |
-| 0-17 | 3,207 |
-
-Patients aged 65+ therefore recorded the highest healthcare utilisation by a substantial margin.
-
-### Patient utilisation segmentation
-
-| Utilisation Group | Patients | Percentage |
-|---|---:|---:|
+| Utilisation Group | Patients | Share |
+| :--- | :--- | :--- |
 | Low Utilisation | 725 | 62.34% |
 | Medium Utilisation | 423 | 36.37% |
 | High Utilisation | 15 | 1.29% |
 
-Only 1.29% of patients belonged to the High Utilisation group.
+Only **15 patients (1.29%)** were classified as High Utilisation, showing that extreme healthcare use was concentrated in a very small patient segment.
 
-The highest-utilisation individual patient recorded 1,563 encounters.
+Female patients also recorded higher average utilisation at **57.68 visits per patient**, compared with **47.40 among male patients**.
 
-### Techniques used
+### Insight
 
-- aggregation
-- `COUNT`
-- CTEs
-- `CASE`
-- utilisation segmentation
-- percentage calculations
-- ranking
+Healthcare demand in the synthetic population was shaped by both **routine visit activity** and **concentrated utilisation among older and high-use patients**, indicating that visit type, age and patient-level utilisation should be considered together.
+
+### Techniques Used
+
+`Aggregation` `CTEs` `CASE` `COUNT(DISTINCT)` `Patient-Level Aggregation`<br>
+`Age Segmentation` `Utilisation Segmentation` `Percentage Calculations` `Date Analysis`
 
 [View Business Analysis SQL](./SQL/06_business_analysis.sql)
 
+[⬆ Back to Quick Navigation](#quick-navigation)
+
 ---
 
-## 3. Condition Burden and Clinical Patterns
+## 2. Clinical Conditions and Findings
 
-### Business questions
+### Business Questions
 
-- Which conditions and findings occur most frequently?
-- How does condition burden vary with age?
-- Which conditions appear most frequently by gender?
-- Which clinical conditions are associated with greater healthcare activity?
+- Which conditions and findings are associated with the greatest number of healthcare visits?
+- How does condition burden vary by age?
+- Which clinical patterns differ across demographic groups?
+- How many unique condition types are represented?
 
-### Important interpretation
+### Key Findings
 
-The Synthea `Conditions` table contains more than medical diagnoses.
+- **Finding 1: The Conditions table includes both clinical diagnoses and broader social or contextual findings.**  
+  Records include items such as **stress, social isolation, employment status and behavioural observations**, so disease-specific interpretation requires care.
 
-It also includes:
+  After excluding the highly dominant **Full-time employment** and **Part-time employment** findings, frequently recorded conditions and findings included:
 
-- clinical findings
-- employment information
-- social determinants
-- behavioural observations
-- situations
+  - Stress
+  - Social isolation
+  - Viral sinusitis
+  - Limited social contact
+  - Not in labour force
+  - Victim of intimate partner abuse
+  - Acute viral pharyngitis
+  - Acute bronchitis
 
-For this reason, records from the Conditions table are described as **conditions and findings** unless the analysis is specifically restricted to clinical diagnoses.
-
-### Overall condition and finding activity
-
-The most frequently recorded entries included:
-
-| Record | Count |
-|---|---:|
-| Full-time employment (finding) | 13,805 |
-| Stress (finding) | 5,137 |
-| Part-time employment (finding) | 2,426 |
-| Social isolation (finding) | 1,243 |
-| Viral sinusitis (disorder) | 1,233 |
-
-Among clearly clinical conditions, common records included:
-
-- Viral sinusitis
-- Acute viral pharyngitis
-- Acute bronchitis
-- Prediabetes
-- Anaemia
-- Hypertension
-- Chronic sinusitis
-- Otitis media
-
-### Condition burden by age
-
-Average distinct conditions per patient increased consistently with age.
+- **Finding 2: Condition burden increased substantially with age.**  
+  Patients aged **65+ recorded the highest average distinct condition burden at 18.56 conditions per patient**, compared with **4.02 among patients aged 0–17**.
 
 | Age Group | Average Conditions Per Patient |
-|---|---:|
+| :--- | :--- |
 | 65+ | 18.56 |
-| 50-64 | 16.29 |
-| 35-49 | 14.37 |
-| 18-34 | 10.66 |
-| 0-17 | 4.02 |
+| 50–64 | 16.29 |
+| 35–49 | 14.37 |
+| 18–34 | 10.66 |
+| 0–17 | 4.02 |
 
-This shows a strong increase in condition burden across older patient groups.
+This shows a clear increase in recorded condition burden across older age groups within the synthetic population.
 
-### Techniques used
+### Insight
 
-- `COUNT(DISTINCT)`
-- CTEs
-- patient-level aggregation
-- age segmentation
-- multi-table joins
+The clinical profile shows that interpretation requires both **age-related condition burden** and the distinction between **medical diagnoses and broader social or contextual findings**, rather than treating all condition records as equivalent.
 
-[View Demographic and Clinical Analysis SQL](./SQL/07_demographic_clinical_analysis.sql)
+### Techniques Used
 
----
-
-## 4. Gender and Utilisation
-
-### Business questions
-
-- Does average healthcare utilisation differ by gender?
-- Which conditions occur most frequently among male and female patients?
-
-### Key insight
-
-Female patients recorded higher average healthcare utilisation.
-
-| Gender | Average Encounters Per Patient |
-|---|---:|
-| Female | 57.68 |
-| Male | 47.40 |
-
-The most common disorder-level patterns were broadly similar across both groups.
-
-Viral sinusitis was the most frequent disorder-level record for both male and female patients, followed by conditions such as acute viral pharyngitis and acute bronchitis.
-
-The gender difference should be interpreted as a characteristic of this synthetic dataset rather than a general population-level healthcare conclusion.
+`COUNT(DISTINCT)` `Multi-Table Joins` `Age Segmentation` `Clinical Ranking`<br>
+`Patient-Level Aggregation` `Condition Burden Analysis`
 
 [View Demographic and Clinical Analysis SQL](./SQL/07_demographic_clinical_analysis.sql)
 
+[⬆ Back to Quick Navigation](#quick-navigation)
+
 ---
 
-## 5. Medication Activity
+## 3. Medication Activity
 
-### Business question
+### Business Question
 
 Which medications are recorded most frequently?
 
-### Key insight
+### Key Findings
 
-The most frequently recorded medications included:
+- **Finding 1: Cardiovascular medications dominated the most frequently recorded treatments.**  
+  Lisinopril, Hydrochlorothiazide and Amlodipine were the three most commonly recorded medications.
 
 | Medication | Records |
-|---|---:|
+| :--- | :--- |
 | Lisinopril 10 MG Oral Tablet | 8,166 |
-| Hydrochlorothiazide 25 MG Oral Tablet | 7,509 |
+| Hydrochlorothiazide 25 MG | 7,509 |
 | Amlodipine 2.5 MG Oral Tablet | 5,942 |
-| Humulin Insulin Suspension | 4,068 |
-| Metformin ER 500 MG | 2,996 |
+| Insulin Human Isophane | 4,068 |
+| Metformin | 2,996 |
 | Simvastatin 10 MG Oral Tablet | 2,489 |
 
-The medication mix includes substantial cardiovascular, metabolic and diabetes-related treatment activity.
+- **Finding 2: The medication profile reflects substantial cardiovascular and metabolic treatment activity.**  
+  Frequently recorded therapies included antihypertensive, lipid-lowering and diabetes-related medications, indicating a strong presence of cardiovascular and metabolic care within the synthetic population.
 
-### Techniques used
+### Insight
 
-- aggregation
-- medication ranking
-- `GROUP BY`
-- `ORDER BY`
+The concentration of cardiovascular and metabolic medications is consistent with the higher condition burden observed among older patients and suggests that chronic disease management represents an important component of treatment activity in the dataset.
 
-[View Business Analysis SQL](./SQL/06_business_analysis.sql)
+### Techniques Used
 
----
-
-## 6. Procedure Activity
-
-### Business question
-
-Which procedures and assessments occur most frequently?
-
-### Key insight
-
-Preventive, behavioural and social-care assessments formed a substantial part of procedure activity.
-
-| Procedure | Records |
-|---|---:|
-| Assessment of health and social care needs | 8,901 |
-| Depression screening | 7,727 |
-| PHQ-2 depression screening | 6,940 |
-| Assessment of substance use | 6,199 |
-| Medication reconciliation | 6,032 |
-| Assessment of anxiety | 4,954 |
-
-The results demonstrate that healthcare activity in the dataset extends beyond treatment procedures to include preventive screening, behavioural health and social-care assessment.
+`Aggregation` `GROUP BY` `Ranking` `Top N Analysis`
 
 [View Business Analysis SQL](./SQL/06_business_analysis.sql)
 
+[⬆ Back to Quick Navigation](#quick-navigation)
+
 ---
 
-## 7. Healthcare Costs
+## 4. Procedure Activity
 
-### Business questions
+### Business Question
 
-- Which encounter types generate the greatest total claim cost?
-- Which encounter classes have the highest average claim cost?
-- Which encounter types have the highest average out-of-pocket cost?
-- How are encounters distributed across cost bands?
+Which procedures and healthcare assessments are recorded most frequently?
 
-### Total and average claim cost by encounter class
+### Key Findings
 
-| Encounter Class | Total Claim Cost | Average Claim Cost |
-|---|---:|---:|
-| Ambulatory | $131.29M | $6,524.19 |
-| Wellness | $45.90M | $1,909.49 |
-| Outpatient | $30.64M | $2,827.51 |
-| Emergency | $17.18M | $7,926.41 |
-| Inpatient | $15.15M | $8,766.00 |
-| Urgent Care | $14.87M | $5,798.27 |
+- **Finding 1: Preventive and assessment-based procedures dominated the most frequently recorded activity.**  
+  Several of the leading procedures focused on screening, assessment and care review rather than direct treatment.
 
-Ambulatory encounters generated the highest total claim cost because of their high volume.
+Leading procedure activity included:
 
-Inpatient encounters recorded the highest average claim cost.
+- Assessment of health and social care needs
+- Depression screening
+- PHQ-based depression screening
+- Assessment of substance use
+- Medication reconciliation
+- Assessment of anxiety
 
-### Average out-of-pocket cost
+- **Finding 2: Behavioural-health and social-care activity formed an important part of the procedure profile.**  
+  Depression, anxiety, substance-use and social-care assessments appeared repeatedly among the most common procedures.
 
-| Encounter Class | Average Out-of-Pocket Cost |
-|---|---:|
-| Inpatient | $7,461.18 |
-| Emergency | $6,065.60 |
-| Ambulatory | $4,982.29 |
-| Urgent Care | $4,362.66 |
-| Outpatient | $2,105.95 |
-| Wellness | $1,297.46 |
+### Insight
 
-Inpatient and emergency encounters therefore represented the highest encounter-level financial burden within the synthetic dataset.
+The procedure profile suggests that healthcare activity in the dataset extends beyond treatment alone, with a strong emphasis on **preventive care, behavioural-health screening and ongoing patient assessment**.
 
-### Encounter cost segmentation
+### Techniques Used
 
-| Cost Band | Encounters | Percentage |
-|---|---:|---:|
-| Low Cost | 36,233 | 58.95% |
-| Medium Cost | 13,707 | 22.30% |
-| High Cost | 11,519 | 18.74% |
-
-Most encounters were below $1,000, although almost one in five were classified as High Cost.
-
-### Techniques used
-
-- `SUM`
-- `AVG`
-- `ROUND`
-- `NULLIF`
-- arithmetic calculations
-- CTEs
-- conditional segmentation
-- percentage contribution
+`Aggregation` `Procedure Ranking` `Top N Analysis` `Clinical Activity Interpretation`
 
 [View Business Analysis SQL](./SQL/06_business_analysis.sql)
 
----
-
-## 8. High-Cost Clinical Conditions
-
-### Business question
-
-Which conditions are associated with the highest average healthcare claim costs?
-
-### Key insight
-
-Some severe acute conditions were associated with very high average claim costs.
-
-| Condition | Encounters | Average Claim Cost |
-|---|---:|---:|
-| Injury of kidney | 1 | $284,854.75 |
-| Acute respiratory distress syndrome | 4 | $232,212.84 |
-| Septic shock | 6 | $193,573.55 |
-| Sepsis | 40 | $112,588.67 |
-| Myocardial infarction | 20 | $75,432.97 |
-| Stroke | 49 | $25,496.00 |
-
-The highest averages were sometimes based on very small numbers of encounters.
-
-For this reason, encounter volume should always be considered alongside average claim cost when interpreting high-cost conditions.
-
-[View Demographic and Clinical Analysis SQL](./SQL/07_demographic_clinical_analysis.sql)
+[⬆ Back to Quick Navigation](#quick-navigation)
 
 ---
 
-## 9. Geographic Analysis
+## 5. Healthcare Cost Analysis
 
-All patients in the available sample were located in Massachusetts.
+### Business Questions
 
-The state contained:
+- Which healthcare visit types generate the highest total claim cost?
+- Which visit types have the highest average claim cost?
+- How many healthcare visits fall into low, medium and high-cost bands?
+- What proportion of claim cost is covered by payers?
+- How have average healthcare costs changed over time?
 
-- 1,163 patients with encounters
-- 61,459 encounters
-- 38,094 condition records
-- total claim cost of approximately $255.03M
-- average claim cost of approximately $4,149.66
+### Key Findings
 
-Because only one state is represented, state-level geographic comparison is not meaningful.
+- **Finding 1: Healthcare costs were substantial across the dataset.**  
+  Total claim cost reached approximately **£255.03M**, with an average claim cost of **£4,149.66 per healthcare visit**.
 
-City-level analysis can provide more useful geographic variation within the available sample.
+- **Finding 2: Ambulatory care generated the highest total claim cost.**  
+  Ambulatory visits accounted for approximately **£131.29M**, making them the largest contributor to overall claim expenditure.
+
+- **Finding 3: Inpatient care had the highest average claim cost.**  
+  Although inpatient visits were less frequent, they carried the greatest average financial burden per visit.
+
+## Visit Cost Bands
+
+Healthcare visits were segmented using analyst-defined thresholds.
+
+| Cost Band | Definition | Visits | Share |
+| :--- | :--- | :--- | :--- |
+| Low Cost | < £1,000 | 36,233 | 58.95% |
+| Medium Cost | £1,000 to < £5,000 | 13,707 | 22.30% |
+| High Cost | ≥ £5,000 | 11,519 | 18.74% |
+
+- **Finding 4: Most healthcare visits were low cost, but high-cost activity remained significant.**  
+  **58.95%** of visits were below £1,000, while **18.74%** were classified as High Cost.
+
+### Insight
+
+The cost profile shows that total expenditure is influenced by both **high-volume visit types such as ambulatory care** and **high-cost visit types such as inpatient care**, meaning frequency and cost intensity should be assessed together.
+
+### Techniques Used
+
+`SUM` `AVG` `ROUND` `DIVIDE` `NULLIF` `CASE`<br>
+`Cost Segmentation` `Percentage Analysis` `Visit-Type Comparison`
+
+[View Business Analysis SQL](./SQL/06_business_analysis.sql)
+
+[⬆ Back to Quick Navigation](#quick-navigation)
 
 ---
+
+<a id="powerbi"></a>
 
 # Power BI Analysis and Dashboard
 
-The final Power BI report contains two analytical pages.
+The Power BI stage translates the SQL analysis into an interactive three-page healthcare report.
 
-## Page 1: Patient and Healthcare Utilisation Overview
+The report allows patient, clinical and financial patterns to be explored using interactive filters and cross-filtering.
 
-This page focuses on:
+## Interactive Dashboard
 
-- patient population
-- overall healthcare activity
-- age distribution
-- gender distribution
-- encounter classes
-- healthcare utilisation by age
-- healthcare utilisation over time
-- patient utilisation segmentation
+[Download Synthea Healthcare Analysis.pbix](./POWERBI/Synthea_Healthcare_Analysis.pbix)
 
-![Healthcare Utilisation Overview](./Images/healthcare_utilisation_overview.png)
+The final report includes:
 
-## Page 2: Clinical and Cost Insights
-
-This page focuses on:
-
-- clinical conditions and findings
-- medication activity
-- procedure activity
-- condition burden by age
-- encounter cost bands
-- claim costs by encounter class
-- out-of-pocket costs
-- high-cost conditions
-
-![Clinical and Cost Insights](./Images/clinical_cost_insights.png)
-
-### Power BI File
-
-[Download Interactive Power BI Dashboard](./POWERBI/Synthea_Healthcare_Analysis.pbix)
+1. Patient & Healthcare Utilisation Overview
+2. Clinical Insights
+3. Cost Insights
 
 ---
 
-# Key Findings
+<a id="dashboard-preview"></a>
 
-## 1. Older Patients Recorded the Highest Healthcare Utilisation
+# Power BI Dashboard Preview
 
-Patients aged 65+ generated 27,615 encounters, substantially more than any other age group.
-
-This indicates that healthcare utilisation in the synthetic population is strongly concentrated among older patients.
+The screenshots below allow the report to be reviewed directly in GitHub without downloading Power BI Desktop.
 
 ---
 
-## 2. Condition Burden Increased Strongly With Age
+## 1. Patient & Healthcare Utilisation Overview
 
-Average distinct conditions per patient increased from 4.02 among patients aged 0-17 to 18.56 among patients aged 65+.
+The overview page summarises the size and utilisation profile of the synthetic patient population. It highlights overall patient and visit volumes, compares healthcare activity across visit types and age groups, and shows how utilisation changes over time through interactive demographic and visit-based filtering.
 
-The result demonstrates a clear relationship between increasing age and recorded multimorbidity.
+![Patient and Healthcare Utilisation Overview](./Images/01_healthcare_utilisation_overview.png)
 
----
+[Download Interactive Dashboard.pbix](./POWERBI/Synthea_Healthcare_Analysis.pbix)
 
-## 3. Extreme Healthcare Utilisation Was Concentrated in a Small Patient Group
-
-Only 15 patients, representing 1.29% of the population, belonged to the High Utilisation segment.
-
-The highest-utilisation patient recorded 1,563 encounters.
-
-This shows that overall utilisation is disproportionately influenced by a very small group of patients.
+[⬆ Back to Power BI](#powerbi)
 
 ---
 
-## 4. Female Patients Recorded Higher Average Utilisation
+<a id="clinical-dashboard"></a>
 
-Female patients averaged 57.68 encounters compared with 47.40 among male patients.
+## 2. Clinical Insights
 
-The result reflects the characteristics of the synthetic dataset and should not be interpreted as a general population-level conclusion.
+The Clinical Insights page explores the clinical profile of the synthetic patient population by bringing together conditions and findings, medication activity, procedure activity and key patient characteristics. It highlights the most frequently recorded clinical patterns and supports comparison across demographic and geographic groups.
 
----
+The Conditions table includes both clinical diagnoses and broader findings, so the dashboard uses **Conditions & Findings** to avoid treating every record as a disease.
 
-## 5. Routine Healthcare Activity Dominated the Dataset
+![Clinical Insights](./Images/02_clinical_insights.png)
 
-Wellness and ambulatory encounters were the most frequent encounter classes.
-
-Together they represented the majority of healthcare activity, while inpatient and emergency encounters occurred much less frequently.
+[Download Interactive Dashboard.pbix](./POWERBI/Synthea_Healthcare_Analysis.pbix)
 
 ---
 
-## 6. Inpatient Care Had the Highest Average Claim and Out-of-Pocket Cost
+<a id="cost-dashboard"></a>
 
-Average inpatient claim cost was approximately $8,766.
+## 3. Cost Insights
 
-Average inpatient out-of-pocket cost was approximately $7,461.
+The Cost Insights page examines healthcare expenditure from both volume and cost perspectives. It shows how claim costs vary across visit types, how healthcare visits are distributed across cost bands, and how average claim cost changes over time, while also allowing interactive comparison across selected patient and visit characteristics.
 
-Although inpatient encounters represented a relatively small share of healthcare activity, they generated the highest average financial burden per encounter.
+Cost bands are analyst-defined as **Low Cost (<£1,000), Medium Cost (£1,000 to <£5,000) and High Cost (≥£5,000)**.
 
----
+![Cost Insights](./Images/03_cost_insights.png)
 
-## 7. Most Encounters Were Low Cost
-
-58.95% of encounters had total claim costs below $1,000.
-
-However, 18.74% of encounters were classified as High Cost, with claim costs of $5,000 or more.
+[Download Interactive Dashboard.pbix](./POWERBI/Synthea_Healthcare_Analysis.pbix)
 
 ---
 
-## 8. Preventive and Behavioural Assessments Represented Substantial Procedure Activity
+<a id="skills"></a>
 
-Health and social-care assessment, depression screening, substance-use assessment and anxiety assessment ranked among the most frequent procedures.
+# Power BI Skills Demonstrated
 
-This demonstrates that the dataset includes substantial preventive, behavioural-health and social-care activity in addition to acute clinical treatment.
+This project demonstrates practical experience in:
 
----
-
-## 9. Severe Acute Conditions Were Associated With High Average Claim Costs
-
-Conditions such as acute respiratory distress syndrome, septic shock, sepsis and myocardial infarction were associated with high average claim costs.
-
-Rare conditions with very small encounter counts produced some of the highest averages, so both cost and volume must be considered when interpreting these findings.
-
----
-
-## 10. Data Validation Identified Important Longitudinal Issues
-
-Five medication records ended before their recorded start date.
-
-A further 165 encounters occurred after the patient's recorded death date.
-
-These findings demonstrate why healthcare timeline data should be validated before patient-level longitudinal analysis.
-
----
-
-# Recommendations
-
-## 1. Identify and Review High-Utilisation Patient Groups
-
-Healthcare analytics teams could use encounter-frequency segmentation to identify unusually high service use.
-
-Utilisation should then be reviewed alongside age, condition burden, encounter class and healthcare cost.
+- relational data modelling
+- Power Query
+- DAX measures
+- calculated columns
+- filter context
+- `CALCULATE`
+- `DIVIDE`
+- `CROSSFILTER`
+- `TREATAS`
+- `SWITCH`
+- `DISTINCTCOUNT`
+- calculated cost bands
+- patient segmentation
+- Top N filtering
+- slicers
+- cross-filtering
+- visual interactions
+- report navigation
+- reset buttons
+- KPI development
+- dashboard layout and design
+- healthcare-focused reporting
 
 ---
 
-## 2. Incorporate Condition Burden Into Capacity Planning
+# SQL Skills Demonstrated
 
-Older age groups showed both higher encounter volumes and substantially higher numbers of recorded conditions.
-
-Healthcare utilisation analysis should therefore consider multimorbidity alongside basic patient counts.
-
----
-
-## 3. Analyse High-Cost Encounter Types Separately
-
-Inpatient and emergency encounters had the highest average financial burden.
-
-Detailed analysis of the conditions and procedures associated with these encounter classes could help identify the main cost drivers.
-
----
-
-## 4. Evaluate High-Cost Conditions Using Both Cost and Volume
-
-Rare conditions can produce extremely high average costs while representing relatively few encounters.
-
-Condition-level cost analysis should therefore consider:
-
-- average claim cost
-- total claim cost
-- encounter frequency
-- patient count
-
-together.
-
----
-
-## 5. Separate Clinical Diagnoses From Social Findings
-
-The Conditions table combines disorders with findings, social determinants, employment information and other observations.
-
-Future analysis should classify these records before presenting disease-specific rankings.
-
----
-
-## 6. Maintain Timeline Validation Rules
-
-Date and sequence checks should remain part of any healthcare data pipeline.
-
-Records with impossible medication durations or encounters occurring after recorded death should be flagged before longitudinal analysis.
-
----
-
-# Limitations
-
-This project uses synthetic Synthea healthcare data and does not represent real patients or a real healthcare organisation.
-
-The Conditions table contains a mixture of diagnoses, clinical findings, social determinants, employment information and other coded observations. Not every record should therefore be interpreted as a disease.
-
-The dataset is geographically concentrated in Massachusetts, limiting state-level geographic comparison.
-
-A small number of logical timeline inconsistencies were identified, including medication records where `STOP` preceded `START` and encounters recorded after patient death.
-
-Patient age was calculated using year difference and is therefore an approximate age measure rather than an exact birthday-adjusted calculation.
-
-Patient utilisation and encounter cost bands are analyst-defined segmentation thresholds created for exploratory analysis.
-
----
-
-# SQL Techniques Demonstrated
-
-- relational database modelling
+- relational database design
 - primary and foreign keys
+- aggregate functions
 - `INNER JOIN`
 - `LEFT JOIN`
-- aggregate functions
+- multi-table joins
+- common table expressions
+- subqueries
+- `CASE`
+- `COUNT(DISTINCT)`
 - `GROUP BY`
 - `HAVING`
-- `COUNT(DISTINCT)`
-- CTEs
-- `CASE`
+- `NULL` handling
+- `NULLIF`
 - date functions
 - `DATEDIFF`
 - `YEAR`
 - `MONTH`
 - `FORMAT`
-- `CAST`
 - `TRY_CAST`
-- `ROUND`
-- `NULLIF`
-- NULL handling
 - percentage calculations
-- segmentation
+- patient segmentation
+- cost segmentation
 - referential-integrity validation
-- logical data-quality validation
-- patient-level aggregation
-- multi-table healthcare analysis
+- logical timeline validation
+- healthcare KPI development
 
 ---
+
+# Healthcare Analysis Skills Demonstrated
+
+- patient utilisation analysis
+- demographic segmentation
+- condition burden analysis
+- medication activity analysis
+- procedure activity analysis
+- healthcare cost analysis
+- payer coverage analysis
+- high-utilisation patient identification
+- high-cost visit identification
+- clinical and social finding interpretation
+- data-quality assessment
+- longitudinal healthcare validation
+- translating analytical findings into recommendations
+
+[⬆ Back to Quick Navigation](#quick-navigation)
+
+---
+
+<a id="key-findings-section"></a>
+
+# Key Findings
+
+The analysis identified several important healthcare patterns.
+
+- **Older patients had the highest healthcare utilisation.**  
+  Patients aged 65+ recorded **27,615 visits** and the highest average condition burden. This suggests that healthcare complexity increases across older age groups within the synthetic population.
+
+- **Condition burden increased substantially with age.**  
+  Average distinct conditions rose from **4.02 in patients aged 0–17** to **18.56 in patients aged 65+**.
+
+- **High utilisation was concentrated in a very small patient group.**  
+  Only **15 patients (1.29%)** were classified as High Utilisation.
+
+- **Routine care accounted for most healthcare activity.**  
+  Wellness and ambulatory visits dominated overall utilisation, while inpatient and emergency visits were less frequent.
+
+- **Inpatient care carried the highest average financial burden.**  
+  Inpatient visits recorded the highest average claim and out-of-pocket costs.
+
+- **Most healthcare visits were relatively low cost.**  
+  **58.95%** of visits cost below £1,000, while **18.74%** were classified as High Cost.
+
+- **Condition records included both clinical and contextual findings.**  
+  Social, behavioural and employment-related findings appeared alongside medical diagnoses and require careful interpretation.
+
+- **Timeline validation identified important logical inconsistencies.**  
+  **5 medication records** had invalid date sequences and **165 visits** occurred after recorded patient death.
+
+### Explore the Full Findings
+
+[View Detailed Key Findings](./Findings/key_findings.md)
+
+[⬆ Back to Quick Navigation](#quick-navigation)
+
+---
+
+<a id="recommendations-section"></a>
+
+# Recommendations
+
+The findings were translated into analytical and operational recommendations.
+
+The main priorities identified were:
+
+1. Prioritise high-utilisation patients for targeted review and deeper utilisation analysis.
+2. Assess patient complexity using both healthcare utilisation and condition burden rather than relying on visit frequency alone.
+3. Incorporate age into healthcare demand planning, as older patients show substantially higher utilisation and condition burden.
+4. Monitor inpatient and emergency activity closely because these visit types carry the highest average financial burden.
+5. Evaluate high-cost conditions using both cost intensity and frequency to identify the strongest drivers of healthcare expenditure.
+6. Separate clinical diagnoses from social and contextual findings to improve the accuracy of condition-based reporting.
+7. Report preventive, behavioural-health and social-care activity separately from treatment procedures for clearer clinical interpretation.
+8. Use cost bands to identify where high-cost healthcare activity is concentrated and where further review may be most valuable.
+9. Investigate demographic differences in utilisation to identify patient groups with consistently higher healthcare activity.
+10. Use city-level analysis where possible to provide more meaningful geographic insight than state-level comparison.
+11. Maintain patient timeline validation as a routine data-quality control before conducting longitudinal analysis.
+12. Clearly document synthetic-data limitations and logical inconsistencies so findings are interpreted within the correct context.
+
+[View Full Recommendations](./Findings/recommendations.md)
+
+[⬆ Back to Quick Navigation](#quick-navigation)
+
+---
+
+<a id="limitations-section"></a>
+
+# Limitations
+
+- **Synthetic dataset.**  
+  Synthea data does not represent a real patient population or healthcare organisation.
+
+- **Conditions include more than diagnoses.**  
+  The Conditions table contains clinical, social, behavioural and contextual findings, so not every record should be interpreted as a disease.
+
+- **Geographic analysis is limited.**  
+  The dataset is concentrated in Massachusetts, making state-level comparison less meaningful than city-level analysis.
+
+- **Some timeline inconsistencies remain.**  
+  A small number of medication date errors and post-death healthcare visits were identified during validation.
+
+- **Patient age is approximate.**  
+  Age was calculated using year difference rather than an exact birthday-adjusted method.
+
+- **Analytical segments are exploratory.**  
+  Utilisation groups and cost bands were analyst-defined and are not official clinical classifications.
+
+[⬆ Back to Quick Navigation](#quick-navigation)
+
+---
+
+<a id="conclusion"></a>
+
+# Conclusion
+
+The analysis of **1,163 synthetic patients and 61,459 healthcare visits** identified clear patterns across patient utilisation, clinical activity and healthcare costs.
+
+Patients aged **65+ recorded the highest healthcare utilisation** and also showed the greatest average condition burden, indicating that healthcare activity in the synthetic population increased substantially with age.
+
+Healthcare utilisation was also concentrated within a relatively small group of patients. Only **15 patients, representing 1.29% of the population**, were classified as High Utilisation.
+
+Routine healthcare activity was dominated by **Wellness and Ambulatory visits**, while Inpatient and Emergency care occurred less frequently but generated a higher average financial burden.
+
+The clinical analysis showed substantial medication, procedure and behavioural-health activity. It also highlighted an important interpretation issue: the Conditions table contains both medical diagnoses and broader social or contextual findings, meaning that not every condition record should be interpreted as a disease.
+
+From a financial perspective, the dataset generated approximately **£255.03M in total claim cost**. Most healthcare visits were classified as Low Cost, while **18.74%** fell into the High Cost category.
+
+The project also demonstrated the importance of healthcare-specific data validation. Although the relational structure and key clinical fields were generally consistent, logical validation identified **5 medication records with invalid date sequences** and **165 healthcare visits recorded after patient death**.
+
+Overall, the project demonstrates an end-to-end healthcare analytics workflow:
+
+**relational data → data validation → healthcare questions → SQL analysis → derived measures → DAX → interactive Power BI reporting → analytical findings and recommendations**
+
+[⬆ Back to Quick Navigation](#quick-navigation)
+
+---
+
+<a id="repository-structure"></a>
+
+# Repository Structure
+
+```text
+Synthea_Healthcare_Analysis/
+│
+├── README.md
+│
+├── SQL/
+│   ├── 01_primary_foreign_key_constraints.sql
+│   ├── 02_data_quality_validation.sql
+│   ├── 03_date_logical_validation.sql
+│   ├── 04_clinical_cost_validation.sql
+│   ├── 05_derived_fields_calculations.sql
+│   ├── 06_business_analysis.sql
+│   └── 07_demographic_clinical_analysis.sql
+│
+├── Findings/
+│   ├── data_quality_summary.md
+│   ├── key_findings.md
+│   └── recommendations.md
+│
+├── POWERBI/
+│   └── Synthea_Healthcare_Analysis.pbix
+│
+├── Images/
+│   ├── synthea_data_model.png
+│   ├── 01_healthcare_utilisation_overview.png
+│   ├── 02_clinical_insights.png
+│   └── 03_cost_insights.png
+│
+└── Documentation/
+    └── Synthea_Healthcare_Data_Dictionary.xlsx
+```
+
+[⬆ Back to Quick Navigation](#quick-navigation)
+
+---
+
+<a id="project-files-section"></a>
 
 # Project Files
 
-### SQL
+## SQL Analysis
 
-- [Primary and Foreign Key Constraints](./SQL/01_primary_foreign_key_constraints.sql)
-- [Data Quality Validation](./SQL/02_data_quality_validation.sql)
-- [Date and Logical Validation](./SQL/03_date_logical_validation.sql)
-- [Clinical and Cost Validation](./SQL/04_clinical_cost_validation.sql)
-- [Derived Fields and Calculations](./SQL/05_derived_fields_calculations.sql)
-- [Business Analysis](./SQL/06_business_analysis.sql)
-- [Demographic and Clinical Analysis](./SQL/07_demographic_clinical_analysis.sql)
+[Primary and Foreign Key Constraints](./SQL/01_primary_foreign_key_constraints.sql)
 
-### Findings
+[Data Quality Validation](./SQL/02_data_quality_validation.sql)
 
-- [Data Quality Summary](./Findings/data_quality_summary.md)
-- [Key Findings and Recommendations](./Findings/key_findings_and_recommendations.md)
+[Date and Logical Validation](./SQL/03_date_logical_validation.sql)
 
-### Power BI
+[Clinical and Cost Validation](./SQL/04_clinical_cost_validation.sql)
 
-- [Download Interactive Power BI Dashboard](./POWERBI/Synthea_Healthcare_Analysis.pbix)
+[Derived Fields and Calculations](./SQL/05_derived_fields_calculations.sql)
 
-### Documentation
+[Business Analysis](./SQL/06_business_analysis.sql)
 
-- [Healthcare Data Dictionary](./Documentation/Synthea_Healthcare_Data_Dictionary.xlsx)
+[Demographic and Clinical Analysis](./SQL/07_demographic_clinical_analysis.sql)
 
 ---
 
-# Overall Conclusion
+## Findings
 
-The analysis demonstrates how relational healthcare data can be transformed into meaningful patient, utilisation, clinical and cost insights using SQL Server and Power BI.
+[Data Quality Summary](./Findings/data_quality_summary.md)
 
-Healthcare activity was strongly associated with patient age and condition burden. Patients aged 65+ recorded the highest encounter volume and the greatest average number of conditions, while a very small group of high-utilisation patients accounted for exceptionally large numbers of encounters.
+[Key Findings](./Findings/key_findings.md)
 
-Routine wellness and ambulatory care represented the majority of healthcare activity, while inpatient and emergency encounters created the greatest average financial burden.
+[Recommendations](./Findings/recommendations.md)
 
-The project also highlighted the importance of careful healthcare data interpretation. Clinical tables contained both medical diagnoses and broader social findings, while timeline validation identified medication and encounter inconsistencies that could affect longitudinal analysis.
+---
 
-Overall, the project demonstrates an end-to-end analytical workflow covering database design, data-quality validation, SQL analysis, patient segmentation, healthcare cost analysis and business-focused data visualisation.
+## Power BI
+
+[Download Synthea Healthcare Analysis.pbix](./POWERBI/Synthea_Healthcare_Analysis.pbix)
+
+---
+
+## Dashboard Images
+
+[Patient & Healthcare Utilisation Overview](./Images/01_healthcare_utilisation_overview.png)
+
+[Clinical Insights](./Images/02_clinical_insights.png)
+
+[Cost Insights](./Images/03_cost_insights.png)
+
+[Healthcare Data Model](./Images/synthea_data_model.png)
+
+---
+
+## Documentation
+
+[Synthea Healthcare Data Dictionary](./Documentation/Synthea_Healthcare_Data_Dictionary.xlsx)
+
+[⬆ Back to Quick Navigation](#quick-navigation)
+
+---
+
+## Author
+
+**Dr Mahreen Kiran**
+
+**Business Data Analyst | BI Analyst**
+
+[View Main Portfolio](../README.md)
+
+[LinkedIn](https://linkedin.com/in/mahreen-kiran)
+
+---
+
+[⬆ Back to Quick Navigation](#quick-navigation)
