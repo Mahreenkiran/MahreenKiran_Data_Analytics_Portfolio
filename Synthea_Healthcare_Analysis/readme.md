@@ -196,56 +196,20 @@ These issues were documented rather than silently corrected because they may aff
 
 <a id="derived-fields"></a>
 
+<a id="derived-fields"></a>
+
 # Derived Fields and Analytical Calculations
 
-Several derived fields were created to support patient, utilisation, clinical and cost analysis.
+Several derived fields were created to support patient, utilisation, clinical and cost analysis, including **age, age group, life status, encounter/medication/condition duration, year/month fields, coverage measures, out-of-pocket cost, cost bands, encounter counts and utilisation groups**.
 
-These included:
+| Analytical Group | Purpose | Definition |
+| :--- | :--- | :--- |
+| **Age Groups** | Compare patterns across life stages. | • **0–17:** Children and adolescents<br>• **18–34:** Younger adults<br>• **35–49:** Mid-age adults<br>• **50–64:** Older working-age adults<br>• **65+:** Older adults |
+| **Patient Utilisation** | Identify different levels of healthcare service use. | • **Low Utilisation:** 50 visits or fewer<br>• **Medium Utilisation:** 51 to 250 visits<br>• **High Utilisation:** more than 250 visits |
+| **Encounter Cost Bands** | Compare low, medium and high-cost healthcare visits. | • **Low Cost:** below £1,000<br>• **Medium Cost:** £1,000 to below £5,000<br>• **High Cost:** £5,000 or more |
+| **Date & Time Variables** | Support trend and duration analysis. | • **Encounter:** year, month and year-month<br>• **Encounter Duration:** hours<br>• **Medication Duration:** days<br>• **Condition Duration:** days |
 
-- patient age
-- patient age group
-- alive/deceased status
-- encounter duration
-- medication duration
-- condition duration
-- encounter year
-- encounter month
-- encounter year-month
-- healthcare coverage percentage
-- uncovered healthcare expenditure
-- encounter payer coverage percentage
-- out-of-pocket amount
-- encounter cost bands
-- encounter count per patient
-- patient utilisation groups
-
-## Age Groups
-
-Patients were grouped into:
-
-- 0–17
-- 18–34
-- 35–49
-- 50–64
-- 65+
-
-## Patient Utilisation Groups
-
-Patients were segmented according to healthcare visit frequency:
-
-- **Low Utilisation:** 50 visits or fewer
-- **Medium Utilisation:** 51 to 250 visits
-- **High Utilisation:** more than 250 visits
-
-## Encounter Cost Bands
-
-Healthcare visits were segmented using total claim cost:
-
-- **Low Cost:** below £1,000
-- **Medium Cost:** £1,000 to below £5,000
-- **High Cost:** £5,000 or more
-
-These utilisation and cost thresholds are analyst-defined segmentation rules used for exploratory analysis.
+Utilisation and cost thresholds are **analyst-defined exploratory segmentation rules**.
 
 [View Derived Fields and Calculations SQL](./SQL/05_derived_fields_calculations.sql)
 
