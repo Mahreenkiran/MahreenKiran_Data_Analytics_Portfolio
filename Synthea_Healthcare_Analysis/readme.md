@@ -236,7 +236,7 @@ The analysis combined patient-level aggregation, clinical activity, healthcare u
 - How concentrated is healthcare activity among high-utilisation patients?
 - How has healthcare activity changed over time?
 
-### Key Insights
+### Key Findings
 
 - **Finding 1: Healthcare activity was concentrated in routine visit types.**  
   Wellness and Ambulatory visits accounted for the largest share of healthcare activity.
@@ -263,6 +263,10 @@ Only **15 patients (1.29%)** were classified as High Utilisation, showing that e
 
 Female patients also recorded higher average utilisation at **57.68 visits per patient**, compared with **47.40 among male patients**.
 
+### Insight
+
+Healthcare demand in the synthetic population was shaped by both **routine visit activity** and **concentrated utilisation among older and high-use patients**, indicating that visit type, age and patient-level utilisation should be considered together.
+
 ### Techniques Used
 
 `Aggregation` `CTEs` `CASE` `COUNT(DISTINCT)` `Patient-Level Aggregation`<br>
@@ -283,7 +287,7 @@ Female patients also recorded higher average utilisation at **57.68 visits per p
 - Which clinical patterns differ across demographic groups?
 - How many unique condition types are represented?
 
-### Key Insights
+### Key Findings
 
 - **Finding 1: The Conditions table includes both clinical diagnoses and broader social or contextual findings.**  
   Records include items such as **stress, social isolation, employment status and behavioural observations**, so disease-specific interpretation requires care.
@@ -311,6 +315,10 @@ Female patients also recorded higher average utilisation at **57.68 visits per p
 | 0–17 | 4.02 |
 
 This shows a clear increase in recorded condition burden across older age groups within the synthetic population.
+
+### Insight
+
+The clinical profile shows that interpretation requires both **age-related condition burden** and the distinction between **medical diagnoses and broader social or contextual findings**, rather than treating all condition records as equivalent.
 
 ### Techniques Used
 
