@@ -29,6 +29,31 @@ Synthea generates synthetic healthcare records and does not contain real patient
 
 ## Quick Navigation
 
+| Data & Analysis | Reporting & Outcomes |
+| :--- | :--- |
+| [Business Objective](#business-objective) | [Power BI Analysis](#powerbi) |
+| [Dataset](#dataset) | [Power BI Dashboard Preview](#dashboard-preview) |
+| [Data Model](#data-model) | [Key Findings](#key-findings-section) |
+| [Data Quality Validation](#data-quality-section) | [Recommendations](#recommendations-section) |
+| [Core Healthcare KPIs](#core-kpis) | [Skills Demonstrated](#skills) |
+| [SQL Analysis](#sql-analysis-section) | [Limitations](#limitations-section) |
+| [Repository Structure](#repository-structure) | [Project Files](#project-files-section) |
+|  | [Conclusion](#conclusion) |
+
+## Quick Navigation
+
+| Project Foundation | Analysis | Reporting & Outcomes |
+| :--- | :--- | :--- |
+| [Business Objective](#business-objective) | [Core Healthcare KPIs](#core-kpis) | [Power BI Analysis](#powerbi) |
+| [Dataset](#dataset) | [SQL Analysis](#sql-analysis-section) | [Power BI Dashboard Preview](#dashboard-preview) |
+| [Data Model](#data-model) | [Data Quality Validation](#data-quality-section) | [Key Findings](#key-findings-section) |
+| [Repository Structure](#repository-structure) |  | [Recommendations](#recommendations-section) |
+| [Project Files](#project-files-section) |  | [Skills Demonstrated](#skills) |
+|  |  | [Limitations](#limitations-section) |
+|  |  | [Conclusion](#conclusion) |
+
+## Quick Navigation
+
 - [Business Objective](#business-objective)
 - [Dataset](#dataset)
 - [Data Model](#data-model)
@@ -843,3 +868,106 @@ Synthea_Healthcare_Analysis/
 │
 └── Documentation/
     └── Synthea_Healthcare_Data_Dictionary.xlsx
+```
+
+[⬆ Back to Quick Navigation](#quick-navigation)
+
+---
+
+<a id="project-files-section"></a>
+
+# Project Files
+
+## SQL Analysis
+
+[Primary and Foreign Key Constraints](./SQL/01_primary_foreign_key_constraints.sql)
+
+[Data Quality Validation](./SQL/02_data_quality_validation.sql)
+
+[Date and Logical Validation](./SQL/03_date_logical_validation.sql)
+
+[Clinical and Cost Validation](./SQL/04_clinical_cost_validation.sql)
+
+[Derived Fields and Calculations](./SQL/05_derived_fields_calculations.sql)
+
+[Business Analysis](./SQL/06_business_analysis.sql)
+
+[Demographic and Clinical Analysis](./SQL/07_demographic_clinical_analysis.sql)
+
+---
+
+## Findings
+
+[Data Quality Summary](./Findings/data_quality_summary.md)
+
+[Key Findings](./Findings/key_findings.md)
+
+[Recommendations](./Findings/recommendations.md)
+
+---
+
+## Power BI
+
+[Download Synthea Healthcare Analysis.pbix](./POWERBI/Synthea_Healthcare_Analysis.pbix)
+
+---
+
+## Dashboard Images
+
+[Patient & Healthcare Utilisation Overview](./Images/01_healthcare_utilisation_overview.png)
+
+[Clinical Insights](./Images/02_clinical_insights.png)
+
+[Cost Insights](./Images/03_cost_insights.png)
+
+[Healthcare Data Model](./Images/synthea_data_model.png)
+
+---
+
+## Documentation
+
+[Synthea Healthcare Data Dictionary](./Documentation/Synthea_Healthcare_Data_Dictionary.xlsx)
+
+[⬆ Back to Quick Navigation](#quick-navigation)
+
+---
+
+<a id="conclusion"></a>
+
+# Conclusion
+
+The analysis of **1,163 synthetic patients and 61,459 healthcare visits** identified clear patterns across patient utilisation, clinical activity and healthcare costs.
+
+Patients aged **65+ recorded the highest healthcare utilisation** and also showed the greatest average condition burden, indicating that healthcare activity in the synthetic population increased substantially with age.
+
+Healthcare utilisation was also concentrated within a relatively small group of patients. Only **15 patients, representing 1.29% of the population**, were classified as High Utilisation.
+
+Routine healthcare activity was dominated by **Wellness and Ambulatory visits**, while Inpatient and Emergency care occurred less frequently but generated a higher average financial burden.
+
+The clinical analysis showed substantial medication, procedure and behavioural-health activity. It also highlighted an important interpretation issue: the Conditions table contains both medical diagnoses and broader social or contextual findings, meaning that not every condition record should be interpreted as a disease.
+
+From a financial perspective, the dataset generated approximately **£255.03M in total claim cost**. Most healthcare visits were classified as Low Cost, while **18.74%** fell into the High Cost category.
+
+The project also demonstrated the importance of healthcare-specific data validation. Although the relational structure and key clinical fields were generally consistent, logical validation identified **5 medication records with invalid date sequences** and **165 healthcare visits recorded after patient death**.
+
+Overall, the project demonstrates an end-to-end healthcare analytics workflow:
+
+**relational data → data validation → healthcare questions → SQL analysis → derived measures → DAX → interactive Power BI reporting → analytical findings and recommendations**
+
+[⬆ Back to Quick Navigation](#quick-navigation)
+
+---
+
+## Author
+
+**Dr Mahreen Kiran**
+
+**Business Data Analyst | BI Analyst**
+
+[View Main Portfolio](../README.md)
+
+[LinkedIn](https://linkedin.com/in/mahreen-kiran)
+
+---
+
+[⬆ Back to Quick Navigation](#quick-navigation)
