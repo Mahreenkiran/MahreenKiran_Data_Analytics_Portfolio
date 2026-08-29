@@ -144,43 +144,27 @@ Foreign-key relationships were used to validate patient and encounter links acro
 
 # Data Quality Validation
 
-Before calculating healthcare KPIs or interpreting patient activity, I performed structural, clinical, cost and longitudinal validation.
+Before analysis, the dataset was validated for structural integrity, clinical completeness, cost anomalies and timeline consistency.
 
-Checks included:
+## Issues Identified
 
-- row counts
-- duplicate primary keys
-- NULL primary keys
-- unmatched patient relationships
-- unmatched encounter relationships
-- missing clinical codes
-- missing clinical descriptions
-- negative healthcare costs
-- invalid START and STOP sequences
-- patient death before birth
-- healthcare visits before patient birth
-- healthcare visits after recorded patient death
+| Validation Area | Finding |
+| :--- | :--- |
+| **Medication Timelines** | **5 records** had `STOP` earlier than `START` |
+| **Patient Timelines** | **165 healthcare visits** occurred after recorded patient death |
 
-## Structural Validation
+These findings were retained and documented so their potential impact on medication-duration and longitudinal patient-journey analysis remains transparent.
 
-The structural validation found no major integrity issues:
+## No Issues Found
 
-- **No duplicate or NULL primary keys** were identified in the tested tables.
-- **No unmatched patient or encounter relationships** were found.
-- **No missing key clinical codes or descriptions** were identified.
-- **No negative values** were found in the tested healthcare cost fields.
+| Validation Area | Result |
+| :--- | :--- |
+| **Primary Keys** | No duplicate or NULL primary keys identified |
+| **Relationships** | No unmatched patient or encounter relationships found |
+| **Clinical Fields** | No missing key clinical codes or descriptions identified |
+| **Healthcare Costs** | No negative values found in tested cost fields |
 
-## Timeline Validation Findings
-
-Two logical timeline issues were identified:
-
-- **Medication date inconsistency:**  
-  **5 medication records** had a `STOP` date earlier than the corresponding `START` date.
-
-- **Healthcare visits after recorded death:**  
-  **165 healthcare visits** occurred after the associated patient's recorded death date.
-
-These issues were documented rather than silently corrected because they may affect medication-duration and longitudinal patient-journey analysis.
+The remaining validation checks showed strong structural and analytical consistency across the tested healthcare data.
 
 ### Explore the Validation Work
 
@@ -193,8 +177,6 @@ These issues were documented rather than silently corrected because they may aff
 [View Data Quality Summary](./Findings/data_quality_summary.md)
 
 ---
-
-<a id="derived-fields"></a>
 
 <a id="derived-fields"></a>
 
