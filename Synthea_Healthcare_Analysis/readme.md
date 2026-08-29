@@ -488,7 +488,6 @@ It includes:
 [Download Interactive Dashboard.pbix](./POWERBI/Synthea_Healthcare_Analysis.pbix)
 
 [⬆ Back to Power BI](#powerbi)  
-[➡ Next Dashboard: Clinical Insights](#clinical-dashboard)
 
 ---
 
@@ -710,61 +709,27 @@ The main priorities identified were:
 
 # Limitations
 
-## Synthetic Dataset
+- **Synthetic dataset.**  
+  Synthea data does not represent a real patient population or healthcare organisation.
 
-Synthea generates synthetic healthcare records.
+- **Conditions include more than diagnoses.**  
+  The Conditions table contains clinical, social, behavioural and contextual findings, so not every record should be interpreted as a disease.
 
-The findings demonstrate analytical methods and healthcare data interpretation for portfolio purposes and should not be interpreted as conclusions about a real patient population or healthcare organisation.
+- **Geographic analysis is limited.**  
+  The dataset is concentrated in Massachusetts, making state-level comparison less meaningful than city-level analysis.
 
----
+- **Some timeline inconsistencies remain.**  
+  A small number of medication date errors and post-death healthcare visits were identified during validation.
 
-## Conditions Table
+- **Patient age is approximate.**  
+  Age was calculated using year difference rather than an exact birthday-adjusted method.
 
-The Conditions table contains a mixture of:
-
-- clinical diagnoses
-- findings
-- social observations
-- employment information
-- behavioural indicators
-- contextual healthcare records
-
-Not every record should therefore be interpreted as a disease.
-
----
-
-## Geographic Coverage
-
-The dataset is geographically concentrated in Massachusetts.
-
-State-level comparisons are therefore limited, while city-level analysis provides more useful geographic detail.
-
----
-
-## Timeline Inconsistencies
-
-A small number of logical timeline issues were identified.
-
-These include medication records where STOP preceded START and healthcare visits occurring after recorded patient death.
-
----
-
-## Patient Age
-
-Patient age was calculated using year difference and is therefore an approximate age measure rather than an exact birthday-adjusted age.
-
----
-
-## Analytical Segmentation
-
-Patient utilisation groups and healthcare cost bands were created as analyst-defined exploratory categories.
-
-They are not official clinical or healthcare classifications.
+- **Analytical segments are exploratory.**  
+  Utilisation groups and cost bands were analyst-defined and are not official clinical classifications.
 
 [⬆ Back to Quick Navigation](#quick-navigation)
 
 ---
-
 <a id="repository-structure"></a>
 
 # Repository Structure
