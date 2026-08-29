@@ -35,9 +35,12 @@ Synthea generates synthetic healthcare records and does not contain real patient
 | [Dataset](#dataset) | [Power BI Dashboard Preview](#dashboard-preview) |
 | [Data Model](#data-model) | [Key Findings](#key-findings-section) |
 | [Data Quality Validation](#data-quality-section) | [Recommendations](#recommendations-section) |
-| [Core Healthcare KPIs](#core-kpis) | [Skills Demonstrated](#skills) |
-| [SQL Analysis](#sql-analysis-section) | [Limitations](#limitations-section) |
-| [Repository Structure](#repository-structure) | [Conclusion](#conclusion) |
+| [Derived Fields & Calculations](#derived-fields) | [Skills Demonstrated](#skills) |
+| [Core Healthcare KPIs](#core-kpis) | [Limitations](#limitations-section) |
+| [SQL Analysis](#sql-analysis-section) | [Conclusion](#conclusion) |
+| [Repository Structure](#repository-structure) | [Project Files](#project-files-section) |
+
+---
 
 ---
 
