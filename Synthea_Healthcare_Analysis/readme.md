@@ -194,6 +194,65 @@ These issues were documented rather than silently corrected because they may aff
 
 ---
 
+<a id="derived-fields"></a>
+
+# Derived Fields and Analytical Calculations
+
+Several derived fields were created to support patient, utilisation, clinical and cost analysis.
+
+These included:
+
+- patient age
+- patient age group
+- alive/deceased status
+- encounter duration
+- medication duration
+- condition duration
+- encounter year
+- encounter month
+- encounter year-month
+- healthcare coverage percentage
+- uncovered healthcare expenditure
+- encounter payer coverage percentage
+- out-of-pocket amount
+- encounter cost bands
+- encounter count per patient
+- patient utilisation groups
+
+## Age Groups
+
+Patients were grouped into:
+
+- 0–17
+- 18–34
+- 35–49
+- 50–64
+- 65+
+
+## Patient Utilisation Groups
+
+Patients were segmented according to healthcare visit frequency:
+
+- **Low Utilisation:** 50 visits or fewer
+- **Medium Utilisation:** 51 to 250 visits
+- **High Utilisation:** more than 250 visits
+
+## Encounter Cost Bands
+
+Healthcare visits were segmented using total claim cost:
+
+- **Low Cost:** below £1,000
+- **Medium Cost:** £1,000 to below £5,000
+- **High Cost:** £5,000 or more
+
+These utilisation and cost thresholds are analyst-defined segmentation rules used for exploratory analysis.
+
+[View Derived Fields and Calculations SQL](./SQL/05_derived_fields_calculations.sql)
+
+[⬆ Back to Quick Navigation](#quick-navigation)
+
+---
+
 <a id="core-kpis"></a>
 
 # Core Healthcare KPIs
