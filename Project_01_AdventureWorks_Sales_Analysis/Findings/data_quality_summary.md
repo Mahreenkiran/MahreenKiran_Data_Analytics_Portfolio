@@ -59,4 +59,4 @@ These checks confirm the structural and logical quality of the selected fields. 
 
 [View Data Quality Checks SQL](../SQL/01_data_quality_checks.sql)
 
-[⬆ Return to AdventureWorks Project README](../README.md)
+[⬆ Return to AdventureWorks Project README](../README_AdventureWorks_Sales_Analysis.md)
