@@ -457,3 +457,21 @@ Annual performance strengthened substantially between the complete calendar year
 This growth was accompanied by significantly higher order and unit volumes alongside a lower average order value, indicating a shift towards a higher-volume sales model.
 
 Overall, the results demonstrate the importance of evaluating **revenue, customer value, order size, product mix, territory performance and transaction volume together** rather than relying on a single performance measure.
+
+---
+
+## Supporting SQL Analysis
+
+[View Overall Sales Analysis SQL](../SQL/02_overall_sales_analysis.sql)
+
+[View Product Analysis SQL](../SQL/03_product_analysis.sql)
+
+[View Customer Analysis SQL](../SQL/04_customer_analysis.sql)
+
+[View Territory and Salesperson Analysis SQL](../SQL/05_territory_salesperson_analysis.sql)
+
+[View Operational Analysis SQL](../SQL/06_operational_analysis.sql)
+
+[View Data Quality Checks SQL](../SQL/01_data_quality_checks.sql)
+
+[⬆ Return to AdventureWorks Project README](../README_AdventureWorks_Sales_Analysis.md)
