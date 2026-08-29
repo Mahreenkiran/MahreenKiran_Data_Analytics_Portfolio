@@ -40,36 +40,6 @@ Synthea generates synthetic healthcare records and does not contain real patient
 | [Repository Structure](#repository-structure) | [Project Files](#project-files-section) |
 |  | [Conclusion](#conclusion) |
 
-## Quick Navigation
-
-| Project Foundation | Analysis | Reporting & Outcomes |
-| :--- | :--- | :--- |
-| [Business Objective](#business-objective) | [Core Healthcare KPIs](#core-kpis) | [Power BI Analysis](#powerbi) |
-| [Dataset](#dataset) | [SQL Analysis](#sql-analysis-section) | [Power BI Dashboard Preview](#dashboard-preview) |
-| [Data Model](#data-model) | [Data Quality Validation](#data-quality-section) | [Key Findings](#key-findings-section) |
-| [Repository Structure](#repository-structure) |  | [Recommendations](#recommendations-section) |
-| [Project Files](#project-files-section) |  | [Skills Demonstrated](#skills) |
-|  |  | [Limitations](#limitations-section) |
-|  |  | [Conclusion](#conclusion) |
-
-## Quick Navigation
-
-- [Business Objective](#business-objective)
-- [Dataset](#dataset)
-- [Data Model](#data-model)
-- [Data Quality Validation](#data-quality-section)
-- [Core Healthcare KPIs](#core-kpis)
-- [SQL Analysis](#sql-analysis-section)
-- [Power BI Analysis](#powerbi)
-- [Power BI Dashboard Preview](#dashboard-preview)
-- [Key Findings](#key-findings-section)
-- [Recommendations](#recommendations-section)
-- [Skills Demonstrated](#skills)
-- [Limitations](#limitations-section)
-- [Repository Structure](#repository-structure)
-- [Project Files](#project-files-section)
-- [Conclusion](#conclusion)
-
 ---
 
 <a id="business-objective"></a>
