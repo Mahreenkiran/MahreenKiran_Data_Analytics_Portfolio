@@ -434,3 +434,5 @@ The principal business priorities identified from the analysis are:
 10. Continue monitoring fulfilment performance while recognising the limitations of the highly standardised sample data.
 
 Together, these priorities provide a balanced approach to **revenue protection, customer development, product planning, territory management and performance monitoring**.
+
+[⬆ Return to AdventureWorks Project README](../README_AdventureWorks_Sales_Analysis.md)
