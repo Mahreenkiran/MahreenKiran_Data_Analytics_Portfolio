@@ -179,10 +179,12 @@ Several derived fields were created to support patient, utilisation, clinical an
 
 | Analytical Group | Purpose | Definition |
 | :--- | :--- | :--- |
-| **Age Groups** | Compare patterns across life stages. | • **0–17:** Children and adolescents<br>• **18–34:** Younger adults<br>• **35–49:** Mid-age adults<br>• **50–64:** Older working-age adults<br>• **65+:** Older adults |
-| **Patient Utilisation** | Identify different levels of healthcare service use. | • **Low Utilisation:** 50 visits or fewer<br>• **Medium Utilisation:** 51 to 250 visits<br>• **High Utilisation:** more than 250 visits |
+| **Age & Life Status** | Support demographic and patient-status analysis. | • **Age:** calculated from birth date<br>• **Age Group:** 0–17, 18–34, 35–49, 50–64, 65+<br>• **Life Status:** Alive or Deceased |
+| **Patient Utilisation** | Identify different levels of healthcare service use. | • **Visit Count:** total healthcare visits per patient<br>• **Low Utilisation:** 50 visits or fewer<br>• **Medium Utilisation:** 51 to 250 visits<br>• **High Utilisation:** more than 250 visits |
 | **Visit Cost Bands** | Compare low, medium and high-cost healthcare visits. | • **Low Cost:** below £1,000<br>• **Medium Cost:** £1,000 to below £5,000<br>• **High Cost:** £5,000 or more |
+| **Coverage & <br> Out-of-Pocket Measures** | Assess how healthcare costs are divided between <br> payer coverage and remaining patient cost. | • **Payer Coverage %:** <br>payer coverage as a share of total claim cost<br>• **Out-of-Pocket Cost:** <br>Total Claim Cost − Payer Coverage<br>• **Uncovered Expenditure:**<br> healthcare expense not covered by payer |
 | **Date & Time Variables** | Support trend and duration analysis. | • **Visit:** year, month and year-month<br>• **Visit Duration:** hours<br>• **Medication Duration:** days<br>• **Condition Duration:** days |
+> **Out-of-Pocket Cost:** The portion of total claim cost not covered by the payer, calculated as **Total Claim Cost − Payer Coverage**.
 
 Utilisation and cost thresholds are **analyst-defined exploratory segmentation rules**.
 
