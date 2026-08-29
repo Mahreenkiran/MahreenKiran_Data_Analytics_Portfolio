@@ -52,3 +52,11 @@ This provides a reliable foundation for calculating:
 ## Limitation
 
 These checks confirm the structural and logical quality of the selected fields. They do not prove that every recorded value reflects real-world commercial activity because AdventureWorks is a fictional Microsoft sample database created for learning and demonstration purposes.
+
+---
+
+## Explore the Validation SQL
+
+[View Data Quality Checks SQL](../SQL/01_data_quality_checks.sql)
+
+[⬆ Return to AdventureWorks Project README](../README.md)
