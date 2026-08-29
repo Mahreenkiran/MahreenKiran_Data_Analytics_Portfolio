@@ -55,19 +55,19 @@ The objective was not simply to count healthcare records, but to understand the 
 
 The analysis focused on four main areas.
 
-### Patient and Healthcare Utilisation
+### [Patient and Healthcare Utilisation](#1-patient-and-healthcare-utilisation)
 
 Understanding the patient population, visit frequency, visit types, utilisation patterns and changes in healthcare activity over time.
 
-### Clinical Activity
+### [Clinical Activity](#2-clinical-conditions-and-findings)
 
 Identifying frequently recorded conditions and findings, common medications, common procedures and differences across patient characteristics.
 
-### Healthcare Costs
+### [Healthcare Costs](#5-healthcare-cost-analysis)
 
 Assessing total and average claim costs, high-cost encounters, payer coverage and the distribution of healthcare visits across cost bands.
 
-### Data Quality and Patient Timelines
+### [Data Quality and Patient Timelines](#data-quality-section)
 
 Validating relational integrity, clinical fields, healthcare costs and longitudinal patient timelines before interpreting analytical results.
 
@@ -209,7 +209,7 @@ These issues were documented rather than silently corrected because they may aff
 # Core Healthcare KPIs
 
 | KPI | Result |
-| :--- | ---: |
+| :--- | :--- |
 | Total Patients | 1,163 |
 | Total Healthcare Visits | 61,459 |
 | Condition Records | 38,094 |
