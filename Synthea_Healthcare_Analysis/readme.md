@@ -109,26 +109,15 @@ The available healthcare records cover a long historical period, with visit-year
 
 # Data Model
 
-The analytical model is centred on the **Patients** and **Encounters** tables.
+The model is centred on **Patients** and **Encounters**, with **one-to-many relationships** linking patients to **Conditions, Medications, Procedures, Allergies and Careplans** *(clinical activity tables)*.
 
-`Patients` has one-to-many relationships with:
+| Key Structure | Tables / Fields | Relationship Type |
+| :--- | :--- | :--- |
+| **Primary Keys** | `Patients.PatientID` · `Encounters.EncounterID` · `Careplans.CareplanID` | Unique identifier |
+| **Patient Relationships** | Patients → Encounters, Conditions, Medications, Procedures, Allergies, Careplans | One-to-many |
+| **Encounter Relationships** | Encounters → Conditions, Medications, Procedures, Allergies, Careplans | One-to-many |
 
-- Encounters
-- Conditions
-- Medications
-- Procedures
-- Allergies
-- Careplans
-
-`Encounters` also connects with the clinical activity tables through `EncounterID`.
-
-Primary keys were implemented for:
-
-- `Patients.PatientID`
-- `Encounters.EncounterID`
-- `Careplans.CareplanID`
-
-Foreign-key relationships were used to validate patient and encounter links across the clinical tables.
+Foreign-key relationships were used to validate patient and encounter links across the model.
 
 ![Synthea Healthcare Data Model](./Images/synthea_data_model.png)
 
@@ -489,28 +478,14 @@ The screenshots below allow the report to be reviewed directly in GitHub without
 
 ## 1. Patient & Healthcare Utilisation Overview
 
-The overview page provides a high-level view of patient volume and healthcare utilisation.
-
-It includes:
-
-- total patients
-- total healthcare visits
-- condition records
-- medication records
-- healthcare visits by type
-- procedures by age group
-- patient distribution by age group
-- healthcare visits over time
-- gender filtering
-- age-group filtering
-- healthcare visit-type filtering
-- visit-year filtering
+The overview page summarises the size and utilisation profile of the synthetic patient population. It highlights overall patient and visit volumes, compares healthcare activity across visit types and age groups, and shows how utilisation changes over time through interactive demographic and visit-based filtering.
 
 ![Patient and Healthcare Utilisation Overview](./Images/01_healthcare_utilisation_overview.png)
 
 [Download Interactive Dashboard.pbix](./POWERBI/Synthea_Healthcare_Analysis.pbix)
 
-[⬆ Back to Power BI](#powerbi)  
+[⬆ Back to Power BI](#powerbi)
+
 
 ---
 
@@ -518,27 +493,9 @@ It includes:
 
 ## 2. Clinical Insights
 
-The Clinical Insights page explores patient conditions and findings, medication activity, procedure activity and patient characteristics.
+The Clinical Insights page explores the clinical profile of the synthetic patient population by bringing together conditions and findings, medication activity, procedure activity and key patient characteristics. It highlights the most frequently recorded clinical patterns and supports comparison across demographic and geographic groups.
 
-Headline indicators include:
-
-- Procedure Types
-- Condition Types
-- Medication Types
-- Inpatient Visits
-- Outpatient Visits
-- Emergency Visits
-
-The page also includes:
-
-- Top 10 Conditions & Findings by Visits
-- Top 10 Most Recorded Medications
-- Top 10 Most Recorded Procedures
-- Race/Ethnicity filtering
-- Life Status filtering
-- City/County filtering
-
-The Conditions table includes both clinical diagnoses and broader findings, so the dashboard explicitly describes the ranking as **Conditions & Findings** rather than treating every record as a disease.
+The Conditions table includes both clinical diagnoses and broader findings, so the dashboard uses **Conditions & Findings** to avoid treating every record as a disease.
 
 ![Clinical Insights](./Images/02_clinical_insights.png)
 
@@ -550,30 +507,9 @@ The Conditions table includes both clinical diagnoses and broader findings, so t
 
 ## 3. Cost Insights
 
-The Cost Insights page focuses on healthcare expenditure, cost concentration and payer coverage.
+The Cost Insights page examines healthcare expenditure from both volume and cost perspectives. It shows how claim costs vary across visit types, how encounters are distributed across cost bands, and how average claim cost changes over time, while also allowing interactive comparison across selected patient and visit characteristics.
 
-Headline indicators include:
-
-- total claim cost
-- average claim cost
-- high-cost encounters
-- average out-of-pocket cost
-- payer coverage percentage
-
-The page also includes:
-
-- total claim cost by healthcare visit type
-- healthcare visits by cost band
-- average claim cost over time
-- visit-year filtering
-- healthcare visit-type filtering
-- race/ethnicity filtering
-
-Cost-band definitions are shown directly in the visual:
-
-- **Low Cost:** below £1,000
-- **Medium Cost:** £1,000 to below £5,000
-- **High Cost:** £5,000 or more
+Cost bands are analyst-defined as **Low Cost (<£1,000), Medium Cost (£1,000 to <£5,000) and High Cost (≥£5,000)**.
 
 ![Cost Insights](./Images/03_cost_insights.png)
 
