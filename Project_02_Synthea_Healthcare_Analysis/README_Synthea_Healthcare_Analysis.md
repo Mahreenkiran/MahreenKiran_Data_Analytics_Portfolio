@@ -42,8 +42,6 @@ Synthea generates synthetic healthcare records and does not contain real patient
 
 ---
 
----
-
 <a id="business-objective"></a>
 
 # Business Objective
@@ -726,9 +724,9 @@ Overall, the project demonstrates an end-to-end healthcare analytics workflow:
 # Repository Structure
 
 ```text
-Synthea_Healthcare_Analysis/
+Project_02_Synthea_Healthcare_Analysis/
 │
-├── README.md
+├── README_Synthea_Healthcare_Analysis.md
 │
 ├── SQL/
 │   ├── 01_primary_foreign_key_constraints.sql
