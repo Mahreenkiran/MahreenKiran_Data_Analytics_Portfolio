@@ -329,9 +329,10 @@ This shows a clear increase in recorded condition burden across older age groups
 
 Which medications are recorded most frequently?
 
-### Key Insight
+### Key Findings
 
-The most frequently recorded medications included:
+- **Finding 1: Cardiovascular medications dominated the most frequently recorded treatments.**  
+  Lisinopril, Hydrochlorothiazide and Amlodipine were the three most commonly recorded medications.
 
 | Medication | Records |
 | :--- | :--- |
@@ -342,8 +343,12 @@ The most frequently recorded medications included:
 | Metformin | 2,996 |
 | Simvastatin 10 MG Oral Tablet | 2,489 |
 
-The medication profile shows substantial cardiovascular, metabolic and diabetes-related treatment activity.
+- **Finding 2: The medication profile reflects substantial cardiovascular and metabolic treatment activity.**  
+  Frequently recorded therapies included antihypertensive, lipid-lowering and diabetes-related medications, indicating a strong presence of cardiovascular and metabolic care within the synthetic population.
 
+### Insight
+
+The concentration of cardiovascular and metabolic medications is consistent with the higher condition burden observed among older patients and suggests that chronic disease management represents an important component of treatment activity in the dataset.
 ### Techniques Used
 
 `Aggregation` `GROUP BY` `Ranking` `Top N Analysis`
@@ -360,9 +365,10 @@ The medication profile shows substantial cardiovascular, metabolic and diabetes-
 
 Which procedures and healthcare assessments are recorded most frequently?
 
-### Key Insight
+### Key Findings
 
-Several of the most frequent procedures were preventive, behavioural-health and social-care assessments.
+- **Finding 1: Preventive and assessment-based procedures dominated the most frequently recorded activity.**  
+  Several of the leading procedures focused on screening, assessment and care review rather than direct treatment.
 
 Leading procedure activity included:
 
@@ -373,7 +379,12 @@ Leading procedure activity included:
 - Medication reconciliation
 - Assessment of anxiety
 
-This demonstrates that the dataset includes substantial preventive and behavioural-health activity in addition to treatment procedures.
+- **Finding 2: Behavioural-health and social-care activity formed an important part of the procedure profile.**  
+  Depression, anxiety, substance-use and social-care assessments appeared repeatedly among the most common procedures.
+
+### Insight
+
+The procedure profile suggests that healthcare activity in the dataset extends beyond treatment alone, with a strong emphasis on **preventive care, behavioural-health screening and ongoing patient assessment**.
 
 ### Techniques Used
 
@@ -395,13 +406,16 @@ This demonstrates that the dataset includes substantial preventive and behaviour
 - What proportion of claim cost is covered by payers?
 - How have average healthcare costs changed over time?
 
-### Key Insight
+### Key Findings
 
-The dataset generated approximately **£255.03M in total claim cost**, with an average claim cost of approximately **£4,149.66 per healthcare visit**.
+- **Finding 1: Healthcare costs were substantial across the dataset.**  
+  Total claim cost reached approximately **£255.03M**, with an average claim cost of **£4,149.66 per healthcare visit**.
 
-Ambulatory visits generated the highest total claim cost at approximately **£131.29M**.
+- **Finding 2: Ambulatory care generated the highest total claim cost.**  
+  Ambulatory visits accounted for approximately **£131.29M**, making them the largest contributor to overall claim expenditure.
 
-However, inpatient visits had the highest average claim cost.
+- **Finding 3: Inpatient care had the highest average claim cost.**  
+  Although inpatient visits were less frequent, they carried the greatest average financial burden per visit.
 
 ## Cost Bands
 
@@ -413,7 +427,12 @@ Healthcare visits were segmented using analyst-defined thresholds.
 | Medium Cost | £1,000 to < £5,000 | 13,707 | 22.30% |
 | High Cost | ≥ £5,000 | 11,519 | 18.74% |
 
-Most healthcare visits were therefore Low Cost, although nearly one in five fell into the High Cost category.
+- **Finding 4: Most healthcare visits were low cost, but high-cost activity remained significant.**  
+  **58.95%** of visits were below £1,000, while **18.74%** were classified as High Cost.
+
+### Insight
+
+The cost profile shows that total expenditure is influenced by both **high-volume visit types such as ambulatory care** and **high-cost visit types such as inpatient care**, meaning frequency and cost intensity should be assessed together.
 
 ### Techniques Used
 
@@ -637,7 +656,7 @@ This project demonstrates practical experience in:
 The analysis identified several important healthcare patterns.
 
 - **Older patients had the highest healthcare utilisation.**  
-  Patients aged 65+ recorded **27,615 visits** and the highest average condition burden.
+  Patients aged 65+ recorded **27,615 visits** and the highest average condition burden. This suggests that healthcare complexity increases across older age groups within the synthetic population.
 
 - **Condition burden increased substantially with age.**  
   Average distinct conditions rose from **4.02 in patients aged 0–17** to **18.56 in patients aged 65+**.
