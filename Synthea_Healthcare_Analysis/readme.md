@@ -647,72 +647,33 @@ This project demonstrates practical experience in:
 
 The analysis identified several important healthcare patterns.
 
-## Older Patients Recorded the Highest Healthcare Utilisation
+- **Older patients had the highest healthcare utilisation.**  
+  Patients aged 65+ recorded **27,615 visits** and the highest average condition burden.
 
-Patients aged **65+ recorded 27,615 healthcare visits**, substantially more than any other age group.
+- **Condition burden increased substantially with age.**  
+  Average distinct conditions rose from **4.02 in patients aged 0–17** to **18.56 in patients aged 65+**.
 
-They also recorded the highest average condition burden.
+- **High utilisation was concentrated in a very small patient group.**  
+  Only **15 patients (1.29%)** were classified as High Utilisation.
 
----
+- **Routine care accounted for most healthcare activity.**  
+  Wellness and ambulatory visits dominated overall utilisation, while inpatient and emergency visits were less frequent.
 
-## Condition Burden Increased Strongly With Age
+- **Inpatient care carried the highest average financial burden.**  
+  Inpatient visits recorded the highest average claim and out-of-pocket costs.
 
-Average distinct conditions per patient increased from **4.02 among patients aged 0–17** to **18.56 among patients aged 65+**.
+- **Most healthcare visits were relatively low cost.**  
+  **58.95%** of visits cost below £1,000, while **18.74%** were classified as High Cost.
 
-This demonstrates a strong relationship between age, multimorbidity and healthcare utilisation within the synthetic population.
+- **Condition records included both clinical and contextual findings.**  
+  Social, behavioural and employment-related findings appeared alongside medical diagnoses and require careful interpretation.
 
----
-
-## High Healthcare Utilisation Was Concentrated in a Small Patient Group
-
-Only **15 patients**, representing **1.29% of the patient population**, were classified as High Utilisation.
-
-This indicates that extreme healthcare activity is concentrated within a very small patient segment.
-
----
-
-## Routine Healthcare Activity Dominated the Dataset
-
-Wellness and ambulatory visits represented the majority of healthcare activity.
-
-Inpatient and emergency visits occurred considerably less frequently.
-
----
-
-## Inpatient Care Had the Highest Average Financial Burden
-
-Although inpatient encounters represented a relatively small proportion of healthcare visits, they recorded the highest average claim and out-of-pocket costs.
-
----
-
-## Most Healthcare Visits Were Low Cost
-
-Approximately **58.95% of healthcare visits** had total claim costs below £1,000.
-
-However, **18.74%** were classified as High Cost.
-
----
-
-## Clinical and Social Information Were Combined in the Conditions Table
-
-The Conditions table includes diagnoses alongside findings such as stress, social isolation, employment information and other contextual observations.
-
-Condition rankings therefore require careful interpretation.
-
----
-
-## Timeline Validation Identified Important Data Issues
-
-The validation identified:
-
-- **5 medication records** where STOP preceded START
-- **165 healthcare visits** recorded after patient death
-
-These issues could affect longitudinal healthcare analysis.
+- **Timeline validation identified important logical inconsistencies.**  
+  **5 medication records** had invalid date sequences and **165 visits** occurred after recorded patient death.
 
 ### Explore the Full Findings
 
-[View Key Findings](./Findings/key_findings.md)
+[View Detailed Key Findings](./Findings/key_findings.md)
 
 [⬆ Back to Quick Navigation](#quick-navigation)
 
