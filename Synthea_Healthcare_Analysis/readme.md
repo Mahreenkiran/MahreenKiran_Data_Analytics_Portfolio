@@ -726,18 +726,18 @@ The findings were translated into analytical and operational recommendations.
 
 The main priorities identified were:
 
-1. Review high-utilisation patients as a distinct analytical segment.
-2. Assess patient complexity using both utilisation and condition burden.
-3. Include age as a key dimension in healthcare demand analysis.
-4. Monitor inpatient and emergency activity as high-cost service areas.
-5. Evaluate high-cost conditions using both cost and frequency.
-6. Separate clinical diagnoses from social and contextual findings.
-7. Report preventive and behavioural-health activity separately from treatment procedures.
-8. Use cost bands to identify where high-cost healthcare activity is concentrated.
-9. Investigate demographic differences in healthcare utilisation.
-10. Use city-level rather than state-level geographic analysis where appropriate.
-11. Maintain healthcare timeline validation as a core data-quality control.
-12. Clearly document source-data limitations and logical inconsistencies.
+1. Prioritise high-utilisation patients for targeted review and deeper utilisation analysis.
+2. Assess patient complexity using both healthcare utilisation and condition burden rather than relying on visit frequency alone.
+3. Incorporate age into healthcare demand planning, as older patients show substantially higher utilisation and condition burden.
+4. Monitor inpatient and emergency activity closely because these visit types carry the highest average financial burden.
+5. Evaluate high-cost conditions using both cost intensity and frequency to identify the strongest drivers of healthcare expenditure.
+6. Separate clinical diagnoses from social and contextual findings to improve the accuracy of condition-based reporting.
+7. Report preventive, behavioural-health and social-care activity separately from treatment procedures for clearer clinical interpretation.
+8. Use cost bands to identify where high-cost healthcare activity is concentrated and where further review may be most valuable.
+9. Investigate demographic differences in utilisation to identify patient groups with consistently higher healthcare activity.
+10. Use city-level analysis where possible to provide more meaningful geographic insight than state-level comparison.
+11. Maintain patient timeline validation as a routine data-quality control before conducting longitudinal analysis.
+12. Clearly document synthetic-data limitations and logical inconsistencies so findings are interpreted within the correct context.
 
 [View Full Recommendations](./Findings/recommendations.md)
 
