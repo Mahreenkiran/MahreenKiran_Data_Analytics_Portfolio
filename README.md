@@ -103,7 +103,7 @@ The analysis includes:
 - order value segmentation
 - data-quality validation
 
-[View the AdventureWorks project](./AdventureWorks_Sales_Analysis/)
+[View the AdventureWorks project](./Project_01_AdventureWorks_Sales_Analysis/)
 
 **Note:** This project was created for portfolio and learning purposes. It should not be interpreted as analysis completed for a real employer.
 
