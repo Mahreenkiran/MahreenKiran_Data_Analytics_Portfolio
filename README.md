@@ -65,12 +65,12 @@ Across the portfolio, the emphasis is not simply on producing queries or charts.
 
 | Portfolio Projects | Skills & Information |
 | :--- | :--- |
-| [AdventureWorks Sales Analysis](#project-1) | [Core Skills](#core-skills) |
-| [Synthea Healthcare Analysis](#project-2) | [Detailed SQL Skills](#sql-skills) |
-| [E-Commerce Marketing Analysis](#project-3) | [Detailed Power BI Skills](#power-bi-skills) |
-| [Portfolio at a Glance](#portfolio-at-a-glance) | [Data Quality & Validation](#data-quality-skills) |
-| [Portfolio Summary](#portfolio-summary) | [Analytical Approach](#analytical-approach) |
-| [Repository Structure](#repository-structure) | [About Me](#about-me) |
+| [Project_01:AdventureWorks Sales Analysis](#project-1) | [About Me](#about-me)|
+| [Project_02:Synthea Healthcare Analysis](#project-2) | [Core Skills](#core-skills)  |
+| [Project_03:E-Commerce Marketing Analysis](#project-3) |[Detailed SQL Skills](#sql-skills)  |
+| [Portfolio at a Glance](#portfolio-at-a-glance) | [Detailed Power BI Skills](#power-bi-skills) |
+| [Portfolio Summary](#portfolio-summary) | [Data Quality & Validation](#data-quality-skills)|
+| [Repository Structure](#repository-structure) | [Analytical Approach](#analytical-approach)  |
 
 ---
 
