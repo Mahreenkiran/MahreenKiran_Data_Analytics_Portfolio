@@ -2,6 +2,24 @@
   PROJECT: E-Commerce Marketing, Conversion and Customer Journey
   DATABASE: EcommerceMarketingAnalysis
   FILE: 05_business_analysis.sql
+
+  PURPOSE:
+  Analyse website traffic, marketing performance, customer
+  behaviour, conversion, orders, revenue, refunds, products
+  and the customer journey.
+
+  The analysis includes:
+  - website and marketing performance
+  - device and campaign performance
+  - landing and exit behaviour
+  - conversion engagement
+  - repeat-user behaviour
+  - order and refund performance
+  - product performance
+  - month-on-month growth
+  - rolling performance
+  - conversion funnel analysis
+  - performance ranking
 ==============================================================*/
 
 USE EcommerceMarketingAnalysis;
@@ -35,6 +53,7 @@ MonthlyOrders AS
 SELECT
     ms.session_year_month,
     ms.total_sessions,
+
     COALESCE(mo.total_orders, 0) AS total_orders,
 
     ROUND(
@@ -54,6 +73,7 @@ LEFT JOIN MonthlyOrders AS mo
 ORDER BY
     ms.session_year_month;
 GO
+
 
 
 /*==============================================================
@@ -94,6 +114,7 @@ ORDER BY
 GO
 
 
+
 /*==============================================================
   3. DEVICE PERFORMANCE
 ==============================================================*/
@@ -127,6 +148,7 @@ GROUP BY
 ORDER BY
     net_revenue_usd DESC;
 GO
+
 
 
 /*==============================================================
@@ -164,6 +186,7 @@ ORDER BY
 GO
 
 
+
 /*==============================================================
   5. LANDING PAGE PERFORMANCE
 ==============================================================*/
@@ -192,6 +215,7 @@ ORDER BY
 GO
 
 
+
 /*==============================================================
   6. EXIT PAGE ANALYSIS
 ==============================================================*/
@@ -213,36 +237,9 @@ ORDER BY
 GO
 
 
-/*==============================================================
-  7. PAGES VIEWED VS CONVERSION
-==============================================================*/
-
-SELECT
-    pages_viewed,
-
-    COUNT(*) AS total_sessions,
-
-    SUM(CAST(converted_session_flag AS INT))
-        AS converted_sessions,
-
-    ROUND(
-        SUM(CAST(converted_session_flag AS INT)) * 100.0 /
-        NULLIF(COUNT(*), 0),
-        2
-    ) AS conversion_rate_pct
-
-FROM EMCA.website_sessions
-
-GROUP BY
-    pages_viewed
-
-ORDER BY
-    pages_viewed;
-GO
-
 
 /*==============================================================
-  8. SESSION DURATION VS CONVERSION
+  7. SESSION DURATION VS CONVERSION
 ==============================================================*/
 
 SELECT
@@ -267,8 +264,9 @@ GROUP BY
 GO
 
 
+
 /*==============================================================
-  9. TIME TO ORDER
+  8. TIME TO ORDER
 ==============================================================*/
 
 SELECT
@@ -288,11 +286,13 @@ FROM EMCA.orders;
 GO
 
 
+
 /*==============================================================
-  10. MEDIAN TIME TO ORDER
+  9. MEDIAN TIME TO ORDER
 ==============================================================*/
 
 SELECT DISTINCT
+
     PERCENTILE_CONT(0.50)
     WITHIN GROUP
     (
@@ -304,8 +304,9 @@ FROM EMCA.orders;
 GO
 
 
+
 /*==============================================================
-  11. TIME TO ORDER BY MARKETING CHANNEL
+  10. TIME TO ORDER BY MARKETING CHANNEL
 ==============================================================*/
 
 SELECT
@@ -336,8 +337,9 @@ ORDER BY
 GO
 
 
+
 /*==============================================================
-  12. REPEAT USER PERFORMANCE
+  11. REPEAT USER PERFORMANCE
 ==============================================================*/
 
 SELECT
@@ -361,11 +363,13 @@ GROUP BY
 GO
 
 
+
 /*==============================================================
-  13. SESSION SEQUENCE PERFORMANCE
+  12. SESSION SEQUENCE PERFORMANCE
 ==============================================================*/
 
 SELECT
+
     CASE
         WHEN session_sequence = 1 THEN '1st Session'
         WHEN session_sequence = 2 THEN '2nd Session'
@@ -399,8 +403,9 @@ ORDER BY
 GO
 
 
+
 /*==============================================================
-  14. ORDER VALUE BAND PERFORMANCE
+  13. ORDER VALUE BAND PERFORMANCE
 ==============================================================*/
 
 SELECT
@@ -433,8 +438,9 @@ ORDER BY
 GO
 
 
+
 /*==============================================================
-  15. MULTI-ITEM ORDER PERFORMANCE
+  14. MULTI-ITEM ORDER PERFORMANCE
 ==============================================================*/
 
 SELECT
@@ -465,8 +471,9 @@ GROUP BY
 GO
 
 
+
 /*==============================================================
-  16. REFUND PERFORMANCE
+  15. REFUND PERFORMANCE
 ==============================================================*/
 
 SELECT
@@ -495,8 +502,9 @@ FROM EMCA.orders;
 GO
 
 
+
 /*==============================================================
-  17. PRODUCT PERFORMANCE
+  16. PRODUCT PERFORMANCE
 ==============================================================*/
 
 SELECT
@@ -543,8 +551,9 @@ ORDER BY
 GO
 
 
+
 /*==============================================================
-  18. PRODUCT REVENUE RANKING
+  17. PRODUCT REVENUE RANKING
 ==============================================================*/
 
 WITH ProductPerformance AS
@@ -583,8 +592,9 @@ ORDER BY
 GO
 
 
+
 /*==============================================================
-  19. MONTH-ON-MONTH REVENUE AND ORDER GROWTH
+  18. MONTH-ON-MONTH REVENUE AND ORDER GROWTH
 ==============================================================*/
 
 WITH MonthlyPerformance AS
@@ -603,6 +613,7 @@ WITH MonthlyPerformance AS
     GROUP BY
         order_year_month
 ),
+
 PreviousMonth AS
 (
     SELECT
@@ -661,59 +672,9 @@ ORDER BY
 GO
 
 
-/*==============================================================
-  20. CUMULATIVE REVENUE
-==============================================================*/
-
-WITH MonthlyRevenue AS
-(
-    SELECT
-        order_year_month,
-
-        SUM(order_revenue_usd)
-            AS gross_revenue_usd,
-
-        SUM(net_revenue_usd)
-            AS net_revenue_usd
-
-    FROM EMCA.orders
-
-    GROUP BY
-        order_year_month
-)
-
-SELECT
-    order_year_month,
-
-    gross_revenue_usd,
-
-    SUM(gross_revenue_usd)
-    OVER
-    (
-        ORDER BY order_year_month
-        ROWS BETWEEN UNBOUNDED PRECEDING
-        AND CURRENT ROW
-    ) AS cumulative_gross_revenue,
-
-    net_revenue_usd,
-
-    SUM(net_revenue_usd)
-    OVER
-    (
-        ORDER BY order_year_month
-        ROWS BETWEEN UNBOUNDED PRECEDING
-        AND CURRENT ROW
-    ) AS cumulative_net_revenue
-
-FROM MonthlyRevenue
-
-ORDER BY
-    order_year_month;
-GO
-
 
 /*==============================================================
-  21. THREE-MONTH ROLLING PERFORMANCE
+  19. THREE-MONTH ROLLING PERFORMANCE
 ==============================================================*/
 
 WITH MonthlyPerformance AS
@@ -739,6 +700,7 @@ WITH MonthlyPerformance AS
     GROUP BY
         ws.session_year_month
 ),
+
 MonthlyMetrics AS
 (
     SELECT
@@ -754,8 +716,10 @@ MonthlyMetrics AS
 SELECT
     session_year_month,
 
-    ROUND(net_revenue_usd, 2)
-        AS net_revenue_usd,
+    ROUND(
+        net_revenue_usd,
+        2
+    ) AS net_revenue_usd,
 
     ROUND(
         AVG(net_revenue_usd)
@@ -768,8 +732,10 @@ SELECT
         2
     ) AS three_month_avg_revenue,
 
-    ROUND(conversion_rate_pct, 2)
-        AS conversion_rate_pct,
+    ROUND(
+        conversion_rate_pct,
+        2
+    ) AS conversion_rate_pct,
 
     ROUND(
         AVG(conversion_rate_pct)
@@ -789,8 +755,9 @@ ORDER BY
 GO
 
 
+
 /*==============================================================
-  22. CUSTOMER JOURNEY FUNNEL
+  20. CUSTOMER JOURNEY FUNNEL
 ==============================================================*/
 
 WITH SessionJourney AS
@@ -866,8 +833,9 @@ FROM SessionJourney;
 GO
 
 
+
 /*==============================================================
-  23. FUNNEL BY DEVICE
+  21. FUNNEL BY DEVICE
 ==============================================================*/
 
 WITH SessionJourney AS
@@ -956,8 +924,9 @@ GROUP BY
 GO
 
 
+
 /*==============================================================
-  24. FUNNEL BY MARKETING CHANNEL
+  22. FUNNEL BY MARKETING CHANNEL
 ==============================================================*/
 
 WITH SessionJourney AS
@@ -1049,97 +1018,9 @@ ORDER BY
 GO
 
 
-/*==============================================================
-  25. SECOND PAGE AFTER LANDING PAGE
-==============================================================*/
-
-WITH PageSequence AS
-(
-    SELECT
-        website_session_id,
-        pageview_url,
-
-        ROW_NUMBER() OVER
-        (
-            PARTITION BY website_session_id
-            ORDER BY
-                created_at,
-                website_pageview_id
-        ) AS page_number
-
-    FROM EMCA.website_pageviews
-)
-
-SELECT
-    pageview_url AS second_page,
-
-    COUNT(*) AS session_count
-
-FROM PageSequence
-
-WHERE page_number = 2
-
-GROUP BY
-    pageview_url
-
-ORDER BY
-    session_count DESC;
-GO
-
 
 /*==============================================================
-  26. TIME BETWEEN USER SESSIONS
-==============================================================*/
-
-WITH PreviousSession AS
-(
-    SELECT
-        user_id,
-        website_session_id,
-        created_at,
-
-        LAG(created_at)
-        OVER
-        (
-            PARTITION BY user_id
-            ORDER BY
-                created_at,
-                website_session_id
-        ) AS previous_session_at
-
-    FROM EMCA.website_sessions
-)
-
-SELECT
-    user_id,
-    website_session_id,
-    created_at,
-    previous_session_at,
-
-    DATEDIFF(
-        DAY,
-        previous_session_at,
-        created_at
-    ) AS days_since_previous_session,
-
-    DATEDIFF(
-        HOUR,
-        previous_session_at,
-        created_at
-    ) AS hours_since_previous_session
-
-FROM PreviousSession
-
-WHERE previous_session_at IS NOT NULL
-
-ORDER BY
-    user_id,
-    created_at;
-GO
-
-
-/*==============================================================
-  27. MONTHLY PERFORMANCE RANKING
+  23. MONTHLY PERFORMANCE RANKING
 ==============================================================*/
 
 WITH MonthlyPerformance AS
@@ -1165,6 +1046,7 @@ WITH MonthlyPerformance AS
     GROUP BY
         ws.session_year_month
 ),
+
 MonthlyMetrics AS
 (
     SELECT
@@ -1180,11 +1062,15 @@ MonthlyMetrics AS
 SELECT
     session_year_month,
 
-    ROUND(net_revenue_usd, 2)
-        AS net_revenue_usd,
+    ROUND(
+        net_revenue_usd,
+        2
+    ) AS net_revenue_usd,
 
-    ROUND(conversion_rate_pct, 2)
-        AS conversion_rate_pct,
+    ROUND(
+        conversion_rate_pct,
+        2
+    ) AS conversion_rate_pct,
 
     DENSE_RANK() OVER
     (
@@ -1201,3 +1087,22 @@ FROM MonthlyMetrics
 ORDER BY
     revenue_rank;
 GO
+
+
+/*==============================================================
+  END OF BUSINESS ANALYSIS
+
+  The analysis covers:
+  - traffic and conversion trends
+  - marketing and campaign effectiveness
+  - device performance
+  - landing and exit behaviour
+  - session engagement
+  - purchase timing
+  - repeat-customer behaviour
+  - order-value and basket behaviour
+  - refunds and product performance
+  - revenue growth and rolling trends
+  - customer journey funnel performance
+  - monthly performance ranking
+==============================================================*/
