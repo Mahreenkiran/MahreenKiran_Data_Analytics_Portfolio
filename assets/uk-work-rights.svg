@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="60">
+  <defs>
+    <filter id="glow" x="-30%" y="-50%" width="160%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="blur"></feGaussianBlur>
+      <feMerge>
+        <feMergeNode in="blur"></feMergeNode>
+        <feMergeNode in="SourceGraphic"></feMergeNode>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect x="10" y="10" width="500" height="40" rx="10" fill="#16343B" stroke="#F0B64D" stroke-width="2" filter="url(#glow)"></rect>
+
+  <text x="260" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#F0B64D">
+    🇬🇧 Full UK Work Rights • No Sponsorship Required
+  </text>
+</svg>
