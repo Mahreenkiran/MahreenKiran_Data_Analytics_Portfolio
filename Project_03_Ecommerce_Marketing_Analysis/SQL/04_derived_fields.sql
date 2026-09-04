@@ -414,18 +414,18 @@ SET marketing_channel =
 GO
 
 
-/*==============================================================
+  /*==============================================================
   22. ORDER VALUE BAND
 
-  Distribution inspected before assigning thresholds:
-  Minimum = 29.99
-  25th percentile = 49.99
-  Median = 49.99
-  75th percentile = 59.99
-  Maximum = 109.98
+  Order values range approximately from $29.99 to $109.98.
 
-  49.99 is the dominant order value, so it is kept as its
-  own "Standard" category instead of forcing quartile bands.
+  Bands were grouped into simple business-friendly ranges
+  for dashboard reporting and comparison:
+  - Low      : < $30
+  - Standard : $30 to < $60
+  - Medium   : $60 to < $90
+  - High     : >= $90
+==============================================================*/
 ==============================================================*/
 
 IF COL_LENGTH('EMCA.orders', 'order_value_band') IS NULL
@@ -435,13 +435,13 @@ GO
 UPDATE EMCA.orders
 SET order_value_band =
     CASE
-        WHEN order_revenue_usd < 49.99
+        WHEN order_revenue_usd < 30
             THEN 'Low'
 
-        WHEN order_revenue_usd = 49.99
+        WHEN order_revenue_usd < 60
             THEN 'Standard'
 
-        WHEN order_revenue_usd < 80.00
+        WHEN order_revenue_usd < 90
             THEN 'Medium'
 
         ELSE 'High'
