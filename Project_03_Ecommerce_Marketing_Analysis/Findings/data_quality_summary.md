@@ -120,7 +120,7 @@ Refund activity extends beyond the final recorded order date because refunds can
 
 The validation identified no structural, relationship, financial, reconciliation, chronological or behavioural issues in the tested areas.
 
-The dataset was therefore considered suitable for subsequent customer journey, marketing, conversion, order, revenue, refund and product performance analysis.
+The dataset was therefore considered suitable for customer journey, marketing, conversion, order, revenue, refund and product performance analysis.
 
 ---
 
