@@ -598,3 +598,28 @@ MahreenKiran_Data_Analytics_Portfolio/
     ├── Images/
     ├── POWERBI/
     └── SQL/
+
+
+[⬆ Back to Quick Navigation](#quick-navigation)
+
+'''
+
+---
+
+<a id="contact"></a>
+
+# Contact
+
+I am currently open to opportunities in **Business Data Analytics, BI Analytics, Data Analytics and Reporting Analytics**.
+
+**UK work eligibility:** Global Talent visa holder with full right to work in the UK — **no sponsorship required**.
+
+[**💼 LinkedIn**](https://linkedin.com/in/mahreen-kiran)
+&nbsp;&nbsp; • &nbsp;&nbsp;
+[**✉️ Email**](mailto:mehreen.kiran89@gmail.com)
+&nbsp;&nbsp; • &nbsp;&nbsp;
+[**🏥 Healthcare Data Science Portfolio**](https://github.com/Mahreenkiran/MahreenKiran_Portfolio)
+
+[⬆ Back to Quick Navigation](#quick-navigation)
+
+---
