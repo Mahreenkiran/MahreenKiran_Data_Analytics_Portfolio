@@ -598,7 +598,7 @@ The analysis identified several commercially important patterns.
   Approximately **63.7% of sessions reaching product pages did not progress to cart**.
 
 - **Converted sessions were substantially more engaged.**  
-Converted sessions lasted approximately **14.95 minutes**, compared with **3.15 minutes for non-converted sessions**.
+  Converted sessions lasted approximately **14.95 minutes**, compared with **3.15 minutes for non-converted sessions**.
 
 - **Repeat users converted more successfully.**  
   Repeat-user conversion was approximately **7.40%**, compared with **6.62% for non-repeat users**.
