@@ -598,13 +598,7 @@ MahreenKiran_Data_Analytics_Portfolio/
     ├── Images/
     ├── POWERBI/
     └── SQL/
-
-
-[⬆ Back to Quick Navigation](#quick-navigation)
-
-'''
-
----
+```
 
 <a id="contact"></a>
 
