@@ -16,8 +16,7 @@
 </div>
 
 ---
-
-<p align="right">
+ <p align="right">
   <a href="https://github.com/Mahreenkiran/MahreenKiran_Data_Analytics_Portfolio">
     <strong>📊 Data Analytics Portfolio</strong>
   </a>
@@ -65,7 +64,7 @@ Across the portfolio, the emphasis is not simply on producing queries or charts.
 
 | Portfolio Projects | Skills & Information |
 | :--- | :--- |
-| [Project_01:AdventureWorks Sales Analysis](#project-1) | [About Me](#about-me)|
+| [Project_01:AdventureWorks Sales Analysis](#project-1) | [About Me & Right-to-work](#about-me)|
 | [Project_02:Synthea Healthcare Analysis](#project-2) | [Core Skills](#core-skills)  |
 | [Project_03:E-Commerce Marketing Analysis](#project-3) |[Detailed SQL Skills](#sql-skills)  |
 | [Portfolio at a Glance](#portfolio-at-a-glance) | [Detailed Power BI Skills](#power-bi-skills) |
@@ -76,35 +75,24 @@ Across the portfolio, the emphasis is not simply on producing queries or charts.
 
 <a id="about-me"></a>
 
-# About Me
+# About Me & Right to Work
 
-I am a **PhD-trained data professional** with experience across data science, research analytics, healthcare data and applied machine learning, now applying that analytical background to **business data and BI problems**.
+I am a **PhD-trained data professional** with experience across data science, research analytics, healthcare data and machine learning, now applying that analytical background to **business data and BI problems**. I hold a **UK Global Talent visa with full right to work and no sponsorship required**.
 
 My work combines technical analysis with business interpretation. I use **SQL to investigate and validate data**, **Power BI and DAX to build decision-focused reporting**, and structured analytical reasoning to translate results into findings that stakeholders can act on.
 
 My portfolio demonstrates experience with:
 
-- large relational datasets
-- data-quality validation
-- SQL analysis from foundational queries to advanced window functions
-- customer and product analysis
-- marketing and conversion analysis
-- revenue and profitability analysis
+- relational data analysis and data-quality validation
+- foundational to advanced analytical SQL
+- customer, product and commercial performance analysis
+- marketing, conversion and profitability analysis
 - healthcare utilisation and cost analysis
-- KPI development
-- interactive Power BI dashboards
-- analytical documentation and GitHub version control
+- KPI development and interactive Power BI reporting
 
 **Target roles:** Business Data Analyst • BI Analyst • Data Analyst • Reporting Analyst
 
-<p align="center">
-  <img src="assets/uk-work-rights.svg"
-       alt="Full UK Work Rights - No Sponsorship Required"
-       width="520">
-</p>
-
-**UK work eligibility:** Full right to work — no sponsorship required.
-
+[![UK Work Rights](https://img.shields.io/static/v1?label=UK&message=Full%20Right%20to%20Work%20-%20No%20Sponsorship%20Required&color=16858A&style=for-the-badge)](#contact)
 ---
 
 <a id="core-skills"></a>
