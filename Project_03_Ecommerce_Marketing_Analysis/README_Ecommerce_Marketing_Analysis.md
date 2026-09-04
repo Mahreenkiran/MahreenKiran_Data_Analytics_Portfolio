@@ -58,7 +58,7 @@ Understanding which marketing channels, campaigns and devices generated traffic,
 
 ### Customer Journey and Conversion
 
-Identifying how users progressed from website sessions through product views, cart, shipping, billing and completed orders.
+Identifying how users progressed from website sessions through product views, cart, shipping and completed orders.
 
 ### Customer and Order Behaviour
 
@@ -344,7 +344,7 @@ The final analysis includes **23 focused queries** covering website, marketing, 
 
 ### Insight
 
-Returning users showed stronger purchase intent, while substantially longer session duration was associated with completed purchases.
+Returning users showed higher conversion rates, while substantially longer session duration was associated with completed purchases.
 
 ### Techniques Used
 
@@ -598,7 +598,7 @@ The analysis identified several commercially important patterns.
   Approximately **63.7% of sessions reaching product pages did not progress to cart**.
 
 - **Converted sessions were substantially more engaged.**  
-  Converted visitors spent approximately **14.95 minutes** on the website compared with **3.15 minutes for non-converted sessions**.
+Converted sessions lasted approximately **14.95 minutes**, compared with **3.15 minutes for non-converted sessions**.
 
 - **Repeat users converted more successfully.**  
   Repeat-user conversion was approximately **7.40%**, compared with **6.62% for non-repeat users**.
@@ -721,7 +721,7 @@ The main priorities identified were:
 
 The analysis of **472,871 website sessions, 1.19 million pageviews and 32,313 orders** identified clear patterns across marketing acquisition, website behaviour, conversion and commercial performance.
 
-Desktop users substantially outperformed mobile users, while Paid Search generated the majority of marketing-driven revenue.
+Desktop users substantially outperformed mobile users, while Paid Search generated the highest net revenue among marketing channels.
 
 The customer journey analysis identified **Product View → Cart** as the largest major funnel drop-off, highlighting an important conversion optimisation opportunity.
 
@@ -772,3 +772,32 @@ Project_03_Ecommerce_Marketing_Analysis/
 │   └── SQL_DataModel_Ecommerce_Marketing_Analysis.png
 │
 └── Documentation/
+```
+
+[⬆ Back to Quick Navigation](#quick-navigation)
+
+---
+
+<a id="project-files-section"></a>
+
+# Project Files
+
+### SQL
+
+[View Primary and Foreign Key Constraints](./SQL/01_primary_foreign_key_constraints.sql)  
+[View Data Quality Validation](./SQL/02_data_quality_validation.sql)  
+[View Date and Logical Validation](./SQL/03_date_logical_validation.sql)  
+[View Derived Fields](./SQL/04_derived_fields.sql)  
+[View Business Analysis](./SQL/05_business_analysis.sql)
+
+### Findings
+
+[View Data Quality Summary](./Findings/data_quality_summary.md)  
+[View Key Business Findings](./Findings/key_business_findings.md)  
+[View Business Recommendations](./Findings/recommendations.md)
+
+### Power BI
+
+[Download Interactive Power BI Dashboard](./POWERBI/Ecommerce_Marketing_Conversion_Analysis.pbix)
+
+[⬆ Back to Quick Navigation](#quick-navigation)
