@@ -155,15 +155,10 @@ The analysis investigated questions such as:
 ### Selected Findings
 
 - **Revenue increased by approximately 38.18% between the complete calendar years 2023 and 2024**, rising from approximately **$31.60M to $43.67M**. Growth was driven by substantially higher order and unit volumes despite a reduction in average order value.
-
 - **Bikes generated approximately 86.17% of total company revenue**, making the category the dominant commercial revenue source. Road Bikes and Mountain Bikes were the strongest subcategories.
-
 - **244 high-value customers generated approximately 65.10% of total company revenue**, showing substantial concentration within a relatively small customer segment.
-
 - The **Top 10 customers contributed only 7.21% of total revenue**, indicating that revenue concentration was spread across the broader high-value customer group rather than being dependent on only a handful of accounts.
-
 - **Southwest was the highest-revenue territory**, generating approximately **$24.18M**, while other territories displayed different combinations of order volume and average order value.
-
 - **Linda Mitchell generated the highest salesperson revenue, while Jillian Carson processed more orders**, showing that order volume alone does not fully represent salesperson performance.
 
 ### SQL Techniques Demonstrated
@@ -232,7 +227,17 @@ Logical validation identified:
 
 These issues were documented and considered when interpreting longitudinal results.
 
-### SQL Techniques Demonstrated
+### Selected Findings
+
+- **Patients aged 65+ recorded the highest healthcare utilisation**, with **27,615 visits**, and also showed the greatest average condition burden.
+- **Condition burden increased substantially with age**, rising from an average of **4.02 distinct conditions per patient among ages 0–17** to **18.56 among patients aged 65+**.
+- **Healthcare utilisation was highly concentrated**, with only **15 patients (1.29%)** classified as High Utilisation.
+- **Routine care dominated healthcare activity**, with Wellness and Ambulatory visits accounting for the largest share of recorded visits.
+- **Inpatient care carried the highest average financial burden**, despite occurring less frequently than routine visit types.
+- **Most healthcare visits were relatively low cost**, with **58.95% below £1,000**, while **18.74% were classified as High Cost**.
+- Data validation identified **5 medication records with invalid date sequences** and **165 healthcare visits recorded after patient death**, highlighting the importance of longitudinal data-quality checks.
+
+- ### SQL Techniques Demonstrated
 
 `Multi-Table JOINs` • `CTEs` • `Subqueries` • `CASE` • `COUNT(DISTINCT)`  
 `GROUP BY` • `HAVING` • `NULLIF` • `DATEDIFF` • `TRY_CAST`  
