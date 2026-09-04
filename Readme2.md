@@ -80,6 +80,27 @@ My portfolio demonstrates experience with:
 
 ---
 
+<a id="core-skills"></a>
+
+# Core Skills
+
+| SQL & Data | Power BI & Reporting | Business Analytics |
+| :--- | :--- | :--- |
+| SQL Server & T-SQL | Power BI Desktop | KPI Development |
+| Basic to Advanced SQL | Power Query | Sales & Revenue Analysis |
+| Multi-Table JOINs | Relational Data Modelling | Customer Analysis |
+| CTEs & Subqueries | DAX Measures | Product Performance |
+| Window Functions | Calculated Columns | Marketing Analytics |
+| `ROW_NUMBER` / `LAG` | Time Intelligence | Conversion Analysis |
+| `RANK` / `DENSE_RANK` | `CALCULATE` / `DIVIDE` | Customer Journey Analysis |
+| `NTILE` / `PERCENTILE_CONT` | `USERELATIONSHIP` | Healthcare Utilisation |
+| Data Quality Validation | KPI & Trend Reporting | Cost & Profitability Analysis |
+| Feature Engineering | Interactive Dashboards | Business Recommendations |
+| Financial Reconciliation | Slicers & Visual Interactions | Stakeholder Reporting |
+| Git & GitHub | Dashboard Navigation & Design | Analytical Storytelling |
+
+---
+
 <a id="portfolio-at-a-glance"></a>
 
 # Portfolio at a Glance
