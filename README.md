@@ -97,6 +97,12 @@ My portfolio demonstrates experience with:
 
 **Target roles:** Business Data Analyst • BI Analyst • Data Analyst • Reporting Analyst
 
+<p align="center">
+  <img src="assets/uk-work-rights.svg"
+       alt="Full UK Work Rights - No Sponsorship Required"
+       width="520">
+</p>
+
 **UK work eligibility:** Full right to work — no sponsorship required.
 
 ---
