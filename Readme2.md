@@ -86,9 +86,9 @@ My portfolio demonstrates experience with:
 
 | Project | Business Focus | Key Analytical Areas | Main Tools |
 | :--- | :--- | :--- | :--- |
-| **AdventureWorks Sales Analysis** | Commercial performance | Sales, customers, products, territories, salespeople, fulfilment | SQL Server, Power BI, DAX, Excel |
-| **Synthea Healthcare Analysis** | Healthcare utilisation & cost | Patients, visits, conditions, treatments, utilisation, healthcare cost | SQL Server, Power BI, DAX, Power Query |
-| **E-Commerce Marketing Analysis** | Digital & commercial analytics | Marketing, customer journey, conversion, orders, revenue, refunds | SQL Server, Power BI, DAX, Power Query |
+| [**AdventureWorks Sales Analysis**](#project-1) | Commercial performance | Sales, customers, products, territories, salespeople, fulfilment | SQL Server, Power BI, DAX, Excel |
+| [**Synthea Healthcare Analysis**](#project-2) | Healthcare utilisation & cost | Patients, visits, conditions, treatments, utilisation, healthcare cost | SQL Server, Power BI, DAX, Power Query |
+| [**E-Commerce Marketing Analysis**](#project-3) | Digital & commercial analytics | Marketing, customer journey, conversion, orders, revenue, refunds | SQL Server, Power BI, DAX, Power Query |
 
 [⬆ Back to Quick Navigation](#quick-navigation)
 
