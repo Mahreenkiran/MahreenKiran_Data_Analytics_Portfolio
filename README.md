@@ -572,33 +572,35 @@ The portfolio demonstrates both **technical depth and business interpretation**,
 
 ---
 
-## Repository Structure
+
+<a id="repository-structure"></a>
+
+# Repository Structure
 
 ```text
 MahreenKiran_Data_Analytics_Portfolio/
 │
 ├── README.md
 │
-├── AdventureWorks_Sales_Analysis/
-│   ├── README.md
-│   ├── SQL/
-│   │   ├── 01_data_quality_checks.sql
-│   │   ├── 02_overall_sales_analysis.sql
-│   │   ├── 03_product_analysis.sql
-│   │   ├── 04_customer_analysis.sql
-│   │   ├── 05_territory_salesperson_analysis.sql
-│   │   └── 06_operational_analysis.sql
-│   │
-│   ├── PowerBI/
+├── Project_01_AdventureWorks_Sales_Analysis/
+│   ├── README_AdventureWorks_Sales_Analysis.md
+│   ├── Findings/
 │   ├── Images/
-│   └── Findings/
+│   ├── POWERBI/
+│   └── SQL/
 │
-├── CRM_Sales_Pipeline_Analysis/
-└── Operational_Public_Data_Analysis/
- ```
-
-## Specialist Healthcare Portfolio
-
-I also maintain a separate healthcare-focused portfolio covering healthcare data science, machine learning, clinical prediction and research analytics.
-
-[View my Healthcare Data Science Portfolio](https://github.com/Mahreenkiran/MahreenKiran_Portfolio)
+├── Project_02_Synthea_Healthcare_Analysis/
+│   ├── README_Synthea_Healthcare_Analysis.md
+│   ├── Documentation/
+│   ├── Findings/
+│   ├── Images/
+│   ├── POWERBI/
+│   └── SQL/
+│
+└── Project_03_Ecommerce_Marketing_Analysis/
+    ├── README_Ecommerce_Marketing_Analysis.md
+    ├── Documentation/
+    ├── Findings/
+    ├── Images/
+    ├── POWERBI/
+    └── SQL/
