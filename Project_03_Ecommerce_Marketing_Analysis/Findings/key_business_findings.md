@@ -57,7 +57,7 @@ Landing-page analysis showed meaningful differences in conversion effectiveness.
 
 This demonstrates that the landing page receiving the most visitors was not necessarily the page generating the strongest conversion performance.
 
-The result suggests that landing-page design and message alignment had an important relationship with purchase behaviour.
+The result suggests that landing-page experience was associated with differences in purchase behaviour.
 
 ---
 
@@ -164,7 +164,7 @@ One of the strongest month-on-month increases occurred in **November 2012**, whe
 - net revenue increased by approximately **66.28%**
 - orders increased by approximately **66.58%**
 
-The longer-term trend therefore indicates significant growth in both customer acquisition and commercial activity.
+The longer-term trend therefore indicates significant growth in website traffic and commercial activity.
 
 ---
 
