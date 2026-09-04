@@ -678,75 +678,38 @@ The main priorities identified were:
 
 # Skills Demonstrated
 
-## SQL Skills
+## SQL
 
-- relational database design
-- primary and foreign key constraints
-- data-quality validation
-- referential-integrity checks
-- financial reconciliation
-- chronological validation
-- feature engineering
-- `INNER JOIN`
-- `LEFT JOIN`
-- multi-table joins
-- `CASE`
-- `GROUP BY`
-- `HAVING`
-- `NULLIF`
-- `COALESCE`
-- Common Table Expressions
-- conditional aggregation
-- `PERCENTILE_CONT`
-- `LAG`
-- `RANK`
-- `DENSE_RANK`
-- rolling window calculations
-- month-on-month growth analysis
-- customer journey analysis
+| | | |
+| :--- | :--- | :--- |
+| Relational database design | Primary & foreign keys | Data-quality validation |
+| Referential-integrity checks | Financial reconciliation | Chronological validation |
+| Feature engineering | Multi-table joins | CTEs |
+| `CASE` | `GROUP BY` / `HAVING` | `COALESCE` / `NULLIF` |
+| `PERCENTILE_CONT` | `LAG` | `RANK` / `DENSE_RANK` |
+| Rolling windows | MoM growth analysis | Customer journey analysis |
 
----
+## Power BI
 
-## Power BI Skills
+| | | |
+| :--- | :--- | :--- |
+| Data modelling | Date table development | Active/inactive relationships |
+| DAX measures | `CALCULATE` | `DIVIDE` |
+| `USERELATIONSHIP` | `SWITCH` | `DISTINCTCOUNT` |
+| KPI development | Previous-month comparison | Calculated columns |
+| Funnel visualisation | Slicers & interactions | Conditional formatting |
+| Report navigation | Dashboard design | Business reporting |
 
-- relational data modelling
-- Date table development
-- active and inactive relationships
-- DAX measures
-- `CALCULATE`
-- `DIVIDE`
-- `USERELATIONSHIP`
-- `SWITCH`
-- `DISTINCTCOUNT`
-- KPI development
-- previous-month comparisons
-- calculated columns
-- funnel visualisation
-- slicers
-- visual interactions
-- report navigation
-- conditional formatting
-- dashboard layout and design
+## Business Analytics
 
----
-
-## Business Analytics Skills
-
-- marketing channel analysis
-- campaign analysis
-- website traffic analysis
-- customer journey analysis
-- conversion analysis
-- device performance analysis
-- landing-page analysis
-- customer engagement analysis
-- repeat-user analysis
-- basket analysis
-- revenue and profitability analysis
-- product performance analysis
-- refund analysis
-- trend analysis
-- translating findings into business recommendations
+| | | |
+| :--- | :--- | :--- |
+| Marketing channel analysis | Campaign analysis | Website traffic analysis |
+| Customer journey analysis | Conversion analysis | Device performance |
+| Landing-page analysis | Engagement analysis | Repeat-user analysis |
+| Basket analysis | Revenue analysis | Profitability analysis |
+| Product performance | Refund analysis | Trend analysis |
+| Business recommendations | KPI interpretation | Commercial storytelling |
 
 [⬆ Back to Quick Navigation](#quick-navigation)
 
